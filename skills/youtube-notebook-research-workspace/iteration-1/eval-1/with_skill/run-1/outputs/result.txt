@@ -1,0 +1,53 @@
+# YouTube Research: Zig vs Rust for Systems Programming
+
+> Notebook: [SKILLTEST] YouTube Research: zig vs rust (165e08d7-7c9f-49df-b937-32525a5f4ff6) · 10 video sources · 2026-06-02
+
+## Research question
+Understand the debate around Zig vs Rust for systems programming: pull the best YouTube videos into a notebook and analyze the main arguments on each side, with view counts and the channels they came from.
+
+## Key findings
+Both languages are genuine C-level performers, so the debate is rarely about raw speed — it's the safety-vs-control tradeoff and a maturity-vs-momentum bet.
+
+Pro-Rust case (four pillars):
+1. Memory safety without a GC — the borrow checker catches use-after-free, buffer overflows, data races at compile time ("once it compiles it's practically immune"). ForrestKnight; Low Level. Contrast with Zig made explicit in The PrimeTime's "Why I Chose Rust Over Zig": Zig safety is opt-in (you can still segfault/leak).
+2. Ecosystem maturity — even Zig advocates concede Rust's "batteries out of the box," books, async docs (Manning).
+3. Tooling — Cargo repeatedly named the feature that wins people over from C++/Zig; guiding error messages (P99 CONF, ForrestKnight).
+4. Adoption/backing — Microsoft halting new C/C++, 152K-line Windows font engine rewrite with 70% fewer vulns, Rust in Linux kernel, Discord 10x. The "safe and boring option."
+
+Pro-Zig case:
+1. No hidden behavior — Bun creator (P99 CONF): no operator overloading, hidden ctors/dtors, or macros; readable std vs Rust std needing "a PhD in Rust."
+2. comptime — compile-time execution that "is just Zig," no separate macro sub-language (compile-time JSON parse, perfect hash fns).
+3. Explicit allocator-based memory control + graceful OOM handling (Zig in Production).
+4. Cross-compilation — self-contained binaries, zig cc, obscure ARM in "10 seconds" vs Rust's OpenSSL/shared-lib distribution pain.
+5. Frictionless C interop (wraps Clang etc.).
+6. Gentler mental model — Rust "concept fatigue" (ownership/lifetimes/traits/async) vs fast onboarding for experienced systems programmers.
+
+Sharpest disagreements:
+- comptime vs strong type system: Pekka calls comptime a "rabbit hole of magic," prefers Rust generics/traits; Bun creator, Glauber Costa, Primeagen defend it as superior to procedural macros.
+- Cross-compilation: dealbreaker (Glauber Costa) vs one-time setup pain (Pekka).
+
+Consensus on when to pick which:
+- Rust: long-lived infrastructure, secure network services, large corporate codebases where memory-vuln prevention is paramount, rich crate ecosystem (CLIs). Low-risk, here-for-decades.
+- Zig: gluing/wrapping crusty C/C++, constrained embedded with graceful OOM, WASM, extreme-performance (game engines, Bun, databases). Tradeoff: pre-1.0 risk — shifting compiler, async rework, thin learning materials, small ecosystem.
+
+Benchmarks: Dave Plummer with Lex Fridman — in his 100-language "Primes" project Zig consistently tops the leaderboard, above Rust, Nim, C++ (all top-tier; choice not decided on raw speed).
+
+## Sources
+| # | Video | Channel | Subs | Views | Engagement | Uploaded |
+|---|-------|---------|------|-------|------------|----------|
+| 1 | Fastest programming language: C++ vs Rust vs Zig (Dave Plummer + Lex Fridman) | Lex Clips | 1.62M | 91.4K | 0.06x | 2025-09-04 |
+| 2 | Why I Chose Rust Over Zig | The PrimeTime | 1.13M | 329.3K | 0.29x | 2024-07-17 |
+| 3 | Zig vs C: The Next Systems Language? | TheTechyShop | 2.1K | 20.0K | 9.46x | 2025-10-22 |
+| 4 | P99 CONF - Zig vs Rust | The PrimeTime | 1.13M | 99.0K | 0.09x | 2024-07-16 |
+| 5 | Meet the Author: Garrison Hinson-Hasty on Systems Programming with Zig | Manning Publications | 16.5K | 2.1K | 0.12x | 2025-12-16 |
+| 6 | Zig loves WASI! - Jakub Konka | Zig SHOWTIME | 17.0K | 2.6K | 0.16x | 2020-06-23 |
+| 7 | C is 50 Years Old. Should You Learn Rust? | Low Level | 1.12M | 435.5K | 0.39x | 2023-04-26 |
+| 8 | Why Everyone's Switching to Rust (And Why You Shouldn't) | ForrestKnight | 695.0K | 480.9K | 0.69x | 2025-08-19 |
+| 9 | The Rust Website Redesign Debacle | Zig SHOWTIME | 17.0K | 1.6K | 0.09x | 2020-11-15 |
+| 10 | Zig in Production - Jens Goldberg | Zig SHOWTIME | 17.0K | 15.9K | 0.94x | 2020-09-21 |
+
+All 10 videos were accepted by NotebookLM; none rejected or backfilled. Engagement = views/subscribers; >1x means it reached beyond the channel's base (standout: TheTechyShop 9.46x).
+
+## Notebook
+Notebook ID: 165e08d7-7c9f-49df-b937-32525a5f4ff6
+Vault path: /Users/khelil/Documents/obsidian/Brain/notebooklm/zig-vs-rust/report.md

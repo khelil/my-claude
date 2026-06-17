@@ -1,0 +1,13 @@
+{
+  "eval_id": 0,
+  "eval_name": "local-llm-briefing",
+  "prompt": "Research the current state of local / on-device LLMs using YouTube videos. Build a NotebookLM notebook from the top videos on the topic, analyze where the videos agree and disagree, and write me up a briefing. Save it to my vault and include the sources with their view counts, channel names, and engagement ratios.",
+  "assertions": [
+    {"text": "Found ~10 YouTube videos and created a NotebookLM notebook from them"},
+    {"text": "Added the videos as notebook sources (notebook_id present in output/manifest)"},
+    {"text": "Ran analysis grounded in the topic (not a generic summary) using the notebook"},
+    {"text": "Saved a Markdown report to the vault under notebooklm/<topic>/"},
+    {"text": "Showed the report content in chat, not just a 'saved to path' message"},
+    {"text": "Report includes full YouTube metadata: view counts, channel names, and engagement ratios"}
+  ]
+}

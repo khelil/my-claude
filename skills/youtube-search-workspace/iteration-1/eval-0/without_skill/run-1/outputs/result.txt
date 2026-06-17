@@ -1,0 +1,107 @@
+Best Recent YouTube Videos: Home Espresso Machines for Beginners
+=================================================================
+(Searched via yt-dlp on 2026-06-02. Ranked for recency + credibility.
+ SEO-spam / likely bot-inflated channels were filtered out — see note at bottom.)
+
+TOP PICKS (recent + credible)
+-----------------------------
+
+1. Best Espresso Machines (Beginner to Advanced) | Gear Heads
+   Channel: America's Test Kitchen (2.95M subs)
+   Published: 2025-11-08  |  235K views  |  14m53s
+   https://www.youtube.com/watch?v=UcDyB2OaITQ
+   Why: The single best recent pick. A trusted, independent reviewer doing
+   rigorous side-by-side testing, explicitly structured beginner-to-advanced.
+   Newest from a major credible outlet.
+
+2. Best Entry Level Espresso Machines 2025 – Our Top Picks for Beginners
+   Channel: Whole Latte Love (389K subs)
+   Published: 2025-11-07  |  133K views  |  15m29s
+   https://www.youtube.com/watch?v=miNqgmVH9I0
+   Why: A long-standing specialty espresso retailer. Buying-guide format aimed
+   squarely at first-time buyers, current 2025 model lineup.
+
+3. If I Started Coffee in 2026… Here's EXACTLY What I'd Do!
+   Channel: Daddy Got Coffee (69.6K subs)
+   Published: 2025-12-20  |  309K views  |  14m11s
+   https://www.youtube.com/watch?v=5JxysoMjIME
+   Why: Newest high-engagement video in the set (4.4x views-to-subs). Framed as
+   a "starting from scratch" roadmap — exactly the beginner angle. Most-watched
+   genuine recent video here.
+
+4. Ultimate Budget Espresso Machine Tier List!
+   Channel: Lance Hedrick (427K subs)
+   Published: 2025-05-14  |  618K views  |  48m48s
+   https://www.youtube.com/watch?v=wk9x3OtBce0
+   Why: Lance Hedrick is one of the most respected voices in home espresso.
+   Tier-list format helps beginners understand the budget landscape. Long and
+   thorough; highest view count among credible recent videos.
+
+5. Espresso Beginners: How To Pick an Espresso Machine by Type
+   Channel: Tom's Coffee Corner (203K subs)
+   Published: 2024-12-19  |  280K views  |  28m41s
+   https://www.youtube.com/watch?v=JPmG4wjdUc8
+   Why: Best explainer of machine TYPES (manual → automatic) so a beginner
+   understands what they're choosing between before buying. Dedicated coffee
+   channel, in-depth.
+
+
+ALSO WORTH WATCHING (recent, more specific / shorter)
+-----------------------------------------------------
+
+6. The Basics for Making Espresso – Watch This (You can thank me later)
+   Tom's Coffee Corner • 2025-03-13 • 176K views • 12m43s
+   https://www.youtube.com/watch?v=GwyNCbaQx0M
+   Technique fundamentals once you own a machine.
+
+7. How to Make a Flat White, Latte & Cappuccino at Home (Beginner Guide)
+   Artisti Coffee Roasters • 2025-06-19 • 54K views • 7m31s
+   https://www.youtube.com/watch?v=yK_xrKL-uWo
+   Milk-drink basics — the next step after pulling a shot.
+
+8. Casabrews CM5418 Review | Can a Budget Espresso Machine Pull Great Shots?
+   Brew Coffee Home • 2025-02-18 • 101K views • 7m15s
+   https://www.youtube.com/watch?v=Di5bGk8EUp8
+   Deep look at a popular sub-$200 starter machine (also reviewed by
+   Tom's Coffee Corner and Coffee Kev — search those if you want this model).
+
+
+EVERGREEN CLASSICS (older but still the most-watched, highly recommended)
+-------------------------------------------------------------------------
+These aren't "recent," but they're the canonical beginner references and worth
+knowing about:
+
+- The Best Espresso Machine Under £500 — James Hoffmann (2020) — 5.4M views
+  https://www.youtube.com/watch?v=7HIGdYy5of4
+- The Best Cheap Espresso Setup (£250 Budget) — James Hoffmann (2021) — 3.5M
+  https://www.youtube.com/watch?v=l9sCPE181r4   (note: prices now dated)
+- The Espresso Guide For Beginners — Joshua Weissman (2019) — 3.1M views
+  https://www.youtube.com/watch?v=ZuQu12vMQZM
+- Let's Talk About The Breville Bambino — Morgan Eckroth (2020) — 3.0M views
+  https://www.youtube.com/watch?v=e8qcVPueL9E
+James Hoffmann in particular is the go-to authority; check his channel for any
+newer entry-level guides.
+
+
+QUICK TAKEAWAY
+--------------
+If you only watch two: start with America's Test Kitchen's "Gear Heads" episode
+(#1) for an unbiased current buying guide, then Lance Hedrick's budget tier list
+(#4) for the enthusiast perspective. Both are recent and from credible sources.
+A common beginner machine recommendation across these videos is the Breville
+Bambino / Barista Express family, with the budget Casabrews CM5418 as a cheaper
+alternative.
+
+
+METHOD & NOTE ON FILTERING
+--------------------------
+Searched YouTube with yt-dlp using "home espresso machine for beginners" and
+"best espresso machine for beginners 2025 2026", then pulled per-video metadata
+(upload date, views, channel subscriber count, duration) for ~35 candidates.
+
+I excluded several "2026 best espresso machine" videos from channels like
+"Smart Home", "The Review Lab", "Coffee Machine Ratings", "Best Choice" and
+"Tech Plug". These showed classic affiliate/SEO-spam signals — generic names,
+template clickbait titles ("Wait Until You See What's #1"), and implausible
+view-to-subscriber ratios (e.g., 32x–55x), which usually indicate low-quality
+or inflated content rather than genuine reviews.

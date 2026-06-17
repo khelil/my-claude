@@ -1,0 +1,29 @@
+{
+  "skill_name": "generatepress-generateblocks",
+  "evals": [
+    {
+      "id": 0,
+      "name": "hero-landing",
+      "prompt": "I'm launching a SaaS that does automated invoice reconciliation for small accounting firms, called LedgerLoop. Build me a hero section for the homepage — it needs a headline, a subheadline, and a couple of call-to-action buttons. We're on GeneratePress with GenerateBlocks. Give me something I can paste straight into the page.",
+      "expected_output": "Valid GenerateBlocks 2.x markup (wp:generateblocks/element + text) for a polished hero: one H1, a muted subhead with constrained width, a primary + secondary button, sensible section padding, responsive mobile behavior. css attribute present & scoped, -- escaped as unicode, uniqueIds consistent.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 1,
+      "name": "feature-grid",
+      "prompt": "Build a 'Why choose us' section with a grid of 4 feature cards (each with an icon, a title, and a short description) for a dental clinic website. It has to look good and stack properly on mobile. Using GenerateBlocks.",
+      "expected_output": "Valid GB 2.x markup with a responsive card grid (display:grid auto-fit or flex with mobile stacking via @media max-width:767px), 4 consistent cards, accent used sparingly, css present/scoped, -- escaped.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "name": "pricing-tiers",
+      "prompt": "Make a 3-tier pricing section (Starter / Pro / Enterprise) with the middle plan highlighted as 'most popular', for a project-management app. GeneratePress + GenerateBlocks.",
+      "expected_output": "Valid GB 2.x markup, 3 pricing cards in a row that stack on mobile, the middle card visually emphasized (accent border/background/scale), price + feature list + button per card, css present/scoped, -- escaped.",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}

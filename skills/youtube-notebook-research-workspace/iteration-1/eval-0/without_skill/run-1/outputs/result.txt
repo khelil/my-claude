@@ -1,0 +1,73 @@
+TASK COMPLETE — YouTube -> NotebookLM research on the current state of local / on-device LLMs.
+
+WHAT I DID
+1. Verified tooling: `notebooklm doctor` -> Auth pass (26 cookies). yt-dlp + notebooklm CLI on PATH.
+2. Ran the youtube-notebook-research pipeline (build_notebook.py): searched YouTube (no date filter, 25 candidates), created the NotebookLM notebook, added 10 video sources (0 failures, 0 backfills needed), waited for all 10 to process, wrote manifest.json + sources_table.md.
+   - Title prefixed as required: "[SKILLTEST] Local / On-Device LLMs (State of the Field)"
+3. Analyzed the sources with `notebooklm ask`: summary + 4 focused questions (main approaches/hardware; where they disagree; consensus; recent changes / hyped vs substantiated).
+4. Assembled the briefing and saved it to the vault, then copied it + this result to the outputs dir.
+
+NOTEBOOK
+notebook_id: 2bd4a463-c8b3-4a46-85fd-e47899d74ab2
+title: [SKILLTEST] Local / On-Device LLMs (State of the Field)
+sources: 10 (all ingested successfully)
+
+VAULT PATHS
+- Report:        /Users/khelil/Documents/obsidian/Brain/notebooklm/local-on-device-llms/report.md
+- Sources table: /Users/khelil/Documents/obsidian/Brain/notebooklm/local-on-device-llms/sources_table.md
+- Manifest:      /Users/khelil/Documents/obsidian/Brain/notebooklm/local-on-device-llms/manifest.json
+- Outputs copy:  /Users/khelil/.claude/skills/youtube-notebook-research-workspace/iteration-1/eval-0/without_skill/run-1/outputs/report.md
+
+================================================================================
+FULL BRIEFING
+================================================================================
+
+# YouTube Research: The Current State of Local / On-Device LLMs
+
+> Notebook: [SKILLTEST] Local / On-Device LLMs (State of the Field) (2bd4a463-c8b3-4a46-85fd-e47899d74ab2) - 10 video sources - 2026-06-02
+
+## Research question
+What is the current state of local / on-device LLMs? Built a NotebookLM notebook from the top YouTube videos, analyzed agreement/disagreement, produced this briefing with full source metadata.
+
+## Key findings
+
+Local AI just crossed a credibility threshold, but the "agentic" layer is still hype. As of early/mid-2026, running capable models on your own hardware went from hobbyist experiment to genuinely useful. Two catalysts named repeatedly: a wave of small-but-strong open models (Qwen 3.5, Google's just-released Gemma 4) and new Apple Silicon (M5 Max). Disagreement is almost entirely about how far this goes — whether local models can yet drive autonomous agents and coding.
+
+WHERE THEY AGREE (consensus):
+- Privacy / data sovereignty is the #1 reason to go local — data never leaves your network; the only acceptable standard for confidential/enterprise data.
+- Zero marginal inference cost — high upfront hardware, then no per-token bill (vs cloud agents that "drain thousands" looping on tokens).
+- Apple Silicon unified memory is a genuine game-changer — GPU addresses full system RAM, so a 128GB Mac runs 120B models that would otherwise need NVIDIA clusters.
+- Quantization is mandatory — 4-bit (Q4KM) cuts footprint ~75% while losing <2% quality; lets a 4B model fit (~3.5GB) on an iPhone.
+- A clear "already mature" tier — speech-to-text (Whisper), code autocomplete (sub-100ms, beats cloud), image gen/upscaling (Flux on 4GB VRAM), single-task fine-tuned SLMs, RAG over your own docs.
+
+WHERE THEY DISAGREE:
+- How small a model can tool-call. Zen van Riel: under 14B can't tool-call properly. Rynaut contradicts — a 1.5B Qwen 2.5 out-scores the 3B on tool-calling benchmarks.
+- Does local make you MORE secure? All agree data stays private, but Rynaut/NASCompares say local is the only secure path, while IBM and Zen van Riel warn a local agent with terminal/filesystem access is a "powerful backdoor" vulnerable to prompt injection — Zen prefers OpenClaw on a CLOUD model for better jailbreak protection.
+- Are autonomous/agentic local setups ready? Rynaut & IBM say yes (LangGraph+vLLM, OpenClaw); lustoykov found local coding agents "rough, buggy, clearly early"; Zen van Riel ranks agentic coding C-tier and says many "local agent" demos are faked deterministic workflows.
+- "Vibe coding" locally. Zen van Riel ranks it D-tier — without reviewing code you need a big cloud model to avoid shipping security holes.
+
+HYPED vs SUBSTANTIATED (videos' own verdicts):
+- Hyped: Gemma 4's "cherrypicked" benchmarks (~Opus-4 level, not beating 2026 frontier); autonomous/vibe coding; local video gen (WAN, slow/degraded); offline voice agents ("dumber"). BitNet "1-bit revolution" title overstates it — real working standard is 4-bit quantization.
+- Substantiated: M5 Max prompt-processing ~4x faster than M4 Max (beats M3 Ultra); a 4B Qwen 3.5 beating original GPT-4o; sub-100ms code autocomplete beating cloud; TTS/STT effectively solved locally; Flux image gen 71% photorealism win-rate vs older Midjourney.
+
+HARDWARE GUIDANCE: VRAM/unified memory is the hard limit. MacBook Air M4 16GB -> 4B/8B; 24GB -> small Gemma 4 (~10GB) but struggles past 26B; M5 Max (128GB)/M3 Ultra (512GB) -> 120B. iPhone 17 (12GB) runs quantized 4B on NPU. Local fine-tuning wants >=16GB VRAM. Tool stack: Ollama + LM Studio (serving), vLLM (concurrency), Open WebUI (chat+RAG), Continue (IDE autocomplete), LangGraph/CrewAI + OpenClaw (agents).
+
+## Sources
+
+| # | Video | Channel | Subs | Views | Engagement | Uploaded |
+|---|-------|---------|------|-------|------------|----------|
+| 1 | How to Choose Large Language Models: A Developer's Guide to LLMs (https://www.youtube.com/watch?v=pYax2rupKEY) | IBM Technology | 1.70M | 105.3K | 0.06x | 2025-05-14 |
+| 2 | Suddenly Local AI Is Impossible to Ignore (But There's a Catch) (https://www.youtube.com/watch?v=BNL5k84CIAg) | lustoykov | 4.2K | 132.9K | 32x | 2026-04-09 |
+| 3 | Apple's New M5 Max Changes the Local AI Story (https://www.youtube.com/watch?v=XGe7ldwFLSE) | Alex Ziskind | 513.0K | 444.3K | 0.87x | 2026-03-09 |
+| 4 | The Ultimate Local AI Tier List For 2026 (https://www.youtube.com/watch?v=pr9fsrK8nmQ) | Zen van Riel | 44.5K | 58.4K | 1.31x | 2026-03-16 |
+| 5 | Every Way To Run Open Source AI Models (https://www.youtube.com/watch?v=vehYE1DfkZg) | Tina Huang | 1.22M | 199.8K | 0.16x | 2026-03-24 |
+| 6 | Local AI and NAS Drives - IS THIS A GOOD THING? (https://www.youtube.com/watch?v=Xv_7T7syP9U) | NASCompares | 197.0K | 8.2K | 0.04x | 2024-12-19 |
+| 7 | How to run uncensored AI locally / dolphin 3 LLM Ollama (https://www.youtube.com/watch?v=e0eGubQZsVU) | SuccessPursuitZone | 12.3K | 97.9K | 7.96x | 2025-12-14 |
+| 8 | Run AI Without GPUs: The 1-Bit LLM Revolution (BitNet) (https://www.youtube.com/watch?v=crsDDmAyWmA) | Rynaut - Architecting Automation | 107 | 511 | 4.78x | 2026-03-21 |
+| 9 | Small Language Models (SLMs) Are the Future: Fine-Tuning AI That Runs on Your iPhone (https://www.youtube.com/watch?v=EXB8HokGVMI) | Daniel Bourke | 249.0K | 127.4K | 0.51x | 2026-03-13 |
+| 10 | What is OpenClaw? Inside AI Agents, LLMs and the Agentic Loop (https://www.youtube.com/watch?v=L7FF8Zgab3M) | IBM Technology | N/A | 196.8K | N/A | 2026-04-27 |
+
+Engagement = views / subscribers (>1 = reached beyond channel base). All 10 videos ingested successfully (none rejected/backfilled).
+
+## Notebook
+Notebook ID: 2bd4a463-c8b3-4a46-85fd-e47899d74ab2

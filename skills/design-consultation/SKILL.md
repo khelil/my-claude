@@ -1,0 +1,1 @@
+/Users/khelil/.claude/skills/gstack/design-consultation/SKILL.md

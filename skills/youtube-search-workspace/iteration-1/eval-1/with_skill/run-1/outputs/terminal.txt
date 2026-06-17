@@ -1,0 +1,154 @@
+Searching YouTube for "Zig programming language" (scanning up to 60 candidates)...
+Found 60 candidates. Extracting full metadata in parallel...
+  ...extracted 10/60 videos
+  ...extracted 20/60 videos
+  ...extracted 30/60 videos
+  ...extracted 40/60 videos
+  ...extracted 50/60 videos
+  ...extracted 60/60 videos
+
+Saved Markdown to /Users/khelil/Documents/obsidian/Brain/youtube-zig-programming-language.md
+────────────────────────────────────────────────────────────────
+YouTube search: "Zig programming language"
+Window: last 12 month(s)  |  scanned 60 candidates, 36 matched  |  showing 20
+────────────────────────────────────────────────────────────────
+
+1. Zig is at a crossroads
+   Channel:    The PrimeTime  (1.13M subs)
+   Views:      245.9K   |  Engagement: 0.22x (views/subs)
+   Duration:   17:45   |  Uploaded: 2026-05-08 (24d ago)
+   https://www.youtube.com/watch?v=1zBrQFpbK1U
+────────────────────────────────────────────────────────────────
+
+2. Zig 2026: No-AI Policy, $670K Foundation, Left GitHub & Why Zig Isn’t 1.0 - Andrew Kelley Explains
+   Channel:    JetBrains  (228.0K subs)
+   Views:      391.2K   |  Engagement: 1.72x (views/subs)
+   Duration:   1:13:11   |  Uploaded: 2026-05-27 (5d ago)
+   https://www.youtube.com/watch?v=iqddnwKF8HQ
+────────────────────────────────────────────────────────────────
+
+3. @Tsoding on Bun's rewrite from Zig to Rust
+   Channel:    Ninad Sachania  (529 subs)
+   Views:      21.7K   |  Engagement: 41x (views/subs)
+   Duration:   1:40   |  Uploaded: 2026-05-28 (4d ago)
+   https://www.youtube.com/watch?v=ESTjLzUs2Fk
+────────────────────────────────────────────────────────────────
+
+4. Zig Programming Language - Beginner's Guide
+   Channel:    Coding with Tom  (4.2K subs)
+   Views:      16.8K   |  Engagement: 4.02x (views/subs)
+   Duration:   3:05:17   |  Uploaded: 2026-01-18 (4mo ago)
+   https://www.youtube.com/watch?v=UAS0f42_3uU
+────────────────────────────────────────────────────────────────
+
+5. Oh, Rust is better than Zig.
+   Channel:    ForrestKnight  (695.0K subs)
+   Views:      36.8K   |  Engagement: 0.05x (views/subs)
+   Duration:   16:15   |  Uploaded: 2026-05-22 (10d ago)
+   https://www.youtube.com/watch?v=2AqwehBu84w
+────────────────────────────────────────────────────────────────
+
+6. Zig is better than Rust (sometimes)
+   Channel:    codingjerk  (12.1K subs)
+   Views:      108.2K   |  Engagement: 8.95x (views/subs)
+   Duration:   20:20   |  Uploaded: 2025-06-03 (12mo ago)
+   https://www.youtube.com/watch?v=l9eFGToyjf8
+────────────────────────────────────────────────────────────────
+
+7. Intro to Zig
+   Channel:    Awesome  (130.0K subs)
+   Views:      65.5K   |  Engagement: 0.50x (views/subs)
+   Duration:   8:06   |  Uploaded: 2025-09-09 (8mo ago)
+   https://www.youtube.com/watch?v=xidylV_4aSk
+────────────────────────────────────────────────────────────────
+
+8. Zig polymorphism (anytype, comptime interfaces, tagged unions)
+   Channel:    ComputerBread  (5.5K subs)
+   Views:      9.3K   |  Engagement: 1.70x (views/subs)
+   Duration:   8:50   |  Uploaded: 2025-06-11 (11mo ago)
+   https://www.youtube.com/watch?v=WkIkYFClqa4
+────────────────────────────────────────────────────────────────
+
+9. Intro to Zig | Why not Rust, Go or C++?
+   Channel:    Code Guild  (8.1K subs)
+   Views:      30.1K   |  Engagement: 3.72x (views/subs)
+   Duration:   2:57   |  Uploaded: 2026-02-05 (3mo ago)
+   https://www.youtube.com/watch?v=kleA4QH4k4E
+────────────────────────────────────────────────────────────────
+
+10. Zig 0.16 is here - lets go through the release notes
+   Channel:    Code With Cypert  (8.5K subs)
+   Views:      12.9K   |  Engagement: 1.51x (views/subs)
+   Duration:   1:58:34   |  Uploaded: 2026-04-18 (1mo ago)
+   https://www.youtube.com/watch?v=29bq_m6N5kc
+────────────────────────────────────────────────────────────────
+
+11. Fastest programming language: C++ vs Rust vs Zig | Dave Plummer and Lex Fridman
+   Channel:    Lex Clips  (1.62M subs)
+   Views:      91.4K   |  Engagement: 0.06x (views/subs)
+   Duration:   4:26   |  Uploaded: 2025-09-04 (9mo ago)
+   https://www.youtube.com/watch?v=ydzq9P8vI5Y
+────────────────────────────────────────────────────────────────
+
+12. Why a New Browser Is Being Built in Zig — Not C++ or Rust
+   Channel:    AutoContent API  (344 subs)
+   Views:      12.1K   |  Engagement: 35x (views/subs)
+   Duration:   7:29   |  Uploaded: 2025-12-06 (5mo ago)
+   https://www.youtube.com/watch?v=HeRFdCHvkDE
+────────────────────────────────────────────────────────────────
+
+13. Why Nim, Zig, and Crystal Never Took Off (And What Programmers Miss)
+   Channel:    Not Full Stack  (1.8K subs)
+   Views:      8.5K   |  Engagement: 4.64x (views/subs)
+   Duration:   5:55   |  Uploaded: 2026-01-13 (4mo ago)
+   https://www.youtube.com/watch?v=Th8hh2E_M3o
+────────────────────────────────────────────────────────────────
+
+14. Why Zig built its own backend instead of using LLVM? | ep 3
+   Channel:    Code Guild  (8.1K subs)
+   Views:      11.7K   |  Engagement: 1.45x (views/subs)
+   Duration:   2:16   |  Uploaded: 2026-02-10 (3mo ago)
+   https://www.youtube.com/watch?v=REVbR-mzDV0
+────────────────────────────────────────────────────────────────
+
+15. Zig vs C: The Next Systems Language?
+   Channel:    TheTechyShop  (2.1K subs)
+   Views:      20.0K   |  Engagement: 9.46x (views/subs)
+   Duration:   8:41   |  Uploaded: 2025-10-22 (7mo ago)
+   https://www.youtube.com/watch?v=gqsObMTgUPk
+────────────────────────────────────────────────────────────────
+
+16. Vercel Just Killed Electron With Zig
+   Channel:    Better Stack  (151.0K subs)
+   Views:      29.7K   |  Engagement: 0.20x (views/subs)
+   Duration:   4:37   |  Uploaded: 2026-05-12 (20d ago)
+   https://www.youtube.com/watch?v=GXNjnu7UqFs
+────────────────────────────────────────────────────────────────
+
+17. Async Zig w/ Andrew Gossage
+   Channel:    Utah Zig  (571 subs)
+   Views:      815   |  Engagement: 1.43x (views/subs)
+   Duration:   1:09:46   |  Uploaded: 2026-05-15 (17d ago)
+   https://www.youtube.com/watch?v=jhe9Yv6pvJE
+────────────────────────────────────────────────────────────────
+
+18. Why I use Odin over Zig for everything
+   Channel:    rats159  (4.4K subs)
+   Views:      36.8K   |  Engagement: 8.30x (views/subs)
+   Duration:   11:34   |  Uploaded: 2026-02-13 (3mo ago)
+   https://www.youtube.com/watch?v=3a4x4Xq9jD0
+────────────────────────────────────────────────────────────────
+
+19. Zig got better and I almost missed it
+   Channel:    codingjerk  (12.1K subs)
+   Views:      94.8K   |  Engagement: 7.84x (views/subs)
+   Duration:   23:00   |  Uploaded: 2025-11-29 (6mo ago)
+   https://www.youtube.com/watch?v=Mr4MB5mtAMY
+────────────────────────────────────────────────────────────────
+
+20. Why I am learning Zig in 2025
+   Channel:    Melkey  (69.3K subs)
+   Views:      22.0K   |  Engagement: 0.32x (views/subs)
+   Duration:   6:10   |  Uploaded: 2025-09-16 (8mo ago)
+   https://www.youtube.com/watch?v=2MJJ8PKxhPg
+────────────────────────────────────────────────────────────────

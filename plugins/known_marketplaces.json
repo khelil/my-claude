@@ -1,0 +1,26 @@
+{
+  "claude-code-plugins": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/claude-code"
+    },
+    "installLocation": "/Users/khelil/.claude/plugins/marketplaces/claude-code-plugins",
+    "lastUpdated": "2026-06-17T20:13:58.794Z"
+  },
+  "claude-plugins-official": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/claude-plugins-official"
+    },
+    "installLocation": "/Users/khelil/.claude/plugins/marketplaces/claude-plugins-official",
+    "lastUpdated": "2026-06-17T20:13:58.907Z"
+  },
+  "claude-code-warp": {
+    "source": {
+      "source": "github",
+      "repo": "warpdotdev/claude-code-warp"
+    },
+    "installLocation": "/Users/khelil/.claude/plugins/marketplaces/claude-code-warp",
+    "lastUpdated": "2026-05-30T16:01:12.830Z"
+  }
+}

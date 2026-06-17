@@ -1,0 +1,39 @@
+Here's what people are watching about the Apple Vision Pro lately. I searched YouTube and pulled the top results from the last 6 months, with each video's views-to-subscribers ratio (engagement) so we can see who's punching above their weight. Of 60 candidates scanned, 17 fell inside the 6-month window.
+
+THE OVERPERFORMERS (what you asked about)
+
+The engagement ratio = views ÷ subscribers. Anything above ~1.0x means a video pulled in more views than the channel has subscribers — it broke out beyond its own audience, usually a sign the algorithm picked it up or it struck a nerve. A few clear standouts here:
+
+1. "Working on Apple Vision Pro" — Spatial Insider (22.5K subs) — 215.8K views — 9.59x
+   This is the runaway overperformer. A small-ish 22K-sub channel landed 216K views — nearly 10x its subscriber base. By far the biggest breakout in the set, and notable because it's a "using it for real work" angle rather than a review. Uploaded 5 months ago.
+   https://www.youtube.com/watch?v=sOsXNHQ4dKk
+
+2. "Apple Vision pro did something to my brain I didn't expect" — jEarpo Tech (525 subs) — 3.6K views — 6.78x
+   A tiny 525-sub channel that got ~7x its base. Low absolute views, but proportionally a strong hit — and it's only 3 days old, so it may still be climbing. The emotional/curiosity-driven title is doing the work.
+   https://www.youtube.com/watch?v=8ubcjxY5jJw
+
+3. "AirDraw for Apple Vision Pro is Mind-Blowing" — FSK Shots and Tech (3.8K subs) — 4.0K views — 1.06x
+   A short (52s) clip from a small channel that just edged past 1x. A modest overperformer — the app-demo "wow" format travels well as a Short.
+   https://www.youtube.com/watch?v=XE_vZ8T3PPA
+
+The pattern: the breakouts are all from small channels showing the Vision Pro doing something specific and tangible (real work, a surprising personal experience, a slick app demo) rather than yet another "is it worth it" review. Big channels get big raw view counts but low engagement ratios because they already have a huge base to draw from.
+
+THE BIG RAW NUMBERS (most-watched, but not overperforming)
+
+These got the most total views but sit below 1x because the channels are already large:
+
+- "Pourquoi Apple abandonne déjà le Vision Pro ?" — Léo Duff (822K subs) — 349K views — 0.42x. The most-watched video overall. French-language, and the "is Apple giving up on it?" framing is clearly resonating.
+- "J'ai remplacé tous mes écrans par un Vision Pro M5" — Nightech (150K subs) — 81.7K views — 0.54x. Note the "M5" — points to a newer/refreshed Vision Pro being discussed.
+- "Apple Vision Pro: Real Madrid Trailer" — Apple (20.6M subs) — 67.9K views — 0.00x. Apple's own marketing; huge channel so the ratio is microscopic.
+- "Samsung Galaxy XR: 2x moins cher" — Frandroid (606K subs) — 65.1K views — 0.11x.
+- "Is the Apple Vision Pro...Dead?" — MacRumors (644K subs) — 58.1K views — 0.09x.
+
+WHAT THE LANDSCAPE LOOKS LIKE RIGHT NOW
+
+- The dominant narrative is skeptical/elegiac: titles keep asking whether Apple is abandoning it, whether it's "dead," and comparing it unfavorably on price to the Samsung Galaxy XR and Quest 3. The conversation has shifted from hype to "is this thing finished?"
+- A second, more positive thread is about real-world utility: replacing monitors, use in surgery, productivity/Mac integration. That's where the small-channel breakouts are happening.
+- There's a strong French-language presence (Léo Duff, Nightech, Frandroid, Thomas in Tech) — several of the most-viewed videos in the window are in French.
+- Mentions of "Vision Pro M5" and "2026" models suggest a hardware refresh is part of the current conversation.
+- A caveat on the data: a few channels (Mashable, Tom's Guide) hide their subscriber counts, so their engagement shows as N/A and can't be ranked for overperformance. And the topic is moderately quiet — only 17 of 60 scanned candidates were from the last 6 months, so the Vision Pro isn't a high-churn topic right now.
+
+Bottom line for your question: the clearest overperformer relative to channel size is Spatial Insider's "Working on Apple Vision Pro" at 9.59x (216K views off a 22K base), followed by jEarpo Tech's brain video at 6.78x. Both are small creators whose Vision Pro content reached far past their usual audience.

@@ -1,0 +1,45 @@
+{
+  "expectations": [
+    {
+      "text": "All 7 required fields present",
+      "passed": true,
+      "evidence": "title, channel, subs, views, duration, date, URL all present"
+    },
+    {
+      "text": "Engagement ratio per video",
+      "passed": false,
+      "evidence": "Only mentioned for 1-2 videos (4.4x), not computed/shown for each"
+    },
+    {
+      "text": "Filtered ~6 months",
+      "passed": false,
+      "evidence": "Included 2024 and evergreen 2019-2021 classics mixed in; not a clean recency window"
+    },
+    {
+      "text": "Dividers between results",
+      "passed": true,
+      "evidence": "Section dividers and numbered entries present"
+    },
+    {
+      "text": "Human-readable numbers",
+      "passed": true,
+      "evidence": "235K, 2.95M, etc."
+    },
+    {
+      "text": "Multiple results",
+      "passed": true,
+      "evidence": "8 ranked + evergreen list"
+    },
+    {
+      "text": "PERF: avoided timeout trap",
+      "passed": false,
+      "evidence": "Agent hit 120s timeout running sequential yt-dlp, silently truncated to 1 result, had to manually batch; took 378s (2x slower than skill)"
+    }
+  ],
+  "summary": {
+    "pass_rate": 0.571,
+    "passed": 4,
+    "failed": 3,
+    "total": 7
+  }
+}

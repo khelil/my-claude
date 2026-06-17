@@ -1,0 +1,353 @@
+{
+  "metadata": {
+    "skill_name": "youtube-search",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-06-01T22:37:58Z",
+    "evals_run": [
+      0,
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 0,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 183.2,
+        "tokens": 25826,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "All 7 required fields present",
+          "passed": true,
+          "evidence": "title, channel, subscriber count, views, duration, upload date, URL all present in terminal.txt and markdown"
+        },
+        {
+          "text": "Engagement ratio per video",
+          "passed": true,
+          "evidence": "e.g. 4.43x, 0.08x, 1.24x shown for each"
+        },
+        {
+          "text": "Filtered ~6 months (default)",
+          "passed": true,
+          "evidence": "Tried 6mo first (only 3 matched), transparently reported and widened to 12mo per skill's honest-window guidance"
+        },
+        {
+          "text": "Dividers between results",
+          "passed": true,
+          "evidence": "terminal.txt uses \u2500\u2500\u2500\u2500 dividers between each result; markdown uses ---"
+        },
+        {
+          "text": "Human-readable numbers",
+          "passed": true,
+          "evidence": "308.6K, 2.95M subs, etc."
+        },
+        {
+          "text": "Multiple results (up to 20)",
+          "passed": true,
+          "evidence": "17 results returned"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 120.6,
+        "tokens": 24730,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Used ~12-month window not 6",
+          "passed": true,
+          "evidence": "window: last 12 month(s); includes videos back to mid-2025"
+        },
+        {
+          "text": "Saved .md into vault path",
+          "passed": true,
+          "evidence": "/Users/khelil/Documents/obsidian/Brain/youtube-zig-programming-language.md"
+        },
+        {
+          "text": "Markdown has clickable links",
+          "passed": true,
+          "evidence": "[title](url) and [channel](channel_url) links present"
+        },
+        {
+          "text": "Includes views + subscriber counts",
+          "passed": true,
+          "evidence": "245.9K views, 1.13M subscribers etc."
+        },
+        {
+          "text": "Reports scanned vs matched",
+          "passed": true,
+          "evidence": "scanned 60 candidates, 36 matched, showing 20"
+        },
+        {
+          "text": "Tells user the save path",
+          "passed": true,
+          "evidence": "stated vault path in response"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 123.3,
+        "tokens": 24090,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Engagement ratio shown per video",
+          "passed": true,
+          "evidence": "9.59x, 6.78x, 0.09x etc. for each"
+        },
+        {
+          "text": "Calls out / interprets overperformers",
+          "passed": true,
+          "evidence": "Explicitly named Spatial Insider 9.59x as top breakout, explained small-channel pattern"
+        },
+        {
+          "text": "Recent (~6 months)",
+          "passed": true,
+          "evidence": "window: last 6 month(s), 17 matched"
+        },
+        {
+          "text": "Core metadata present",
+          "passed": true,
+          "evidence": "title, channel, subs, views, URL all present"
+        },
+        {
+          "text": "Human-readable numbers",
+          "passed": true,
+          "evidence": "215.8K, 22.5K subs"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.571,
+        "passed": 4,
+        "failed": 3,
+        "total": 7,
+        "time_seconds": 378.8,
+        "tokens": 34293,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "All 7 required fields present",
+          "passed": true,
+          "evidence": "title, channel, subs, views, duration, date, URL all present"
+        },
+        {
+          "text": "Engagement ratio per video",
+          "passed": false,
+          "evidence": "Only mentioned for 1-2 videos (4.4x), not computed/shown for each"
+        },
+        {
+          "text": "Filtered ~6 months",
+          "passed": false,
+          "evidence": "Included 2024 and evergreen 2019-2021 classics mixed in; not a clean recency window"
+        },
+        {
+          "text": "Dividers between results",
+          "passed": true,
+          "evidence": "Section dividers and numbered entries present"
+        },
+        {
+          "text": "Human-readable numbers",
+          "passed": true,
+          "evidence": "235K, 2.95M, etc."
+        },
+        {
+          "text": "Multiple results",
+          "passed": true,
+          "evidence": "8 ranked + evergreen list"
+        },
+        {
+          "text": "PERF: avoided timeout trap",
+          "passed": false,
+          "evidence": "Agent hit 120s timeout running sequential yt-dlp, silently truncated to 1 result, had to manually batch; took 378s (2x slower than skill)"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.857,
+        "passed": 6,
+        "failed": 1,
+        "total": 7,
+        "time_seconds": 279.8,
+        "tokens": 28658,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Used ~12-month window not 6",
+          "passed": true,
+          "evidence": "Filtered to videos on/after 2025-06-02"
+        },
+        {
+          "text": "Saved .md into vault path",
+          "passed": true,
+          "evidence": "Zig on YouTube - Past Year Roundup.md saved to vault"
+        },
+        {
+          "text": "Markdown has clickable links",
+          "passed": true,
+          "evidence": "Table with Link column"
+        },
+        {
+          "text": "Includes views + subscriber counts",
+          "passed": true,
+          "evidence": "subscriber buckets + view counts in table"
+        },
+        {
+          "text": "Reports scanned vs matched",
+          "passed": true,
+          "evidence": "Reported 110 IDs collected, 52 on-topic"
+        },
+        {
+          "text": "Tells user the save path",
+          "passed": true,
+          "evidence": "stated path"
+        },
+        {
+          "text": "FORMAT: relevance order + engagement metric",
+          "passed": false,
+          "evidence": "Sorted by views (not YouTube relevance), no engagement ratio computed; custom table format diverges from spec; took 280s (2.3x slower)"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 161.2,
+        "tokens": 24193,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Engagement ratio shown per video",
+          "passed": true,
+          "evidence": "[CONTAMINATED: baseline discovered & used the skill] 9.59x, 6.78x shown"
+        },
+        {
+          "text": "Calls out / interprets overperformers",
+          "passed": true,
+          "evidence": "[CONTAMINATED] named same overperformers as with_skill"
+        },
+        {
+          "text": "Recent (~6 months)",
+          "passed": true,
+          "evidence": "[CONTAMINATED] same 17 matched"
+        },
+        {
+          "text": "Core metadata present",
+          "passed": true,
+          "evidence": "[CONTAMINATED] present"
+        },
+        {
+          "text": "Human-readable numbers",
+          "passed": true,
+          "evidence": "[CONTAMINATED] present"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 142.3667,
+        "stddev": 35.3885,
+        "min": 120.6,
+        "max": 183.2
+      },
+      "tokens": {
+        "mean": 24882.0,
+        "stddev": 877.9248,
+        "min": 24090,
+        "max": 25826
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.8093,
+        "stddev": 0.2184,
+        "min": 0.571,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 273.2667,
+        "stddev": 108.947,
+        "min": 161.2,
+        "max": 378.8
+      },
+      "tokens": {
+        "mean": 29048.0,
+        "stddev": 5061.282,
+        "min": 24193,
+        "max": 34293
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.19",
+      "time_seconds": "-130.9",
+      "tokens": "-4166"
+    }
+  },
+  "notes": []
+}

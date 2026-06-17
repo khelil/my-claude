@@ -1,0 +1,320 @@
+{
+  "type": "element",
+  "tagName": "section",
+  "htmlAttributes": {"id": "hero"},
+  "styles": {
+    "backgroundColor": "var(--base)",
+    "paddingTop": "clamp(64px,9vw,128px)",
+    "paddingBottom": "clamp(64px,9vw,128px)",
+    "paddingLeft": "24px",
+    "paddingRight": "24px",
+    "overflow": "hidden"
+  },
+  "innerBlocks": [
+    {
+      "type": "element",
+      "tagName": "div",
+      "styles": {
+        "maxWidth": "var(--gb-container-width)",
+        "marginLeft": "auto",
+        "marginRight": "auto",
+        "display": "grid",
+        "gridTemplateColumns": "1.15fr 0.85fr",
+        "gap": "64px",
+        "alignItems": "center",
+        "@media (max-width:1024px)": {
+          "gridTemplateColumns": "1fr",
+          "gap": "48px"
+        }
+      },
+      "innerBlocks": [
+        {
+          "type": "element",
+          "tagName": "div",
+          "styles": {
+            "display": "flex",
+            "flexDirection": "column",
+            "alignItems": "flex-start",
+            "gap": "24px",
+            "@media (max-width:1024px)": {"alignItems": "center", "textAlign": "center"}
+          },
+          "innerBlocks": [
+            {
+              "type": "text",
+              "tagName": "span",
+              "content": "Automated invoice reconciliation",
+              "styles": {
+                "display": "inline-flex",
+                "alignItems": "center",
+                "gap": "8px",
+                "fontSize": "13px",
+                "fontWeight": "600",
+                "letterSpacing": "0.06em",
+                "textTransform": "uppercase",
+                "color": "var(--accent)",
+                "backgroundColor": "var(--base-2)",
+                "border": "1px solid var(--base-3)",
+                "borderRadius": "999px",
+                "paddingTop": "8px",
+                "paddingBottom": "8px",
+                "paddingLeft": "16px",
+                "paddingRight": "16px"
+              }
+            },
+            {
+              "type": "text",
+              "tagName": "h1",
+              "content": "Close the books in hours, not weeks.",
+              "styles": {
+                "margin": "0",
+                "fontSize": "clamp(2.4rem,5.2vw,4rem)",
+                "lineHeight": "1.08",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700",
+                "color": "var(--contrast)",
+                "maxWidth": "16ch"
+              }
+            },
+            {
+              "type": "text",
+              "tagName": "p",
+              "content": "LedgerLoop matches invoices to payments automatically, flags every discrepancy, and hands your team a clean reconciliation — so small accounting firms stop chasing mismatches and start closing client books faster.",
+              "styles": {
+                "margin": "0",
+                "fontSize": "clamp(1.05rem,1.6vw,1.25rem)",
+                "lineHeight": "1.6",
+                "color": "var(--contrast-2)",
+                "maxWidth": "54ch"
+              }
+            },
+            {
+              "type": "element",
+              "tagName": "div",
+              "styles": {
+                "display": "flex",
+                "flexWrap": "wrap",
+                "gap": "16px",
+                "marginTop": "8px",
+                "@media (max-width:767px)": {"flexDirection": "column", "alignSelf": "stretch"}
+              },
+              "innerBlocks": [
+                {
+                  "type": "text",
+                  "tagName": "a",
+                  "content": "Start free trial",
+                  "htmlAttributes": {"href": "/signup"},
+                  "styles": {
+                    "display": "inline-flex",
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "textDecoration": "none",
+                    "fontSize": "16px",
+                    "fontWeight": "600",
+                    "lineHeight": "1",
+                    "color": "var(--base)",
+                    "backgroundColor": "var(--accent)",
+                    "borderRadius": "10px",
+                    "paddingTop": "16px",
+                    "paddingBottom": "16px",
+                    "paddingLeft": "28px",
+                    "paddingRight": "28px",
+                    "border": "1px solid var(--accent)",
+                    "transition": "transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease",
+                    "boxShadow": "0 1px 2px rgba(16,24,40,0.08)",
+                    "&:hover": {
+                      "transform": "translateY(-2px)",
+                      "boxShadow": "0 10px 24px rgba(16,24,40,0.16)"
+                    },
+                    "&:focus-visible": {
+                      "outline": "2px solid var(--accent)",
+                      "outlineOffset": "3px"
+                    }
+                  }
+                },
+                {
+                  "type": "text",
+                  "tagName": "a",
+                  "content": "Book a demo",
+                  "htmlAttributes": {"href": "/demo"},
+                  "styles": {
+                    "display": "inline-flex",
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "textDecoration": "none",
+                    "fontSize": "16px",
+                    "fontWeight": "600",
+                    "lineHeight": "1",
+                    "color": "var(--contrast)",
+                    "backgroundColor": "transparent",
+                    "borderRadius": "10px",
+                    "paddingTop": "16px",
+                    "paddingBottom": "16px",
+                    "paddingLeft": "28px",
+                    "paddingRight": "28px",
+                    "border": "1px solid var(--base-3)",
+                    "transition": "border-color 0.18s ease, background-color 0.18s ease, transform 0.18s ease",
+                    "&:hover": {
+                      "backgroundColor": "var(--base-2)",
+                      "borderColor": "var(--contrast-3)",
+                      "transform": "translateY(-2px)"
+                    },
+                    "&:focus-visible": {
+                      "outline": "2px solid var(--accent)",
+                      "outlineOffset": "3px"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "tagName": "p",
+              "content": "No card required · 14-day free trial · SOC 2 ready",
+              "styles": {
+                "margin": "0",
+                "fontSize": "14px",
+                "color": "var(--contrast-3)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tagName": "div",
+          "styles": {
+            "backgroundColor": "var(--base-2)",
+            "border": "1px solid var(--base-3)",
+            "borderRadius": "16px",
+            "padding": "28px",
+            "boxShadow": "0 24px 48px -24px rgba(16,24,40,0.25)",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "16px"
+          },
+          "innerBlocks": [
+            {
+              "type": "element",
+              "tagName": "div",
+              "styles": {
+                "display": "flex",
+                "alignItems": "center",
+                "justifyContent": "space-between",
+                "paddingBottom": "16px",
+                "borderBottom": "1px solid var(--base-3)"
+              },
+              "innerBlocks": [
+                {
+                  "type": "text",
+                  "tagName": "span",
+                  "content": "Reconciliation — March",
+                  "styles": {"fontSize": "15px", "fontWeight": "600", "color": "var(--contrast)"}
+                },
+                {
+                  "type": "text",
+                  "tagName": "span",
+                  "content": "98% matched",
+                  "styles": {
+                    "fontSize": "13px",
+                    "fontWeight": "600",
+                    "color": "var(--accent)",
+                    "backgroundColor": "var(--base)",
+                    "border": "1px solid var(--base-3)",
+                    "borderRadius": "999px",
+                    "paddingTop": "4px",
+                    "paddingBottom": "4px",
+                    "paddingLeft": "12px",
+                    "paddingRight": "12px"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tagName": "div",
+              "styles": {
+                "display": "flex",
+                "alignItems": "center",
+                "justifyContent": "space-between",
+                "gap": "12px",
+                "backgroundColor": "var(--base)",
+                "border": "1px solid var(--base-3)",
+                "borderRadius": "10px",
+                "padding": "14px 16px"
+              },
+              "innerBlocks": [
+                {
+                  "type": "text",
+                  "tagName": "span",
+                  "content": "INV-2041 · Northwind Ltd",
+                  "styles": {"fontSize": "14px", "color": "var(--contrast-2)"}
+                },
+                {
+                  "type": "text",
+                  "tagName": "span",
+                  "content": "Matched",
+                  "styles": {"fontSize": "13px", "fontWeight": "600", "color": "var(--accent)"}
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tagName": "div",
+              "styles": {
+                "display": "flex",
+                "alignItems": "center",
+                "justifyContent": "space-between",
+                "gap": "12px",
+                "backgroundColor": "var(--base)",
+                "border": "1px solid var(--base-3)",
+                "borderRadius": "10px",
+                "padding": "14px 16px"
+              },
+              "innerBlocks": [
+                {
+                  "type": "text",
+                  "tagName": "span",
+                  "content": "INV-2042 · Acme Co",
+                  "styles": {"fontSize": "14px", "color": "var(--contrast-2)"}
+                },
+                {
+                  "type": "text",
+                  "tagName": "span",
+                  "content": "Matched",
+                  "styles": {"fontSize": "13px", "fontWeight": "600", "color": "var(--accent)"}
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tagName": "div",
+              "styles": {
+                "display": "flex",
+                "alignItems": "center",
+                "justifyContent": "space-between",
+                "gap": "12px",
+                "backgroundColor": "var(--base)",
+                "border": "1px solid var(--accent-2)",
+                "borderRadius": "10px",
+                "padding": "14px 16px"
+              },
+              "innerBlocks": [
+                {
+                  "type": "text",
+                  "tagName": "span",
+                  "content": "INV-2043 · Globex — $42 short",
+                  "styles": {"fontSize": "14px", "fontWeight": "600", "color": "var(--contrast)"}
+                },
+                {
+                  "type": "text",
+                  "tagName": "span",
+                  "content": "Flagged",
+                  "styles": {"fontSize": "13px", "fontWeight": "600", "color": "var(--accent-2)"}
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

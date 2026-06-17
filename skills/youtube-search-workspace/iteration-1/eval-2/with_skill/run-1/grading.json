@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Engagement ratio shown per video",
+      "passed": true,
+      "evidence": "9.59x, 6.78x, 0.09x etc. for each"
+    },
+    {
+      "text": "Calls out / interprets overperformers",
+      "passed": true,
+      "evidence": "Explicitly named Spatial Insider 9.59x as top breakout, explained small-channel pattern"
+    },
+    {
+      "text": "Recent (~6 months)",
+      "passed": true,
+      "evidence": "window: last 6 month(s), 17 matched"
+    },
+    {
+      "text": "Core metadata present",
+      "passed": true,
+      "evidence": "title, channel, subs, views, URL all present"
+    },
+    {
+      "text": "Human-readable numbers",
+      "passed": true,
+      "evidence": "215.8K, 22.5K subs"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  }
+}

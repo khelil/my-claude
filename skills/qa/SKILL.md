@@ -1,0 +1,1 @@
+/Users/khelil/.claude/skills/gstack/qa/SKILL.md

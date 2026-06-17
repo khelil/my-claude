@@ -1,0 +1,13 @@
+{
+  "eval_id": 1,
+  "eval_name": "year-window-save-note",
+  "prompt": "I'm researching what's been published on YouTube about the Zig programming language over the past year. Pull together a list with view counts and how big each channel is, and save it as a markdown note in my vault at /Users/khelil/Documents/obsidian/Brain.",
+  "assertions": [
+    {"text": "Uses a ~12-month window (not the 6-month default) — includes videos older than 6 months"},
+    {"text": "Saves a Markdown (.md) file into /Users/khelil/Documents/obsidian/Brain"},
+    {"text": "The saved Markdown contains clickable links to the videos"},
+    {"text": "Includes view counts and channel subscriber counts for each video"},
+    {"text": "Reports how many candidates were scanned vs matched"},
+    {"text": "Tells the user the path where the note was saved"}
+  ]
+}

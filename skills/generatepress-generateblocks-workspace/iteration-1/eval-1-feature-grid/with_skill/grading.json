@@ -1,0 +1,49 @@
+{
+  "expectations": [
+    {
+      "text": "Produces GenerateBlocks 2.x block markup (element/text/etc.)",
+      "passed": true,
+      "evidence": "54 GB block delimiters found"
+    },
+    {
+      "text": "Block delimiters are balanced (every open has a matching close)",
+      "passed": true,
+      "evidence": "27 opens / 27 closes"
+    },
+    {
+      "text": "All block-delimiter JSON parses as valid JSON",
+      "passed": true,
+      "evidence": "27 delimiters parsed"
+    },
+    {
+      "text": "All `--` inside delimiters escaped as \\u002d\\u002d (valid HTML comments)",
+      "passed": true,
+      "evidence": "0 delimiters contain a raw --"
+    },
+    {
+      "text": "Every styled block carries a precomputed `css` (renders styled on paste)",
+      "passed": true,
+      "evidence": "23 styled blocks, 0 missing css"
+    },
+    {
+      "text": "Every styled block's uniqueId appears as its inner-HTML class",
+      "passed": true,
+      "evidence": "0 uniqueIds not found in HTML"
+    },
+    {
+      "text": "Includes a mobile responsive breakpoint (@media)",
+      "passed": true,
+      "evidence": "found @media"
+    },
+    {
+      "text": "Uses grid/flex layout for the cards",
+      "passed": true,
+      "evidence": "layout css present"
+    },
+    {
+      "text": "Contains ~4 feature cards (h3 titles)",
+      "passed": true,
+      "evidence": "4 h3 titles"
+    }
+  ]
+}

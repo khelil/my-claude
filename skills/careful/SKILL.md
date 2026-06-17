@@ -1,0 +1,1 @@
+/Users/khelil/.claude/skills/gstack/careful/SKILL.md

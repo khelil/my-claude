@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Engagement ratio shown per video",
+      "passed": true,
+      "evidence": "[CONTAMINATED: baseline discovered & used the skill] 9.59x, 6.78x shown"
+    },
+    {
+      "text": "Calls out / interprets overperformers",
+      "passed": true,
+      "evidence": "[CONTAMINATED] named same overperformers as with_skill"
+    },
+    {
+      "text": "Recent (~6 months)",
+      "passed": true,
+      "evidence": "[CONTAMINATED] same 17 matched"
+    },
+    {
+      "text": "Core metadata present",
+      "passed": true,
+      "evidence": "[CONTAMINATED] present"
+    },
+    {
+      "text": "Human-readable numbers",
+      "passed": true,
+      "evidence": "[CONTAMINATED] present"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  }
+}

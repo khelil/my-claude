@@ -1,0 +1,34 @@
+Here are the best recent YouTube videos on home espresso machines for beginners.
+
+A note on recency: a strict "last 6 months" window only turned up 3 videos for this query, so I widened it to 12 months and scanned deeper (80 candidates) to give you a real picture. The topic is moderately active — plenty of buying guides, but most of the strong beginner content clusters in the late-2025 "best of 2026" wave. 17 videos matched the 12-month window.
+
+WHAT STANDS OUT
+
+- "If I Started Coffee in 2026… Here's EXACTLY What I'd Do!" — Daddy Got Coffee (69.6K subs), 308.6K views, 14:11, uploaded 2025-12-20. This is the strongest pick for a true beginner: a 4.43x engagement ratio (4x more views than the channel has subscribers) means it reached far beyond the channel's base — usually a sign people found it genuinely useful. It frames the whole "where do I start" decision rather than just ranking machines.
+  https://www.youtube.com/watch?v=5JxysoMjIME
+
+- "Best Espresso Machines (Beginner to Advanced) | Gear Heads" — America's Test Kitchen (2.95M subs), 235K views, 14:53, uploaded 2025-11-08. The most credible, no-hype editorial review from a trusted test lab. Low engagement ratio (0.08x) only because the channel is huge — the absolute view count is high. Best if you want unbiased, methodical testing.
+  https://www.youtube.com/watch?v=l9sCPE181r4
+
+- "Best Entry Level Espresso Machines 2025 – Our Top Picks for Beginners" — Whole Latte Love (389K subs), 133.2K views, 15:29, uploaded 2025-11-07. A specialist espresso retailer's dedicated beginner buying guide — exactly on-topic and recent.
+  https://www.youtube.com/watch?v=miNqgmVH9I0
+
+- "How Good Can the Breville Bambino Get? (Real Espresso Results)" — Alternative Brewing (75.7K subs), 93.7K views, 12:58, uploaded 2025-11-16. The Bambino is the default beginner machine recommendation; this digs into how far you can push it. 1.24x engagement.
+  https://www.youtube.com/watch?v=bzgNtqsP0oo
+
+GOOD SUPPORTING / NICHE PICKS
+- "Watery or Bitter Espresso? Dial In Your Barista Express Like This" — Golden Brown Coffee, 1.04M views, 14:39 (2025-08-25). The most-viewed video in the set and the best technique video once you own a machine — dialing in is where most beginners struggle. https://www.youtube.com/watch?v=qFl0k5e_Tio
+- "What Coffee Machine to buy in 2025? Under $1K USD" — Coffee Coach | Ryde Jeavons, 79.8K views (2025-08-24), 2.99x engagement. Strong budget-focused buying advice. https://www.youtube.com/watch?v=VXVzAd-R8mg
+- "The Best Espresso Machines Under $500" — Eric the Coffee Guy, 17.5K views, 3.57x engagement (2025-11-26). Smaller channel punching above its weight on the budget tier. https://www.youtube.com/watch?v=fP-qD4CxZZg
+- "Which Breville Espresso Machine Should You Buy?" — Eric the Coffee Guy, 27.7K views, 5.64x engagement (2025-07-08). Helpful if you've narrowed it to Breville. https://www.youtube.com/watch?v=yP_flHmkAss
+
+A CAUTION ON ENGAGEMENT OUTLIERS
+A couple of results show wild engagement ratios because the channel is tiny, not because the video is great:
+- "Breville vs DeLonghi 2025: Top 7..." (Coffee Machine Ratings, 283 subs) shows 55x — that's a 283-subscriber channel, so treat it as a thin/SEO-style listicle rather than a trusted source.
+- "Ninja vs Breville vs KitchenAid vs De'Longhi" (Cafelista_Coffee, 8.5K subs, 9.09x) is a useful head-to-head if you're cross-shopping those exact brands.
+
+MY RECOMMENDATION
+Start with the Daddy Got Coffee "If I Started Coffee in 2026" video for the overall mental model, then watch the America's Test Kitchen and Whole Latte Love guides for unbiased machine picks. Once you've bought something, the Golden Brown Coffee "dial in" video will save you the most frustration.
+
+A clickable Markdown version of all 17 results was saved to:
+/Users/khelil/.claude/skills/youtube-search-workspace/iteration-1/recent-topic-default/with_skill/outputs/home-espresso-beginners.md

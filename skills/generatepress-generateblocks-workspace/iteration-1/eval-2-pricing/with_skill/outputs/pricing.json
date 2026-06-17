@@ -1,0 +1,386 @@
+{
+  "type": "element",
+  "tagName": "section",
+  "htmlAttributes": { "id": "pricing", "aria-label": "Pricing plans" },
+  "styles": {
+    "backgroundColor": "var(--base-2)",
+    "paddingTop": "112px",
+    "paddingBottom": "112px",
+    "paddingRight": "24px",
+    "paddingLeft": "24px",
+    "@media (max-width:767px)": { "paddingTop": "64px", "paddingBottom": "64px" }
+  },
+  "innerBlocks": [
+    {
+      "type": "element",
+      "tagName": "div",
+      "styles": {
+        "maxWidth": "var(--gb-container-width)",
+        "marginLeft": "auto",
+        "marginRight": "auto",
+        "display": "flex",
+        "flexDirection": "column",
+        "alignItems": "center",
+        "gap": "16px"
+      },
+      "innerBlocks": [
+        {
+          "type": "text",
+          "tagName": "span",
+          "content": "Pricing",
+          "styles": {
+            "fontSize": "14px",
+            "fontWeight": "600",
+            "letterSpacing": "0.08em",
+            "textTransform": "uppercase",
+            "color": "var(--accent)"
+          }
+        },
+        {
+          "type": "text",
+          "tagName": "h2",
+          "content": "Plans that scale with your team",
+          "styles": {
+            "fontSize": "clamp(2rem,4vw,2.75rem)",
+            "lineHeight": "1.1",
+            "fontWeight": "700",
+            "color": "var(--contrast)",
+            "textAlign": "center",
+            "margin": "0"
+          }
+        },
+        {
+          "type": "text",
+          "tagName": "p",
+          "content": "From your first project to company-wide rollout. Switch plans anytime, no credit card required to start.",
+          "styles": {
+            "fontSize": "18px",
+            "lineHeight": "1.6",
+            "color": "var(--contrast-2)",
+            "textAlign": "center",
+            "maxWidth": "55ch",
+            "margin": "0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "div",
+      "styles": {
+        "maxWidth": "var(--gb-container-width)",
+        "marginLeft": "auto",
+        "marginRight": "auto",
+        "marginTop": "56px",
+        "display": "grid",
+        "gridTemplateColumns": "repeat(3,1fr)",
+        "gap": "24px",
+        "alignItems": "center",
+        "@media (max-width:1024px)": { "gridTemplateColumns": "1fr", "maxWidth": "440px", "marginTop": "40px" }
+      },
+      "innerBlocks": [
+        {
+          "type": "element",
+          "tagName": "div",
+          "styles": {
+            "backgroundColor": "var(--base)",
+            "border": "1px solid var(--base-3)",
+            "borderRadius": "16px",
+            "padding": "32px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px",
+            "height": "100%",
+            "transition": "transform 200ms ease, box-shadow 200ms ease",
+            "&:hover": { "transform": "translateY(-4px)", "boxShadow": "0 18px 40px rgba(0,0,0,0.08)" }
+          },
+          "innerBlocks": [
+            {
+              "type": "element",
+              "tagName": "div",
+              "styles": { "display": "flex", "flexDirection": "column", "gap": "8px" },
+              "innerBlocks": [
+                {
+                  "type": "text",
+                  "tagName": "h3",
+                  "content": "Starter",
+                  "styles": { "fontSize": "20px", "fontWeight": "700", "color": "var(--contrast)", "margin": "0" }
+                },
+                {
+                  "type": "text",
+                  "tagName": "p",
+                  "content": "For individuals and small teams getting organized.",
+                  "styles": { "fontSize": "15px", "lineHeight": "1.5", "color": "var(--contrast-2)", "margin": "0" }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "tagName": "p",
+              "content": "$0<span class=\"gb-price-period\">/month</span>",
+              "styles": {
+                "fontSize": "44px",
+                "fontWeight": "700",
+                "lineHeight": "1",
+                "color": "var(--contrast)",
+                "margin": "0",
+                "& .gb-price-period": { "fontSize": "16px", "fontWeight": "500", "color": "var(--contrast-3)", "marginLeft": "4px" }
+              }
+            },
+            {
+              "type": "text",
+              "tagName": "a",
+              "content": "Get started",
+              "htmlAttributes": { "href": "/signup" },
+              "styles": {
+                "display": "block",
+                "textAlign": "center",
+                "padding": "13px 24px",
+                "borderRadius": "10px",
+                "fontSize": "16px",
+                "fontWeight": "600",
+                "textDecoration": "none",
+                "backgroundColor": "transparent",
+                "color": "var(--accent)",
+                "border": "1px solid var(--base-3)",
+                "transition": "background-color 200ms ease, border-color 200ms ease",
+                "&:hover": { "backgroundColor": "var(--base-2)", "borderColor": "var(--accent)" },
+                "&:focus-visible": { "outline": "2px solid var(--accent)", "outlineOffset": "2px" }
+              }
+            },
+            {
+              "type": "element",
+              "tagName": "ul",
+              "styles": {
+                "listStyle": "none",
+                "margin": "0",
+                "padding": "0",
+                "display": "flex",
+                "flexDirection": "column",
+                "gap": "12px",
+                "& li": { "position": "relative", "paddingLeft": "28px", "fontSize": "15px", "lineHeight": "1.5", "color": "var(--contrast-2)" },
+                "& li::before": { "content": "\"✓\"", "position": "absolute", "left": "0", "top": "0", "fontWeight": "700", "color": "var(--accent)" }
+              },
+              "innerBlocks": [
+                { "type": "text", "tagName": "li", "content": "Up to 3 projects" },
+                { "type": "text", "tagName": "li", "content": "5 team members" },
+                { "type": "text", "tagName": "li", "content": "Kanban &amp; list views" },
+                { "type": "text", "tagName": "li", "content": "Community support" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tagName": "div",
+          "htmlAttributes": { "aria-label": "Pro plan, most popular" },
+          "styles": {
+            "position": "relative",
+            "backgroundColor": "var(--base)",
+            "border": "2px solid var(--accent)",
+            "borderRadius": "16px",
+            "padding": "40px 32px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px",
+            "height": "100%",
+            "boxShadow": "0 24px 50px rgba(0,0,0,0.12)",
+            "transform": "scale(1.04)",
+            "transition": "transform 200ms ease, box-shadow 200ms ease",
+            "&:hover": { "transform": "scale(1.04) translateY(-4px)" },
+            "@media (max-width:1024px)": { "transform": "none", "&:hover": { "transform": "translateY(-4px)" } }
+          },
+          "innerBlocks": [
+            {
+              "type": "text",
+              "tagName": "span",
+              "content": "Most popular",
+              "styles": {
+                "position": "absolute",
+                "top": "0",
+                "left": "50%",
+                "transform": "translate(-50%,-50%)",
+                "backgroundColor": "var(--accent)",
+                "color": "var(--base)",
+                "fontSize": "12px",
+                "fontWeight": "700",
+                "letterSpacing": "0.06em",
+                "textTransform": "uppercase",
+                "padding": "6px 14px",
+                "borderRadius": "999px",
+                "whiteSpace": "nowrap"
+              }
+            },
+            {
+              "type": "element",
+              "tagName": "div",
+              "styles": { "display": "flex", "flexDirection": "column", "gap": "8px" },
+              "innerBlocks": [
+                {
+                  "type": "text",
+                  "tagName": "h3",
+                  "content": "Pro",
+                  "styles": { "fontSize": "20px", "fontWeight": "700", "color": "var(--contrast)", "margin": "0" }
+                },
+                {
+                  "type": "text",
+                  "tagName": "p",
+                  "content": "For growing teams that need automation and reporting.",
+                  "styles": { "fontSize": "15px", "lineHeight": "1.5", "color": "var(--contrast-2)", "margin": "0" }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "tagName": "p",
+              "content": "$12<span class=\"gb-price-period\">/user/mo</span>",
+              "styles": {
+                "fontSize": "44px",
+                "fontWeight": "700",
+                "lineHeight": "1",
+                "color": "var(--contrast)",
+                "margin": "0",
+                "& .gb-price-period": { "fontSize": "16px", "fontWeight": "500", "color": "var(--contrast-3)", "marginLeft": "4px" }
+              }
+            },
+            {
+              "type": "text",
+              "tagName": "a",
+              "content": "Start free trial",
+              "htmlAttributes": { "href": "/signup?plan=pro" },
+              "styles": {
+                "display": "block",
+                "textAlign": "center",
+                "padding": "13px 24px",
+                "borderRadius": "10px",
+                "fontSize": "16px",
+                "fontWeight": "600",
+                "textDecoration": "none",
+                "backgroundColor": "var(--accent)",
+                "color": "var(--base)",
+                "border": "1px solid var(--accent)",
+                "transition": "filter 200ms ease, transform 200ms ease",
+                "&:hover": { "filter": "brightness(0.92)" },
+                "&:focus-visible": { "outline": "2px solid var(--contrast)", "outlineOffset": "2px" }
+              }
+            },
+            {
+              "type": "element",
+              "tagName": "ul",
+              "styles": {
+                "listStyle": "none",
+                "margin": "0",
+                "padding": "0",
+                "display": "flex",
+                "flexDirection": "column",
+                "gap": "12px",
+                "& li": { "position": "relative", "paddingLeft": "28px", "fontSize": "15px", "lineHeight": "1.5", "color": "var(--contrast-2)" },
+                "& li::before": { "content": "\"✓\"", "position": "absolute", "left": "0", "top": "0", "fontWeight": "700", "color": "var(--accent)" }
+              },
+              "innerBlocks": [
+                { "type": "text", "tagName": "li", "content": "<strong>Everything in Starter</strong>" },
+                { "type": "text", "tagName": "li", "content": "Unlimited projects" },
+                { "type": "text", "tagName": "li", "content": "Timeline &amp; calendar views" },
+                { "type": "text", "tagName": "li", "content": "Workflow automation" },
+                { "type": "text", "tagName": "li", "content": "Dashboards &amp; reporting" },
+                { "type": "text", "tagName": "li", "content": "Priority email support" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tagName": "div",
+          "styles": {
+            "backgroundColor": "var(--base)",
+            "border": "1px solid var(--base-3)",
+            "borderRadius": "16px",
+            "padding": "32px",
+            "display": "flex",
+            "flexDirection": "column",
+            "gap": "24px",
+            "height": "100%",
+            "transition": "transform 200ms ease, box-shadow 200ms ease",
+            "&:hover": { "transform": "translateY(-4px)", "boxShadow": "0 18px 40px rgba(0,0,0,0.08)" }
+          },
+          "innerBlocks": [
+            {
+              "type": "element",
+              "tagName": "div",
+              "styles": { "display": "flex", "flexDirection": "column", "gap": "8px" },
+              "innerBlocks": [
+                {
+                  "type": "text",
+                  "tagName": "h3",
+                  "content": "Enterprise",
+                  "styles": { "fontSize": "20px", "fontWeight": "700", "color": "var(--contrast)", "margin": "0" }
+                },
+                {
+                  "type": "text",
+                  "tagName": "p",
+                  "content": "For organizations needing security, scale, and control.",
+                  "styles": { "fontSize": "15px", "lineHeight": "1.5", "color": "var(--contrast-2)", "margin": "0" }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "tagName": "p",
+              "content": "Custom",
+              "styles": {
+                "fontSize": "44px",
+                "fontWeight": "700",
+                "lineHeight": "1",
+                "color": "var(--contrast)",
+                "margin": "0"
+              }
+            },
+            {
+              "type": "text",
+              "tagName": "a",
+              "content": "Contact sales",
+              "htmlAttributes": { "href": "/contact-sales" },
+              "styles": {
+                "display": "block",
+                "textAlign": "center",
+                "padding": "13px 24px",
+                "borderRadius": "10px",
+                "fontSize": "16px",
+                "fontWeight": "600",
+                "textDecoration": "none",
+                "backgroundColor": "transparent",
+                "color": "var(--accent)",
+                "border": "1px solid var(--base-3)",
+                "transition": "background-color 200ms ease, border-color 200ms ease",
+                "&:hover": { "backgroundColor": "var(--base-2)", "borderColor": "var(--accent)" },
+                "&:focus-visible": { "outline": "2px solid var(--accent)", "outlineOffset": "2px" }
+              }
+            },
+            {
+              "type": "element",
+              "tagName": "ul",
+              "styles": {
+                "listStyle": "none",
+                "margin": "0",
+                "padding": "0",
+                "display": "flex",
+                "flexDirection": "column",
+                "gap": "12px",
+                "& li": { "position": "relative", "paddingLeft": "28px", "fontSize": "15px", "lineHeight": "1.5", "color": "var(--contrast-2)" },
+                "& li::before": { "content": "\"✓\"", "position": "absolute", "left": "0", "top": "0", "fontWeight": "700", "color": "var(--accent)" }
+              },
+              "innerBlocks": [
+                { "type": "text", "tagName": "li", "content": "<strong>Everything in Pro</strong>" },
+                { "type": "text", "tagName": "li", "content": "SSO &amp; SCIM provisioning" },
+                { "type": "text", "tagName": "li", "content": "Advanced permissions" },
+                { "type": "text", "tagName": "li", "content": "Audit logs &amp; data residency" },
+                { "type": "text", "tagName": "li", "content": "99.9% uptime SLA" },
+                { "type": "text", "tagName": "li", "content": "Dedicated success manager" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

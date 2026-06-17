@@ -1,0 +1,40 @@
+{
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 6,
+    "failed": 0,
+    "total": 6
+  },
+  "expectations": [
+    {
+      "text": "Found ~10 videos and created a notebook",
+      "passed": true,
+      "evidence": "build_notebook.py: 10 sources, all ready, 0 backfill; notebook 7cdd4e82"
+    },
+    {
+      "text": "Added videos as notebook sources (notebook_id present)",
+      "passed": true,
+      "evidence": "notebook_id 7cdd4e82 in manifest; 10 sources ready"
+    },
+    {
+      "text": "Analysis grounded in topic, not generic",
+      "passed": true,
+      "evidence": "Agree/disagree on capability-vs-cloud, hardware (VRAM/unified memory), hype-vs-substance; even caught an ungrounded BitNet source"
+    },
+    {
+      "text": "Saved Markdown report to vault under notebooklm/<topic>/",
+      "passed": true,
+      "evidence": "notebooklm/local-on-device-llms/report.md exists, spec structure"
+    },
+    {
+      "text": "Showed report content in chat (not just path)",
+      "passed": true,
+      "evidence": "Full key findings + source table in chat response"
+    },
+    {
+      "text": "Report includes views, channels, engagement ratios",
+      "passed": true,
+      "evidence": "Sources table with subs/views/engagement (e.g. 32x, 0.06x)"
+    }
+  ]
+}

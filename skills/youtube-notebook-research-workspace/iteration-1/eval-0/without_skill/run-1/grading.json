@@ -1,0 +1,40 @@
+{
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 6,
+    "failed": 0,
+    "total": 6
+  },
+  "expectations": [
+    {
+      "text": "Found ~10 videos and created a notebook",
+      "passed": true,
+      "evidence": "10 sources, 0 failures; notebook 2bd4a463 \u2014 baseline replicated the pipeline using the available component skills"
+    },
+    {
+      "text": "Added videos as notebook sources (notebook_id present)",
+      "passed": true,
+      "evidence": "notebook_id 2bd4a463, 10 sources ingested"
+    },
+    {
+      "text": "Analysis grounded in topic, not generic",
+      "passed": true,
+      "evidence": "Consensus + sharp disagreements (tool-calling, agent security, agentic coding readiness)"
+    },
+    {
+      "text": "Saved Markdown report to vault under notebooklm/<topic>/",
+      "passed": true,
+      "evidence": "notebooklm/local-on-device-llms/ (NOTE: same folder as with_skill run \u2014 concurrent collision)"
+    },
+    {
+      "text": "Showed report content in chat (not just path)",
+      "passed": true,
+      "evidence": "Findings shown in chat"
+    },
+    {
+      "text": "Report includes views, channels, engagement ratios",
+      "passed": true,
+      "evidence": "Full source table with metadata"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+Done. I researched what's been published on YouTube about the Zig programming language over the past year and saved a markdown note to your vault.
+
+What I did:
+- Used yt-dlp (at /opt/homebrew/bin) to run several YouTube searches: "Zig programming language", "Zig language tutorial", "Zig lang", "learn Zig programming", "Zig vs Rust", "Zig 0.14", and "Ziglang".
+- Collected 110 unique video IDs, then fetched full metadata for each (upload date, view count, channel, channel subscriber count).
+- Filtered to videos uploaded in the past year (on or after 2025-06-02), dropped a handful of off-topic results (recurring gamedev livestreams that merely use Zig), and sorted by view count.
+- Result: 52 on-topic videos, with a combined ~1.94M views.
+
+Saved note: /Users/khelil/Documents/obsidian/Brain/Zig on YouTube - Past Year Roundup.md
+
+The note contains YAML frontmatter plus a ranked table with columns: Video | Channel | Subscribers (channel size) | Views | Published | Link. Channel size is bucketed (Tiny <1K, Small 1K+, Medium 10K+, Large 100K+/1M+).
+
+Top videos by views:
+1. JetBrains (228K subs) — "Zig 2026: No-AI Policy, $670K Foundation, Left GitHub..." — 391,596 views
+2. The PrimeTime (1.1M subs) — "Zig is at a crossroads" — 245,868 views
+3. The PrimeTime (1.1M subs) — "Did Zig Fix Async / Await?" — 159,023 views
+4. codingjerk (12.1K subs) — "Zig is better than Rust (sometimes)" — 108,239 views
+5. codingjerk (12.1K subs) — "Zig got better and I almost missed it" — 94,854 views
+6. Lex Clips (1.6M subs) — "Fastest programming language: C++ vs Rust vs Zig" — 91,353 views
+
+Key observations:
+- The biggest-reach videos are news/commentary from large channels (JetBrains, The PrimeTime, Lex Clips, ForrestKnight at 695K).
+- "Zig vs Rust" is the dominant framing across the most-viewed videos.
+- A cluster of dedicated small/medium creators publish Zig internals content regularly: ComputerBread (~5.5K), Code With Cypert (~8.5K), Code Guild (~8K), TheTechyShop (~2.1K), and Zig SHOWTIME (~17K).
+- Channel size and views are only weakly correlated — small channels (e.g. codingjerk, 12.1K subs) produced 100K+ view videos, so topic interest can outweigh subscriber base.
+
+Notes on the data:
+- Subscriber counts are YouTube's rounded approximations and reflect total channel size, not Zig-specific reach.
+- "Past year" was computed against today's date (2026-06-02), so the window is 2025-06-02 onward; some videos are dated 2026.
+
+A copy of the note has also been placed in this outputs/ directory.

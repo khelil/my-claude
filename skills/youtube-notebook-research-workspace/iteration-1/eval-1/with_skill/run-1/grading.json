@@ -1,0 +1,40 @@
+{
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 6,
+    "failed": 0,
+    "total": 6
+  },
+  "expectations": [
+    {
+      "text": "Found ~10 videos and created a notebook",
+      "passed": true,
+      "evidence": "10 sources, 0 backfill; notebook 165e08d7"
+    },
+    {
+      "text": "Added videos as notebook sources (notebook_id present)",
+      "passed": true,
+      "evidence": "notebook_id present; 10 ready"
+    },
+    {
+      "text": "Analysis addresses actual question (args each side), grounded",
+      "passed": true,
+      "evidence": "4-pillar pro-Rust vs 6-point pro-Zig, sharpest disagreements (comptime), per-source attribution"
+    },
+    {
+      "text": "Saved Markdown report to vault under notebooklm/<topic>/",
+      "passed": true,
+      "evidence": "notebooklm/zig-vs-rust/report.md (NOTE: collided with concurrent baseline using same slug; manifest notebook_id was overwritten)"
+    },
+    {
+      "text": "Showed report content in chat (not just path)",
+      "passed": true,
+      "evidence": "Full report in chat"
+    },
+    {
+      "text": "Report includes views, channels, engagement ratios",
+      "passed": true,
+      "evidence": "Table with subs/views/engagement (TheTechyShop 9.46x flagged)"
+    }
+  ]
+}

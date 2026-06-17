@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Used ~12-month window not 6",
+      "passed": true,
+      "evidence": "window: last 12 month(s); includes videos back to mid-2025"
+    },
+    {
+      "text": "Saved .md into vault path",
+      "passed": true,
+      "evidence": "/Users/khelil/Documents/obsidian/Brain/youtube-zig-programming-language.md"
+    },
+    {
+      "text": "Markdown has clickable links",
+      "passed": true,
+      "evidence": "[title](url) and [channel](channel_url) links present"
+    },
+    {
+      "text": "Includes views + subscriber counts",
+      "passed": true,
+      "evidence": "245.9K views, 1.13M subscribers etc."
+    },
+    {
+      "text": "Reports scanned vs matched",
+      "passed": true,
+      "evidence": "scanned 60 candidates, 36 matched, showing 20"
+    },
+    {
+      "text": "Tells user the save path",
+      "passed": true,
+      "evidence": "stated vault path in response"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 6,
+    "failed": 0,
+    "total": 6
+  }
+}

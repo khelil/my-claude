@@ -1,0 +1,38 @@
+Done. I ran the full YouTube -> NotebookLM research pipeline on "the current state of local / on-device LLMs" and produced a sourced briefing saved to your vault.
+
+WHAT I DID
+1. Verified tooling: `notebooklm doctor` passed (auth OK, 26 cookies); yt-dlp, notebooklm, python3, and the youtube-search script all present.
+2. Ran build_notebook.py with --count 10 and the required test title prefix. It searched YouTube (no date filter, 25-candidate pool), created the notebook, added the top 10 videos as sources, and waited until all 10 were "ready". Zero rejections, so no backfill was needed.
+3. Analyzed the topic against the notebook: a summary plus four focused questions (main approaches/tools, where the videos disagree, hardware consensus, and recent changes / hype-vs-substance).
+4. Wrote the briefing to report.md in the vault and copied report.md + manifest.json into the eval outputs dir.
+
+NOTEBOOK
+- notebook_id: 7cdd4e82-6303-4974-9507-14c40430f8b5
+- title: [SKILLTEST] YouTube Research: local LLMs
+- 10 sources, all ready, none backfilled
+
+VAULT PATH
+- Report: /Users/khelil/Documents/obsidian/Brain/notebooklm/local-on-device-llms/report.md
+- Manifest + sources table also in that folder.
+
+KEY FINDINGS (briefing)
+- Toolchain consensus is settled: Ollama + LM Studio as entry points, Open WebUI for local-doc RAG, Continue.dev for local code autocomplete, OpenClaw for local agents.
+- Biggest disagreement: capability vs cloud. Tina Huang / Daniel Bourke say open models are now "just as good" (4B models beating GPT-4o on benchmarks, running on an iPhone); Zen van Riel / lustoykov say there's still a "huge gap" for frontier reasoning and vendor charts are cherrypicked. Pragmatic middle ground (Rynaut): a hybrid 80/20 split - local for routine/private tasks, cloud for the hard 20%.
+- Hardware: memory is the binding constraint. NVIDIA VRAM spillover collapses throughput (~40 -> 2-3 tok/s); Apple unified memory is the disruptor (128GB Mac Studio runs a 120B model); M5 Max ~4x prompt processing; 4-bit quantization cuts memory ~75% for <2% quality loss.
+- Privacy is universally praised, but "local = safer" is contested: a misconfigured local agent with terminal/filesystem access is a prompt-injection backdoor; van Riel even prefers cloud models to drive local agents.
+- Hype vs substance: working well today = speech-to-text/TTS, image generation, code autocomplete. Overhyped = autonomous local "vibe coding", local video generation, long voice agents.
+- Honesty note: the notebook flagged that the "BitNet 1-bit LLM" source (Rynaut, 107 subs) does not actually discuss BitNet in its transcript - that material came from outside the sources. Kept this caveat in the report.
+
+SOURCES (with view counts, channels, engagement = views/subs)
+ 1. IBM Technology - Developer's Guide to LLMs | 1.70M subs | 105.3K views | 0.06x
+ 2. lustoykov - Suddenly Local AI Is Impossible to Ignore | 4.2K | 132.9K | 32x
+ 3. Alex Ziskind - Apple's New M5 Max Changes the Local AI Story | 513K | 444.3K | 0.87x
+ 4. Zen van Riel - The Ultimate Local AI Tier List For 2026 | 44.5K | 58.4K | 1.31x
+ 5. Tina Huang - Every Way To Run Open Source AI Models | 1.22M | 199.8K | 0.16x
+ 6. NASCompares - Local AI and NAS Drives | 197K | 8.2K | 0.04x
+ 7. SuccessPursuitZone - How to run uncensored AI locally (dolphin 3 / Ollama) | 12.3K | 97.9K | 7.96x
+ 8. Rynaut - 1-Bit LLM Revolution (BitNet) | 107 | 511 | 4.78x
+ 9. Daniel Bourke - SLMs Are the Future (runs on iPhone) | 249K | 127.4K | 0.51x
+10. IBM Technology - What is OpenClaw? Agentic Loop | N/A | 196.8K | N/A
+
+NOTE on manifest: the output dir was reused from a prior run, so the freshly written manifest.json initially carried a stale notebook_id/title. I corrected those two fields to match my actual run (7cdd4e82...). The source list/metadata were identical and verified against the live notebook (all 10 ready).

@@ -1,0 +1,15 @@
+Done. I searched YouTube for "Zig programming language" over the past year (12-month window) and saved a Markdown note to your vault.
+
+Vault path: /Users/khelil/Documents/obsidian/Brain/youtube-zig-programming-language.md
+
+Coverage: scanned 60 candidates, 36 fell within the last 12 months, and the note lists the top 20 in YouTube's relevance order — each with title, channel, subscriber count, view count, duration, upload date, clickable link, and a views/subscribers engagement ratio.
+
+What stands out in the Zig landscape this year:
+
+- The topic is very active right now. Several of the highest-view videos landed in the last few weeks, driven by Zig's 2026 news cycle (no-AI policy, $670K foundation, leaving GitHub) and the Bun-rewrite-to-Rust debate.
+- Biggest reach: JetBrains' Andrew Kelley interview "Zig 2026..." (391.2K views, 228K-sub channel, 1.72x engagement — strong overperformance for a channel that size) and The PrimeTime's "Zig is at a crossroads" (245.9K views on a 1.13M-sub channel).
+- Punching way above their weight: tiny channels caught the algorithm hard. "@Tsoding on Bun's rewrite from Zig to Rust" (Ninad Sachania, 529 subs) hit 21.7K views = ~41x engagement, and "Why a New Browser Is Being Built in Zig" (AutoContent API, 344 subs) hit 12.1K = ~35x. codingjerk (12.1K subs) also overperforms consistently: "Zig is better than Rust (sometimes)" 108.2K views (8.95x) and "Zig got better and I almost missed it" 94.8K (7.84x).
+- Recurring themes: language comparisons (Zig vs Rust/C/Odin/Go), the 0.16 release, the self-hosted backend / dropping LLVM, async Zig, and "why Zig hasn't hit 1.0."
+- Big-channel routine uploads (ForrestKnight 0.05x, Lex Clips 0.06x, Better Stack 0.20x) pulled lower engagement ratios, as expected for large audiences.
+
+A copy of the note has also been placed in the review outputs directory.

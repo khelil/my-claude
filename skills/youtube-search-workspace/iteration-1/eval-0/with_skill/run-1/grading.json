@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "All 7 required fields present",
+      "passed": true,
+      "evidence": "title, channel, subscriber count, views, duration, upload date, URL all present in terminal.txt and markdown"
+    },
+    {
+      "text": "Engagement ratio per video",
+      "passed": true,
+      "evidence": "e.g. 4.43x, 0.08x, 1.24x shown for each"
+    },
+    {
+      "text": "Filtered ~6 months (default)",
+      "passed": true,
+      "evidence": "Tried 6mo first (only 3 matched), transparently reported and widened to 12mo per skill's honest-window guidance"
+    },
+    {
+      "text": "Dividers between results",
+      "passed": true,
+      "evidence": "terminal.txt uses \u2500\u2500\u2500\u2500 dividers between each result; markdown uses ---"
+    },
+    {
+      "text": "Human-readable numbers",
+      "passed": true,
+      "evidence": "308.6K, 2.95M subs, etc."
+    },
+    {
+      "text": "Multiple results (up to 20)",
+      "passed": true,
+      "evidence": "17 results returned"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 6,
+    "failed": 0,
+    "total": 6
+  }
+}

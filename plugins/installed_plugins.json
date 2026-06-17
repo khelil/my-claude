@@ -1,0 +1,102 @@
+{
+  "version": 2,
+  "plugins": {
+    "feature-dev@claude-code-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-code-plugins/feature-dev/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-11-09T06:38:27.478Z",
+        "lastUpdated": "2025-11-09T06:38:27.478Z",
+        "gitCommitSha": "8462b0700b9e8c649d0669609fb8052444cec798"
+      }
+    ],
+    "agent-sdk-dev@claude-code-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-code-plugins/agent-sdk-dev/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-11-09T06:38:27.478Z",
+        "lastUpdated": "2025-11-09T06:38:27.478Z",
+        "gitCommitSha": "8462b0700b9e8c649d0669609fb8052444cec798"
+      }
+    ],
+    "pr-review-toolkit@claude-code-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-code-plugins/pr-review-toolkit/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-11-09T06:38:27.478Z",
+        "lastUpdated": "2025-11-09T06:38:27.478Z",
+        "gitCommitSha": "8462b0700b9e8c649d0669609fb8052444cec798"
+      }
+    ],
+    "commit-commands@claude-code-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-code-plugins/commit-commands/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-11-09T06:38:27.478Z",
+        "lastUpdated": "2025-12-25T21:08:10.796Z",
+        "gitCommitSha": "8462b0700b9e8c649d0669609fb8052444cec798"
+      }
+    ],
+    "security-guidance@claude-code-plugins": [
+      {
+        "scope": "user",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-code-plugins/security-guidance/2.0.0",
+        "version": "2.0.0",
+        "installedAt": "2025-11-09T06:38:27.478Z",
+        "lastUpdated": "2026-05-29T13:57:37.538Z",
+        "gitCommitSha": "2d5c3c6c85048de7a4426a91268076807ebaeba5"
+      }
+    ],
+    "warp@claude-code-warp": [
+      {
+        "scope": "user",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-code-warp/warp/2.1.0",
+        "version": "2.1.0",
+        "installedAt": "2026-05-30T16:01:13.124Z",
+        "lastUpdated": "2026-05-30T16:01:13.124Z",
+        "gitCommitSha": "bb6c1cf2f5cd7eb609678a2b175e7f4504ca61c2"
+      }
+    ],
+    "skill-creator@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-plugins-official/skill-creator/unknown",
+        "version": "unknown",
+        "installedAt": "2026-06-01T22:21:22.642Z",
+        "lastUpdated": "2026-06-17T20:13:58.945Z"
+      }
+    ],
+    "playwright@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-plugins-official/playwright/unknown",
+        "version": "unknown",
+        "installedAt": "2026-06-01T22:21:57.461Z",
+        "lastUpdated": "2026-06-17T20:13:58.947Z"
+      }
+    ],
+    "claude-code-setup@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-plugins-official/claude-code-setup/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-06-01T22:22:13.846Z",
+        "lastUpdated": "2026-06-01T22:22:13.846Z"
+      }
+    ],
+    "figma@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-plugins-official/figma/2.2.50",
+        "version": "2.2.50",
+        "installedAt": "2026-06-10T18:40:06.615Z",
+        "lastUpdated": "2026-06-11T11:46:06.205Z",
+        "gitCommitSha": "54ad156019d7362a56d8024b9adbe99952aa29b6"
+      }
+    ]
+  }
+}

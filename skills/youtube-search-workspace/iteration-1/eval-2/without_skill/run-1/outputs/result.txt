@@ -1,0 +1,44 @@
+Here's what's circulating on YouTube about the Apple Vision Pro over the last ~6 months, with a focus on which videos are punching above their channel's weight.
+
+I searched "Apple Vision Pro," scanned 60 candidates, and kept the 17 that fell within the last 6 months. The key metric for your question is the engagement ratio (views ÷ subscribers): above ~1x means the video reached well beyond the channel's own audience — usually a sign the algorithm picked it up. Below ~0.2x is a routine upload for a large channel.
+
+THE OVERPERFORMERS (reached far beyond their subscriber base):
+
+1. "Working on Apple Vision Pro" — Spatial Insider (22.5K subs)
+   215.8K views | 9.59x engagement | Dec 2025
+   This is the standout by a wide margin. A small-to-mid channel pulled ~10x its subscriber count. Productivity/"can you actually work on it" framing clearly hit a nerve.
+   https://www.youtube.com/watch?v=sOsXNHQ4dKk
+
+2. "Apple Vision pro did something to my brain I didn't expect" — jEarpo Tech (525 subs)
+   3.6K views | 6.78x engagement | 3 days ago (May 2026)
+   Tiny channel (525 subs) getting ~7x reach on a brand-new upload. Curiosity-gap title doing the heavy lifting; one to watch since it's still fresh.
+   https://www.youtube.com/watch?v=8ubcjxY5jJw
+
+3. "AirDraw for Apple Vision Pro is Mind-Blowing" — FSK Shots and Tech (3.8K subs)
+   4.0K views | 1.06x engagement | Jan 2026
+   A short (52s) app demo that modestly outran its channel. App-specific "wow" demos travel well.
+   https://www.youtube.com/watch?v=XE_vZ8T3PPA
+
+WHAT THE BIG CHANNELS ARE GETTING (high raw views, low engagement ratio — normal for their size):
+
+- "Pourquoi Apple abandonne déjà le Vision Pro ?" — Léo Duff (822K subs): 349K views, 0.42x, Jan 2026. The most-viewed video overall. French-language "is Apple giving up on it?" angle.
+  https://www.youtube.com/watch?v=8od96m3Nx6g
+- "J'ai remplacé tous mes écrans par un Vision Pro M5" — Nightech (150K subs): 81.7K views, 0.54x, Jan 2026. Note the "M5" — a refreshed model is part of the current conversation.
+  https://www.youtube.com/watch?v=t09R7KDWBi0
+- "Is the Apple Vision Pro...Dead?" — MacRumors (644K subs): 58.1K views, 0.09x, May 2026.
+  https://www.youtube.com/watch?v=btB6-2eb43g
+- "Samsung Galaxy XR: 2x moins cher que l'Apple Vision Pro!" — Frandroid (606K subs): 65.1K views, 0.11x, Jan 2026. Competitor-comparison framing.
+  https://www.youtube.com/watch?v=li0qbCPkI-8
+
+THEMES IN THE CURRENT CONVERSATION:
+- A strong "is it dead / is Apple abandoning it?" narrative (Léo Duff, MacRumors).
+- A pivot toward real-world utility — working/productivity, surgery, travel — rather than first-look hype. The biggest overperformer is a "working on it" video, and Spatial Insider also has a surgery-use interview (8.2K views).
+- Competitor framing against Samsung Galaxy XR and Quest 3.
+- Talk of an "M5" Vision Pro refresh.
+
+A couple of channels show subscriber counts as N/A (Mashable, Tom's Guide), so no engagement ratio could be computed for those.
+
+TAKEAWAY: If you want the clearest examples of videos overperforming relative to channel size, watch the Spatial Insider "Working on Apple Vision Pro" video (9.59x) and the jEarpo Tech "did something to my brain" video (6.78x) — both small channels reaching well past their base. The highest absolute viewership belongs to French creator Léo Duff's "is Apple abandoning it?" video at 349K.
+
+A clickable Markdown version of the full list was also saved to:
+/Users/khelil/Documents/obsidian/Brain/youtube-apple-vision-pro.md

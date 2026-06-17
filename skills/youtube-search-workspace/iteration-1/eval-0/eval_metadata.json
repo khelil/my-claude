@@ -1,0 +1,13 @@
+{
+  "eval_id": 0,
+  "eval_name": "recent-topic-default",
+  "prompt": "Find me the best recent YouTube videos about home espresso machines for beginners.",
+  "assertions": [
+    {"text": "Output includes all 7 required fields (title, channel, subscriber count, view count, duration, upload date, URL)"},
+    {"text": "Includes a views-to-subscribers engagement ratio for each video"},
+    {"text": "Results are filtered to roughly the last 6 months (default window)"},
+    {"text": "Has visual dividers between each result"},
+    {"text": "Numbers are human-readable (e.g. 1.2M, 340K) rather than raw integers"},
+    {"text": "Returns multiple results (up to 20) rather than just one or two"}
+  ]
+}

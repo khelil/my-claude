@@ -1,0 +1,29 @@
+{
+  "skill_name": "youtube-search",
+  "evals": [
+    {
+      "id": 0,
+      "name": "recent-topic-default",
+      "prompt": "Find me the best recent YouTube videos about home espresso machines for beginners.",
+      "expected_output": "Top ~20 videos from the last 6 months, each with title, channel, subscriber count, view count, duration, upload date, URL, and engagement ratio. Dividers between results, human-readable numbers.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 1,
+      "name": "year-window-save-note",
+      "prompt": "I'm researching what's been published on YouTube about the Zig programming language over the past year. Pull together a list with view counts and how big each channel is, and save it as a markdown note in my vault at /Users/khelil/Documents/obsidian/Brain.",
+      "expected_output": "Results filtered to ~12 months (not the 6-month default), saved as a Markdown file in the vault with clickable links, plus terminal output. Should report scanned/matched counts.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "name": "engagement-overperformers",
+      "prompt": "what are people watching on youtube about the apple vision pro lately? i'm especially curious which videos are overperforming relative to how big the channel is.",
+      "expected_output": "Recent videos with the views-to-subscribers engagement ratio surfaced and interpreted — should call out which videos overperform (ratio > ~1) rather than just listing rows.",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}

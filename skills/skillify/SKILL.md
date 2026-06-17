@@ -1,0 +1,1 @@
+/Users/khelil/.claude/skills/gstack/skillify/SKILL.md

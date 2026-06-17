@@ -1,0 +1,40 @@
+{
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 6,
+    "failed": 0,
+    "total": 6
+  },
+  "expectations": [
+    {
+      "text": "Found ~10 videos and created a notebook",
+      "passed": true,
+      "evidence": "10 sources, 0 failures; notebook 6759650c"
+    },
+    {
+      "text": "Added videos as notebook sources (notebook_id present)",
+      "passed": true,
+      "evidence": "notebook_id 6759650c, 10 ready"
+    },
+    {
+      "text": "Analysis addresses actual question (args each side), grounded",
+      "passed": true,
+      "evidence": "Pro-Rust / pro-Zig cases, disagreements + per-source notes; very thorough"
+    },
+    {
+      "text": "Saved Markdown report to vault under notebooklm/<topic>/",
+      "passed": true,
+      "evidence": "notebooklm/zig-vs-rust/ (same folder collision)"
+    },
+    {
+      "text": "Showed report content in chat (not just path)",
+      "passed": true,
+      "evidence": "Full report in chat"
+    },
+    {
+      "text": "Report includes views, channels, engagement ratios",
+      "passed": true,
+      "evidence": "Full source table"
+    }
+  ]
+}

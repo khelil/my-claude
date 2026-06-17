@@ -1,0 +1,45 @@
+{
+  "expectations": [
+    {
+      "text": "Used ~12-month window not 6",
+      "passed": true,
+      "evidence": "Filtered to videos on/after 2025-06-02"
+    },
+    {
+      "text": "Saved .md into vault path",
+      "passed": true,
+      "evidence": "Zig on YouTube - Past Year Roundup.md saved to vault"
+    },
+    {
+      "text": "Markdown has clickable links",
+      "passed": true,
+      "evidence": "Table with Link column"
+    },
+    {
+      "text": "Includes views + subscriber counts",
+      "passed": true,
+      "evidence": "subscriber buckets + view counts in table"
+    },
+    {
+      "text": "Reports scanned vs matched",
+      "passed": true,
+      "evidence": "Reported 110 IDs collected, 52 on-topic"
+    },
+    {
+      "text": "Tells user the save path",
+      "passed": true,
+      "evidence": "stated path"
+    },
+    {
+      "text": "FORMAT: relevance order + engagement metric",
+      "passed": false,
+      "evidence": "Sorted by views (not YouTube relevance), no engagement ratio computed; custom table format diverges from spec; took 280s (2.3x slower)"
+    }
+  ],
+  "summary": {
+    "pass_rate": 0.857,
+    "passed": 6,
+    "failed": 1,
+    "total": 7
+  }
+}

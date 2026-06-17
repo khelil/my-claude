@@ -1,0 +1,170 @@
+Searching YouTube for "home espresso machines for beginners" (scanning up to 60 candidates)...
+Found 60 candidates. Extracting full metadata in parallel...
+  ...extracted 10/60 videos
+  ...extracted 20/60 videos
+  ...extracted 30/60 videos
+  ...extracted 40/60 videos
+  ...extracted 50/60 videos
+  ...extracted 60/60 videos
+
+Saved Markdown to /Users/khelil/.claude/skills/youtube-search-workspace/iteration-1/recent-topic-default/with_skill/outputs/home-espresso-beginners.md
+────────────────────────────────────────────────────────────────
+YouTube search: "home espresso machines for beginners"
+Window: last 6 month(s)  |  scanned 60 candidates, 3 matched  |  showing 3
+────────────────────────────────────────────────────────────────
+
+1. ✅Best Espresso Machines 2026 – Our Top Picks for Beginners
+   Channel:    Smart Home   (11.8K subs)
+   Views:      3.3K   |  Engagement: 0.28x (views/subs)
+   Duration:   14:12   |  Uploaded: 2025-12-10 (5mo ago)
+   https://www.youtube.com/watch?v=VQvEIl7Z1nk
+────────────────────────────────────────────────────────────────
+
+2. The Best Espresso Machine You've Never Heard Of
+   Channel:    Daddy Got Coffee  (69.6K subs)
+   Views:      91.5K   |  Engagement: 1.32x (views/subs)
+   Duration:   20:15   |  Uploaded: 2026-02-07 (3mo ago)
+   https://www.youtube.com/watch?v=4MJnPVnY3_o
+────────────────────────────────────────────────────────────────
+
+3. If I Started Coffee in 2026… Here’s EXACTLY What I’d Do!
+   Channel:    Daddy Got Coffee  (69.6K subs)
+   Views:      308.6K   |  Engagement: 4.43x (views/subs)
+   Duration:   14:11   |  Uploaded: 2025-12-20 (5mo ago)
+   https://www.youtube.com/watch?v=5JxysoMjIME
+────────────────────────────────────────────────────────────────
+Searching YouTube for "home espresso machines for beginners" (scanning up to 80 candidates)...
+Found 80 candidates. Extracting full metadata in parallel...
+  ...extracted 10/80 videos
+  ...extracted 20/80 videos
+  ...extracted 30/80 videos
+  ...extracted 40/80 videos
+  ...extracted 50/80 videos
+  ...extracted 60/80 videos
+  ...extracted 70/80 videos
+  ...extracted 80/80 videos
+
+Saved Markdown to /Users/khelil/.claude/skills/youtube-search-workspace/iteration-1/recent-topic-default/with_skill/outputs/home-espresso-beginners.md
+────────────────────────────────────────────────────────────────
+YouTube search: "home espresso machines for beginners"
+Window: last 12 month(s)  |  scanned 80 candidates, 17 matched  |  showing 17
+────────────────────────────────────────────────────────────────
+
+1. Best Entry Level Espresso Machines 2025 – Our Top Picks for Beginners
+   Channel:    Whole Latte Love  (389.0K subs)
+   Views:      133.2K   |  Engagement: 0.34x (views/subs)
+   Duration:   15:29   |  Uploaded: 2025-11-07 (6mo ago)
+   https://www.youtube.com/watch?v=miNqgmVH9I0
+────────────────────────────────────────────────────────────────
+
+2. ✅Best Espresso Machines 2026 – Our Top Picks for Beginners
+   Channel:    Smart Home   (11.8K subs)
+   Views:      3.3K   |  Engagement: 0.28x (views/subs)
+   Duration:   14:12   |  Uploaded: 2025-12-10 (5mo ago)
+   https://www.youtube.com/watch?v=VQvEIl7Z1nk
+────────────────────────────────────────────────────────────────
+
+3. If I Started Coffee in 2026… Here’s EXACTLY What I’d Do!
+   Channel:    Daddy Got Coffee  (69.6K subs)
+   Views:      308.6K   |  Engagement: 4.43x (views/subs)
+   Duration:   14:11   |  Uploaded: 2025-12-20 (5mo ago)
+   https://www.youtube.com/watch?v=5JxysoMjIME
+────────────────────────────────────────────────────────────────
+
+4. How Good Can the Breville Bambino Get? (Real Espresso Results)
+   Channel:    Alternative Brewing  (75.7K subs)
+   Views:      93.7K   |  Engagement: 1.24x (views/subs)
+   Duration:   12:58   |  Uploaded: 2025-11-16 (6mo ago)
+   https://www.youtube.com/watch?v=bzgNtqsP0oo
+────────────────────────────────────────────────────────────────
+
+5. Best Espresso Machines (Beginner to Advanced) | Gear Heads
+   Channel:    America's Test Kitchen  (2.95M subs)
+   Views:      235.0K   |  Engagement: 0.08x (views/subs)
+   Duration:   14:53   |  Uploaded: 2025-11-08 (6mo ago)
+   https://www.youtube.com/watch?v=l9sCPE181r4
+────────────────────────────────────────────────────────────────
+
+6. Breville vs DeLonghi 2025: Top 7 Espresso Machines Compared For Home Use
+   Channel:    Coffee Machine Ratings  (283 subs)
+   Views:      15.7K   |  Engagement: 55x (views/subs)
+   Duration:   7:18   |  Uploaded: 2025-09-19 (8mo ago)
+   https://www.youtube.com/watch?v=UcDyB2OaITQ
+────────────────────────────────────────────────────────────────
+
+7. What Coffee Machine to buy in 2025? Under $1K USD
+   Channel:    Coffee Coach | Ryde Jeavons  (26.7K subs)
+   Views:      79.8K   |  Engagement: 2.99x (views/subs)
+   Duration:   24:44   |  Uploaded: 2025-08-24 (9mo ago)
+   https://www.youtube.com/watch?v=VXVzAd-R8mg
+────────────────────────────────────────────────────────────────
+
+8. The Best Espresso Machine You've Never Heard Of
+   Channel:    Daddy Got Coffee  (69.6K subs)
+   Views:      91.5K   |  Engagement: 1.32x (views/subs)
+   Duration:   20:15   |  Uploaded: 2026-02-07 (3mo ago)
+   https://www.youtube.com/watch?v=4MJnPVnY3_o
+────────────────────────────────────────────────────────────────
+
+9. How to Make a Flat White, Latte & Cappuccino at Home (Beginner Guide)
+   Channel:    Artisti Coffee Roasters.  (236.0K subs)
+   Views:      54.0K   |  Engagement: 0.23x (views/subs)
+   Duration:   7:31   |  Uploaded: 2025-06-19 (11mo ago)
+   https://www.youtube.com/watch?v=yK_xrKL-uWo
+────────────────────────────────────────────────────────────────
+
+10. The Best Espresso Machines Under $500
+   Channel:    Eric the Coffee Guy  (4.9K subs)
+   Views:      17.5K   |  Engagement: 3.57x (views/subs)
+   Duration:   28:47   |  Uploaded: 2025-11-26 (6mo ago)
+   https://www.youtube.com/watch?v=fP-qD4CxZZg
+────────────────────────────────────────────────────────────────
+
+11. ✅Best Coffee Machines 2026 [Wait Until You See What’s #1]
+   Channel:    Smart Home   (11.8K subs)
+   Views:      28.9K   |  Engagement: 2.45x (views/subs)
+   Duration:   10:53   |  Uploaded: 2025-11-25 (6mo ago)
+   https://www.youtube.com/watch?v=WsA3Hn5gmm4
+────────────────────────────────────────────────────────────────
+
+12. Watery or Bitter Espresso? Dial In Your Barista Express Like This
+   Channel:    Golden Brown Coffee  (327.0K subs)
+   Views:      1.04M   |  Engagement: 3.18x (views/subs)
+   Duration:   14:39   |  Uploaded: 2025-08-25 (9mo ago)
+   https://www.youtube.com/watch?v=qFl0k5e_Tio
+────────────────────────────────────────────────────────────────
+
+13. Ninja vs Breville vs KitchenAid vs De’Longhi: The Real Winner Among Semi-Automatic Espresso Machine
+   Channel:    Cafelista_Coffee  (8.5K subs)
+   Views:      77.2K   |  Engagement: 9.09x (views/subs)
+   Duration:   18:37   |  Uploaded: 2025-10-29 (7mo ago)
+   https://www.youtube.com/watch?v=lpOAW-T-kbk
+────────────────────────────────────────────────────────────────
+
+14. Which Breville Espresso Machine Should You Buy?
+   Channel:    Eric the Coffee Guy  (4.9K subs)
+   Views:      27.7K   |  Engagement: 5.64x (views/subs)
+   Duration:   18:24   |  Uploaded: 2025-07-08 (10mo ago)
+   https://www.youtube.com/watch?v=yP_flHmkAss
+────────────────────────────────────────────────────────────────
+
+15. Cusimax Espresso Machine with Grinder: Easiest for Beginners!
+   Channel:    Reviews and How To's!  (4.6K subs)
+   Views:      5.0K   |  Engagement: 1.08x (views/subs)
+   Duration:   5:17   |  Uploaded: 2025-07-29 (10mo ago)
+   https://www.youtube.com/watch?v=pwkBiYYYNHE
+────────────────────────────────────────────────────────────────
+
+16. Best Budget Espresso Machine? Gemilai Owl Espresso Machine & Gemilai Grinder | Review & Tutorial
+   Channel:    Barista in Pajamas  (16.9K subs)
+   Views:      12.1K   |  Engagement: 0.71x (views/subs)
+   Duration:   6:19   |  Uploaded: 2025-09-10 (8mo ago)
+   https://www.youtube.com/watch?v=Y75CBsoncLY
+────────────────────────────────────────────────────────────────
+
+17. How to use a Ninja Cafe Luxe Premier Series Coffee Machine / Maker | Step by Step Tutorial and Guide
+   Channel:    A2B Productions  (32.3K subs)
+   Views:      147.8K   |  Engagement: 4.58x (views/subs)
+   Duration:   13:47   |  Uploaded: 2025-09-13 (8mo ago)
+   https://www.youtube.com/watch?v=oR2kIC40SOo
+────────────────────────────────────────────────────────────────

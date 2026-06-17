@@ -1,0 +1,12 @@
+{
+  "eval_id": 2,
+  "eval_name": "engagement-overperformers",
+  "prompt": "what are people watching on youtube about the apple vision pro lately? i'm especially curious which videos are overperforming relative to how big the channel is.",
+  "assertions": [
+    {"text": "Computes and shows the views-to-subscribers engagement ratio for each video"},
+    {"text": "Explicitly calls out / interprets which videos overperform (high ratio) rather than only listing rows"},
+    {"text": "Results are recent (roughly the last 6 months)"},
+    {"text": "Includes the core metadata fields (title, channel, subscribers, views, URL)"},
+    {"text": "Numbers are human-readable"}
+  ]
+}
