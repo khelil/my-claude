@@ -78,13 +78,19 @@ the script and bind dynamic data in the editor, or read GB's dynamic-tags docs.
 
 `generateblocks-pro/{tabs, accordion, carousel, navigation, site-header, menu-*}`.
 These ship JS and have required parent/child structures (e.g. `tabs` →
-`tabs-menu` → `tab-menu-item` + `tab-items` → `tab-item`). They are far easier
-and safer to insert from the editor's block inserter / pattern library than to
-hand-serialize. **Recommendation:** scaffold the surrounding layout with the
-script, then tell the user to drop the Pro interactive block in and style it.
+`tabs-menu` → `tab-menu-item` + `tab-items` → `tab-item`).
 
-If you must scaffold a Pro block, the **required nesting** (block names, verified
-against GB Pro 2.5.x `dist/blocks/*/block.json`) is:
+**Accordion and Tabs ARE reliably hand-authorable** (as a `raw` node or pasted
+markup) — they're dynamic blocks that preserve your saved classes and enqueue
+their JS by block name. Full verified, paste-ready recipes (structure, classes,
+open-state attrs, the show/hide-CSS gotcha for tabs, a11y/keyboard contract) live
+in **`references/accordion-tabs.md`** — read it before building either. The
+accordion is self-sufficient (base CSS handles show/hide); tabs need you to ship
+the panel show/hide CSS yourself. Carousel/Navigation/site-header are heavier and
+still safer from the inserter unless you have a tested snippet.
+
+The **required nesting** for all of them (block names, verified against GB Pro
+2.5.x `dist/blocks/*/block.json`) is:
 
 - **Tabs:** `tabs` → `tabs-menu` → `tab-menu-item`… + `tab-items` → `tab-item`…
   (a `tab-menu-item` and its `tab-item` share `"tabItemOpen":true` for the active tab).

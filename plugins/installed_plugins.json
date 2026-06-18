@@ -97,6 +97,16 @@
         "lastUpdated": "2026-06-11T11:46:06.205Z",
         "gitCommitSha": "54ad156019d7362a56d8024b9adbe99952aa29b6"
       }
+    ],
+    "superpowers@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.2",
+        "version": "6.0.2",
+        "installedAt": "2026-06-18T12:35:28.966Z",
+        "lastUpdated": "2026-06-18T12:35:28.966Z",
+        "gitCommitSha": "b62616fc12f6a007c6fd5118146821d748da0d33"
+      }
     ]
   }
 }

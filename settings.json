@@ -111,7 +111,8 @@
     "skill-creator@claude-plugins-official": true,
     "playwright@claude-plugins-official": true,
     "claude-code-setup@claude-plugins-official": true,
-    "figma@claude-plugins-official": true
+    "figma@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-code-warp": {

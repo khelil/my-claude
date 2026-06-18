@@ -137,3 +137,8 @@ When the user asks for a page, section, or component:
   modals, and popups: the `gblocks_overlay` CPT, `_gb_overlay_*` meta, the
   open/close (`data-gb-overlay` / `data-gb-overlay-close`) contract, trigger
   wiring, and gotchas. Read before building any mega-menu/modal/popup.
+- `references/accordion-tabs.md` — GenerateBlocks Pro **Accordion & Tabs**:
+  verified, paste-ready markup recipes (structure, classes, open-state attrs,
+  single-/multi-open + transitions, a11y/keyboard contract). Key gotcha: the
+  accordion is self-sufficient but tabs need you to ship the panel show/hide CSS.
+  Read before building either (FAQ accordions, tabbed content).
