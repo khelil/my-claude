@@ -5,7 +5,7 @@
       "repo": "anthropics/claude-code"
     },
     "installLocation": "/Users/khelil/.claude/plugins/marketplaces/claude-code-plugins",
-    "lastUpdated": "2026-06-17T20:13:58.794Z"
+    "lastUpdated": "2026-06-19T09:27:26.474Z"
   },
   "claude-plugins-official": {
     "source": {
@@ -13,7 +13,7 @@
       "repo": "anthropics/claude-plugins-official"
     },
     "installLocation": "/Users/khelil/.claude/plugins/marketplaces/claude-plugins-official",
-    "lastUpdated": "2026-06-17T20:13:58.907Z"
+    "lastUpdated": "2026-06-19T20:13:08.165Z"
   },
   "claude-code-warp": {
     "source": {
