@@ -49,13 +49,27 @@ When the user asks for a page, section, or component:
    bold/editorial vs playful)? If the look is wide open, make a tasteful
    decision and say what you chose — don't stall on questions for a homepage.
 
-2. **Set the design system before building.** Decide the spacing scale, type
-   scale, and how you'll use the GeneratePress palette variables
-   (`var(--base)`, `--contrast`, `--accent`, …). Read `references/design-system.md`
-   for the principles that separate "stunning" from "AI slop" (spacing
-   discipline, sparing accent use, whitespace, asymmetry, restrained motion,
-   accessibility). Prefer the theme's CSS variables over hardcoded hex/px —
-   see `references/generatepress.md` for the variable names and container width.
+2. **Discover the live design system, THEN set yours.** Never invent tokens or
+   classes the site already has — first introspect the actual install (WP-CLI):
+   ```bash
+   wp option get generate_settings --format=json   # palette (global_colors), typography/font_manager, container_width
+   wp post list --post_type=gblocks_styles --fields=ID,post_title   # GenerateBlocks Global Styles = reusable component classes
+   wp post list --post_type=wp_block --fields=ID,post_title          # reusable blocks — compose, don't rebuild
+   wp eval 'foreach (WP_Block_Patterns_Registry::get_instance()->get_all_registered() as $p) if (strpos($p["name"],"core/")!==0) echo $p["name"]."\n";'  # non-core patterns
+   ```
+   Also read the active **child theme's `style.css`** for version-controlled
+   component classes (e.g. `.btn-primary`, `.card`, `.section`) and any `:root`
+   custom properties. **Reuse what exists:** add an existing class via
+   `globalClasses` instead of recreating its `styles`; reference palette/type
+   with `var(--…)`, never hardcoded hex/px; compose `wp_block` reusables (as a
+   `raw` `<!-- wp:block {"ref":<id>} /-->` node) and patterns where they fit.
+   *Only then* decide the spacing/type scale for anything genuinely new. Read
+   `references/design-system.md` for the judgment that separates "stunning" from
+   "AI slop"; `references/generatepress.md` for the variable names and container
+   width.
+
+   *(On the Blockwright plugin the agent gets all of this from one
+   `get_design_system` tool call — same principle: reuse before inventing.)*
 
 3. **Plan the block structure**, then build it as a JSON tree for the script:
    - Full-width `element` (`tagName:"section"`) per section; inner content
