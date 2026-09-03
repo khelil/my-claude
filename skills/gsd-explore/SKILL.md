@@ -16,11 +16,11 @@ Open-ended Socratic ideation session. Guides the developer through exploring an 
 probing questions, optionally spawns research, then routes outputs to the appropriate GSD
 artifacts (notes, todos, seeds, research questions, requirements, or new phases).
 
-Accepts an optional topic argument: `/gsd:explore authentication strategy`
+Accepts an optional topic argument: `/gsd-explore authentication strategy`
 </objective>
 
 <execution_context>
-@$HOME/.claude/get-shit-done/workflows/explore.md
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/explore.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/explore.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
 </execution_context>
 
 <process>

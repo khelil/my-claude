@@ -32,10 +32,10 @@ Mode routing:
 </routing>
 
 <execution_context>
-@$HOME/.claude/get-shit-done/workflows/add-phase.md
-@$HOME/.claude/get-shit-done/workflows/insert-phase.md
-@$HOME/.claude/get-shit-done/workflows/remove-phase.md
-@$HOME/.claude/get-shit-done/workflows/edit-phase.md
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/add-phase.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/add-phase.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/insert-phase.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/insert-phase.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/remove-phase.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/remove-phase.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/edit-phase.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/edit-phase.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
 </execution_context>
 
 <context>

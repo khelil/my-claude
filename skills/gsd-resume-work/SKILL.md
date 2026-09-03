@@ -23,7 +23,7 @@ Routes to the resume-project workflow which handles:
   </objective>
 
 <execution_context>
-@$HOME/.claude/get-shit-done/workflows/resume-project.md
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/resume-project.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/resume-project.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
 </execution_context>
 
 <process>

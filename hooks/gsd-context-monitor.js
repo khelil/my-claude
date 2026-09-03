@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// gsd-hook-version: 1.42.3
+// gsd-hook-version: 1.12.0
 // Context Monitor - PostToolUse/AfterTool hook (Gemini uses AfterTool)
 // Reads context metrics from the statusline bridge file and injects
 // warnings when context usage is high. This makes the AGENT aware of
@@ -22,6 +22,13 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { spawn } = require('child_process');
+const { HOOK_ON_CRASH, allow, crash } = require('./lib/hook-exit.js');
+
+// This hook only injects an advisory context-usage warning; it never blocks
+// the tool call it rides in on. A crash here (e.g. a malformed bridge file)
+// must not turn a PostToolUse advisory into a blocked tool call — losing a
+// context warning is far cheaper than stalling the agent's work (#3911).
+const ON_CRASH = HOOK_ON_CRASH.ALLOW;
 
 const WARNING_THRESHOLD = 35;  // remaining_percentage <= 35%
 const CRITICAL_THRESHOLD = 25; // remaining_percentage <= 25%
@@ -33,7 +40,7 @@ let input = '';
 // Windows/Git Bash, or slow Claude Code piping during large outputs),
 // exit silently instead of hanging until Claude Code kills the process
 // and reports "hook error". See #775, #1162.
-const stdinTimeout = setTimeout(() => process.exit(0), 10000);
+const stdinTimeout = setTimeout(() => allow(undefined), 10000);
 process.stdin.setEncoding('utf8');
 process.stdin.on('data', chunk => input += chunk);
 process.stdin.on('end', () => {
@@ -43,46 +50,49 @@ process.stdin.on('end', () => {
     const sessionId = data.session_id;
 
     if (!sessionId) {
-      process.exit(0);
+      allow(undefined);
     }
 
     // Reject session IDs that contain path traversal sequences or path separators.
     // session_id is used to construct file paths in /tmp — an unsanitized value
     // could escape the temp directory and read or write arbitrary files.
     if (/[/\\]|\.\./.test(sessionId)) {
-      process.exit(0);
+      allow(undefined);
     }
 
     // Check if context warnings are disabled via config.
-    // Quick sentinel check: skip config read entirely for non-GSD projects (#P2.5).
+    // Collapsed existsSync+readFileSync into a single read guarded by try/catch
+    // (ENOENT or parse error → use defaults, same as old "planningDir absent" branch).
     const cwd = data.cwd || process.cwd();
-    const planningDir = path.join(cwd, '.planning');
-    if (fs.existsSync(planningDir)) {
-      try {
-        const configPath = path.join(planningDir, 'config.json');
-        const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-        if (config.hooks?.context_warnings === false) {
-          process.exit(0);
-        }
-      } catch (e) {
-        // Ignore config read/parse errors (config may not exist in .planning/)
+    try {
+      const configPath = path.join(cwd, '.planning', 'config.json');
+      const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+      if (config.hooks?.context_warnings === false) {
+        allow(undefined);
       }
+    } catch (e) {
+      // Missing or unparseable config → proceed with defaults (context warnings enabled)
     }
 
     const tmpDir = os.tmpdir();
     const metricsPath = path.join(tmpDir, `claude-ctx-${sessionId}.json`);
 
-    // If no metrics file, this is a subagent or fresh session -- exit silently
-    if (!fs.existsSync(metricsPath)) {
-      process.exit(0);
+    // If no metrics file, this is a subagent or fresh session -- exit silently.
+    // Collapsed existsSync+readFileSync: ENOENT → exit 0 (identical to old !existsSync branch),
+    // other errors rethrow to the outer catch (swallowed → exit 0, as before).
+    let metricsRaw;
+    try {
+      metricsRaw = fs.readFileSync(metricsPath, 'utf8');
+    } catch (e) {
+      if (e && e.code === 'ENOENT') allow(undefined);
+      throw e;
     }
-
-    const metrics = JSON.parse(fs.readFileSync(metricsPath, 'utf8'));
+    const metrics = JSON.parse(metricsRaw);
     const now = Math.floor(Date.now() / 1000);
 
     // Ignore stale metrics
     if (metrics.timestamp && (now - metrics.timestamp) > STALE_SECONDS) {
-      process.exit(0);
+      allow(undefined);
     }
 
     const remaining = metrics.remaining_percentage;
@@ -90,7 +100,7 @@ process.stdin.on('end', () => {
 
     // No warning needed
     if (remaining > WARNING_THRESHOLD) {
-      process.exit(0);
+      allow(undefined);
     }
 
     // Debounce: check if we warned recently
@@ -98,13 +108,13 @@ process.stdin.on('end', () => {
     let warnData = { callsSinceWarn: 0, lastLevel: null };
     let firstWarn = true;
 
-    if (fs.existsSync(warnPath)) {
-      try {
-        warnData = JSON.parse(fs.readFileSync(warnPath, 'utf8'));
-        firstWarn = false;
-      } catch (e) {
-        // Corrupted file, reset
-      }
+    // Collapsed existsSync+readFileSync: ENOENT or parse error → keep default warnData
+    // (same as old "file absent" branch). firstWarn tracks whether we read a valid sentinel.
+    try {
+      warnData = JSON.parse(fs.readFileSync(warnPath, 'utf8'));
+      firstWarn = false;
+    } catch (e) {
+      // Missing or corrupted sentinel → firstWarn stays true, warnData stays at defaults
     }
 
     warnData.callsSinceWarn = (warnData.callsSinceWarn || 0) + 1;
@@ -118,7 +128,7 @@ process.stdin.on('end', () => {
     if (!firstWarn && warnData.callsSinceWarn < DEBOUNCE_CALLS && !severityEscalated) {
       // Update counter and exit without warning
       fs.writeFileSync(warnPath, JSON.stringify(warnData));
-      process.exit(0);
+      allow(undefined);
     }
 
     // Reset debounce counter
@@ -130,24 +140,24 @@ process.stdin.on('end', () => {
     const isGsdActive = fs.existsSync(path.join(cwd, '.planning', 'STATE.md'));
 
     // On CRITICAL with active GSD project, auto-record session state as a
-    // breadcrumb for /gsd:resume-work (#1974). Fire-and-forget subprocess —
+    // breadcrumb for /gsd-resume-work (#1974). Fire-and-forget subprocess —
     // doesn't block the hook or the agent. Fires ONCE per CRITICAL session,
     // guarded by warnData.criticalRecorded to prevent repeated overwrites
     // of the "crash moment" record on every debounce cycle.
     if (isCritical && isGsdActive && !warnData.criticalRecorded) {
       try {
         // Runtime-agnostic path: this hook lives at <runtime-config>/hooks/
-        // and gsd-tools.cjs lives at <runtime-config>/get-shit-done/bin/.
+        // and gsd-tools.cjs lives at <runtime-config>/gsd-core/bin/.
         // Using __dirname makes this work on Claude Code, OpenCode, Gemini,
         // Kilo, etc. without hardcoding ~/.claude/.
-        const gsdTools = path.join(__dirname, '..', 'get-shit-done', 'bin', 'gsd-tools.cjs');
+        const gsdTools = path.join(__dirname, '..', 'gsd-core', 'bin', 'gsd-tools.cjs');
         // Coerce usedPct to a safe number in case bridge file is malformed
         const safeUsedPct = Number(usedPct) || 0;
         const stoppedAt = `context exhaustion at ${safeUsedPct}% (${new Date().toISOString().split('T')[0]})`;
         spawn(
           process.execPath,
           [gsdTools, 'state', 'record-session', '--stopped-at', stoppedAt],
-          { cwd, detached: true, stdio: 'ignore' }
+          { cwd, detached: true, stdio: 'ignore', windowsHide: true }
         ).unref();
         warnData.criticalRecorded = true;
         // Persist the sentinel so subsequent debounce cycles don't re-fire
@@ -163,7 +173,7 @@ process.stdin.on('end', () => {
         ? `CONTEXT CRITICAL: Usage at ${usedPct}%. Remaining: ${remaining}%. ` +
           'Context is nearly exhausted. Do NOT start new complex work or write handoff files — ' +
           'GSD state is already tracked in STATE.md. Inform the user so they can run ' +
-          '/gsd:pause-work at the next natural stopping point.'
+          '/gsd-pause-work at the next natural stopping point.'
         : `CONTEXT CRITICAL: Usage at ${usedPct}%. Remaining: ${remaining}%. ` +
           'Context is nearly exhausted. Inform the user that context is low and ask how they ' +
           'want to proceed. Do NOT autonomously save state or write handoff files unless the user asks.';
@@ -177,16 +187,37 @@ process.stdin.on('end', () => {
           'starting new complex work.';
     }
 
-    const output = {
-      hookSpecificOutput: {
-        hookEventName: process.env.GEMINI_API_KEY ? "AfterTool" : "PostToolUse",
-        additionalContext: message
-      }
-    };
+    // #2289: the hookSpecificOutput.additionalContext envelope is only a valid
+    // output shape for the context-injection events (PostToolUse, and AfterTool
+    // for the Gemini dialect). This hook is also wired to other lifecycle events
+    // on some hosts — Codex registers it under Stop / SubagentStart /
+    // SubagentStop / PreCompact (#772) — and those reject the envelope
+    // ("hook returned invalid stop hook JSON output"). Use a POSITIVE allowlist:
+    // emit only for injection-capable events; every other event, and a
+    // missing/unrecognized name, exits 0 with no stdout. A Stop-only blacklist is
+    // not enough — a missing name would still fall through to the injection path.
+    // All side effects above (debounce counter, one-time critical-session
+    // recording) have already run regardless of whether output is emitted.
+    const eventName = (data.hook_event_name && data.hook_event_name.trim()) || "";
+    // Preserve the pre-#2289 Gemini fallback: a missing event name under a
+    // Gemini-dialect runtime (GEMINI_API_KEY set) still means AfterTool, so its
+    // advisory output is unchanged. A missing name on any other host is silent.
+    const geminiFallback = eventName === "" && !!process.env.GEMINI_API_KEY;
+    const injectionSupported = eventName === "PostToolUse" || eventName === "AfterTool" || geminiFallback;
 
-    process.stdout.write(JSON.stringify(output));
+    if (injectionSupported) {
+      const output = {
+        hookSpecificOutput: {
+          hookEventName: eventName || "AfterTool",
+          additionalContext: message
+        }
+      };
+      process.stdout.write(JSON.stringify(output));
+    }
   } catch (e) {
-    // Silent fail -- never block tool execution
-    process.exit(0);
+    // Silent fail -- never block tool execution.
+    // ON_CRASH is declared ALLOW at module top: this preserves today's
+    // exit(0) fail-open behavior exactly (#3911).
+    crash(ON_CRASH, undefined);
   }
 });

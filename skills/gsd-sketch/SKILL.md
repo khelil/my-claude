@@ -30,13 +30,13 @@ Does not require prior new-project setup — auto-creates `.planning/sketches/` 
 </objective>
 
 <execution_context>
-@$HOME/.claude/get-shit-done/workflows/sketch.md
-@$HOME/.claude/get-shit-done/workflows/sketch-wrap-up.md
-@$HOME/.claude/get-shit-done/references/ui-brand.md
-@$HOME/.claude/get-shit-done/references/sketch-theme-system.md
-@$HOME/.claude/get-shit-done/references/sketch-interactivity.md
-@$HOME/.claude/get-shit-done/references/sketch-tooling.md
-@$HOME/.claude/get-shit-done/references/sketch-variant-patterns.md
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/sketch.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/sketch.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/sketch-wrap-up.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/sketch-wrap-up.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+@~/.claude/gsd-core/references/ui-brand.md
+@~/.claude/gsd-core/references/sketch-theme-system.md
+@~/.claude/gsd-core/references/sketch-interactivity.md
+@~/.claude/gsd-core/references/sketch-tooling.md
+@~/.claude/gsd-core/references/sketch-variant-patterns.md
 </execution_context>
 
 <runtime_note>

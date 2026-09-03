@@ -32,8 +32,8 @@ Context budget: ~15% orchestrator, 100% fresh per subagent.
 </objective>
 
 <execution_context>
-@$HOME/.claude/get-shit-done/workflows/execute-phase.md
-@$HOME/.claude/get-shit-done/references/ui-brand.md
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/execute-phase.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/execute-phase.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+@~/.claude/gsd-core/references/ui-brand.md
 </execution_context>
 
 <runtime_note>
@@ -55,7 +55,7 @@ Phase: $ARGUMENTS
 - If none of these tokens appear, run the standard full-phase execution flow with no flag-specific filtering
 - Do not infer that a flag is active just because it is documented in this prompt
 
-Context files are resolved inside the workflow via `gsd-sdk query init.execute-phase` and per-subagent `<files_to_read>` blocks.
+Context files are resolved inside the workflow via `gsd-tools query init.execute-phase` and per-subagent `<required_reading>` blocks.
 </context>
 
 <process>

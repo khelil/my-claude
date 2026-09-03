@@ -1,7 +1,7 @@
 ---
 name: gsd-capture
 description: "Capture ideas, tasks, notes, and seeds to their destination"
-argument-hint: "[--note | --backlog | --seed | --list] [text]"
+argument-hint: "[--note | --backlog | --seed | --list | --list-seeds] [text]"
 allowed-tools:
   - Read
   - Write
@@ -22,6 +22,7 @@ Mode routing:
 - **--backlog**: Add an idea to the backlog parking lot (999.x numbering) → add-backlog workflow
 - **--seed**: Capture a forward-looking idea with trigger conditions → plant-seed workflow
 - **--list**: List pending todos and select one to work on → check-todos workflow
+- **--list-seeds**: List/audit captured seeds (optional status filter) → list-seeds workflow
 </objective>
 
 <routing>
@@ -33,16 +34,18 @@ Mode routing:
 | --backlog | ROADMAP.md backlog section (999.x) | add-backlog |
 | --seed | .planning/seeds/SEED-NNN-slug.md | plant-seed |
 | --list | Interactive todo browser + action router | check-todos |
+| --list-seeds | Read-only seed list/audit (optional status filter) | list-seeds |
 
 </routing>
 
 <execution_context>
-@$HOME/.claude/get-shit-done/workflows/add-todo.md
-@$HOME/.claude/get-shit-done/workflows/note.md
-@$HOME/.claude/get-shit-done/workflows/add-backlog.md
-@$HOME/.claude/get-shit-done/workflows/plant-seed.md
-@$HOME/.claude/get-shit-done/workflows/check-todos.md
-@$HOME/.claude/get-shit-done/references/ui-brand.md
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/add-todo.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/add-todo.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/note.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/note.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/add-backlog.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/add-backlog.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/plant-seed.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/plant-seed.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/check-todos.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/check-todos.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/list-seeds.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/list-seeds.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+@~/.claude/gsd-core/references/ui-brand.md
 </execution_context>
 
 <context>
@@ -52,6 +55,7 @@ Parse the first token of $ARGUMENTS:
 - If it is `--note`: strip the flag, pass remainder to note workflow
 - If it is `--backlog`: strip the flag, pass remainder to add-backlog workflow
 - If it is `--seed`: strip the flag, pass remainder to plant-seed workflow
+- If it is `--list-seeds`: strip the flag, pass remainder (optional status filter) to list-seeds workflow
 - If it is `--list`: pass remainder (optional area filter) to check-todos workflow
 - Otherwise: pass all of $ARGUMENTS to add-todo workflow
 </context>

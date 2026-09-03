@@ -1,7 +1,7 @@
 ---
 name: gsd-new-milestone
 description: "Start a new milestone cycle — update PROJECT.md and route to requirements"
-argument-hint: "[milestone name, e.g., 'v1.1 Notifications']"
+argument-hint: "[milestone name, e.g., 'v1.1 Notifications'] [--ws <name>] [--reset-phase-numbers]"
 allowed-tools:
   - Read
   - Write
@@ -22,21 +22,21 @@ Brownfield equivalent of new-project. Project exists, PROJECT.md has history. Ga
 - `.planning/ROADMAP.md` — phase structure (continues numbering)
 - `.planning/STATE.md` — reset for new milestone
 
-**After:** `/gsd:plan-phase [N]` to start execution.
+**After:** `/gsd-plan-phase [N]` to start execution.
 </objective>
 
 <execution_context>
-@$HOME/.claude/get-shit-done/workflows/new-milestone.md
-@$HOME/.claude/get-shit-done/references/questioning.md
-@$HOME/.claude/get-shit-done/references/ui-brand.md
-@$HOME/.claude/get-shit-done/templates/project.md
-@$HOME/.claude/get-shit-done/templates/requirements.md
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/new-milestone.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/new-milestone.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+@~/.claude/gsd-core/references/questioning.md
+@~/.claude/gsd-core/references/ui-brand.md
+@~/.claude/gsd-core/templates/project.md
+@~/.claude/gsd-core/templates/requirements.md
 </execution_context>
 
 <context>
 Milestone name: $ARGUMENTS (optional - will prompt if not provided)
 
-Project and milestone context files are resolved inside the workflow (`init new-milestone`) and delegated via `<files_to_read>` blocks where subagents are used.
+Project and milestone context files are resolved inside the workflow (`init new-milestone`) and delegated via `<required_reading>` blocks where subagents are used.
 </context>
 
 <process>

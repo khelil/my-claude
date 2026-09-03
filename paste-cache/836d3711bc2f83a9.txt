@@ -1,0 +1,17 @@
+Cause identifiée
+
+Le site conserve un fichier wp-content/object-cache.php hérité de l'ancien hébergement WP Engine, resté en place après la migration vers OVH. Ce composant tente de se connecter à un service de cache mémoire (Memcached) propre à WP Engine et inexistant sur OVH. Chaque opération de cache échouait donc silencieusement, obligeant WordPress à recharger l'intégralité des options depuis MySQL à chaque appel — d'où la saturation en requêtes.
+
+Correctif appliqué
+
+Désactivation du composant obsolète (renommage du fichier object-cache.php, opération réversible et sans perte : ce cache était de toute façon non fonctionnel sur OVH). WordPress est revenu à son mécanisme de cache interne standard.
+
+Résultat (mesuré avant / après)
+
+┌────────────────────────────────┬──────────┬───────┐
+│           Indicateur           │  Avant   │ Après │
+├────────────────────────────────┼──────────┼───────┤
+│ Requêtes SQL par page          │    1 323 │    63 │
+├────────────────────────────────┼──────────┼───────┤
+│ Temps base de données par page │ 1 578 ms │ 63 ms │
+└────────────────────────────────┴──────────┴───────┘

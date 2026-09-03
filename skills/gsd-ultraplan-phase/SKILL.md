@@ -14,15 +14,15 @@ allowed-tools:
 Offload GSD's plan phase to Claude Code's ultraplan cloud infrastructure.
 
 Ultraplan drafts the plan in a remote cloud session while your terminal stays free.
-Review and comment on the plan in your browser, then import it back via /gsd:import --from.
+Review and comment on the plan in your browser, then import it back via /gsd-import --from.
 
-⚠ BETA: ultraplan is in research preview. Use /gsd:plan-phase for stable local planning.
+⚠ BETA: ultraplan is in research preview. Use /gsd-plan-phase for stable local planning.
 Requirements: Claude Code v2.1.91+, claude.ai account, GitHub repository.
 </objective>
 
 <execution_context>
-@$HOME/.claude/get-shit-done/workflows/ultraplan-phase.md
-@$HOME/.claude/get-shit-done/references/ui-brand.md
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/ultraplan-phase.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/ultraplan-phase.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+@~/.claude/gsd-core/references/ui-brand.md
 </execution_context>
 
 <context>

@@ -28,10 +28,10 @@ Auto-synthesizes most conflicts using the precedence rule `ADR > SPEC > PRD > DO
 </objective>
 
 <execution_context>
-@$HOME/.claude/get-shit-done/workflows/ingest-docs.md
-@$HOME/.claude/get-shit-done/references/ui-brand.md
-@$HOME/.claude/get-shit-done/references/gate-prompts.md
-@$HOME/.claude/get-shit-done/references/doc-conflict-engine.md
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/ingest-docs.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/ingest-docs.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+@~/.claude/gsd-core/references/ui-brand.md
+@~/.claude/gsd-core/references/gate-prompts.md
+@~/.claude/gsd-core/references/doc-conflict-engine.md
 </execution_context>
 
 <context>

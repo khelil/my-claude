@@ -30,15 +30,15 @@ Initialize a new project through unified flow: questioning → research (optiona
 - `.planning/ROADMAP.md` — phase structure
 - `.planning/STATE.md` — project memory
 
-**After this command:** Run `/gsd:plan-phase 1` to start execution.
+**After this command:** Run `/gsd-plan-phase 1` to start execution.
 </objective>
 
 <execution_context>
-@$HOME/.claude/get-shit-done/workflows/new-project.md
-@$HOME/.claude/get-shit-done/references/questioning.md
-@$HOME/.claude/get-shit-done/references/ui-brand.md
-@$HOME/.claude/get-shit-done/templates/project.md
-@$HOME/.claude/get-shit-done/templates/requirements.md
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/new-project.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/new-project.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+@~/.claude/gsd-core/references/questioning.md
+@~/.claude/gsd-core/references/ui-brand.md
+@~/.claude/gsd-core/templates/project.md
+@~/.claude/gsd-core/templates/requirements.md
 </execution_context>
 
 <process>

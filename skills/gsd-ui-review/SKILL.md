@@ -19,8 +19,8 @@ Output: {phase_num}-UI-REVIEW.md
 </objective>
 
 <execution_context>
-@$HOME/.claude/get-shit-done/workflows/ui-review.md
-@$HOME/.claude/get-shit-done/references/ui-brand.md
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/ui-review.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/ui-review.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
+@~/.claude/gsd-core/references/ui-brand.md
 </execution_context>
 
 <context>

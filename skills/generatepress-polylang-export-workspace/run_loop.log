@@ -1,0 +1,1545 @@
+Split: 12 train, 8 test (holdout=0.4)
+
+============================================================
+Iteration 1/5
+Description: Produce bilingual XLIFF translation files from a Polylang (Pro) WordPress site — including sites built with GeneratePress / GenerateBlocks or any block-based (Gutenberg) content — with the EXISTING translations pre-filled into the <target> fields. Use this whenever the user wants to export site content for translation via Polylang, generate XLIFF for pages / custom post types / GP Elements / dealers / any post type, hand content to a translator or CAT tool, or back up / migrate existing translations as XLIFF. ESPECIALLY reach for this skill when a Polylang XLIFF export comes back with the translated body (post_content) empty even though the translation exists in the DB — that is a known, deliberate Polylang behavior this skill works around. Trigger on "XLIFF", "Polylang export", "export the translations", "translate the pages", "bilingual XLIFF", or "the post_content targets are empty", even if the user does not name the exact mechanism.
+============================================================
+Train: 18/36 correct, precision=100% recall=0% accuracy=50% (109.7s)
+  [FAIL] rate=0/3 expected=True: back up all our polylang translations as xliff files before 
+  [FAIL] rate=0/3 expected=True: the post_content targets come out blank in my polylang expor
+  [FAIL] rate=0/3 expected=True: can you give me xliff files of the header and footer GP elem
+  [FAIL] rate=0/3 expected=True: we're handing content to a CAT tool — need the pages exporte
+  [FAIL] rate=0/3 expected=True: on utilise Polylang sur notre site WP, il faut que j'exporte
+  [FAIL] rate=0/3 expected=True: polylang m'a exporté un xliff mais le corps des pages est vi
+  [PASS] rate=0/3 expected=False: translate this paragraph into German for me: 'Découvrez notr
+  [PASS] rate=0/3 expected=False: the polylang language switcher widget disappeared from the f
+  [PASS] rate=0/3 expected=False: import this xliff file the translator sent back into polylan
+  [PASS] rate=0/3 expected=False: how do I sync ACF field groups from the theme's acf-json fol
+  [PASS] rate=0/3 expected=False: write the English copy for our new About page, keep it aroun
+  [PASS] rate=0/3 expected=False: export all our WooCommerce orders from last month to a CSV
+Test : 12/24 correct, precision=100% recall=0% accuracy=50% (0.0s)
+  [FAIL] rate=0/3 expected=True: hey can u export the site content so i can send it to a tran
+  [FAIL] rate=0/3 expected=True: export the vehicle custom post type content to xliff, french
+  [PASS] rate=0/3 expected=False: build a new hero section in GenerateBlocks for the homepage 
+  [FAIL] rate=0/3 expected=True: produce translation files in XLIFF for all entries of our 'd
+  [FAIL] rate=0/3 expected=True: I need a bilingual XLIFF with the existing German translatio
+  [PASS] rate=0/3 expected=False: generate a .pot file for my theme so the strings can be tran
+  [PASS] rate=0/3 expected=False: set up WPML on my WooCommerce store and configure the langua
+  [PASS] rate=0/3 expected=False: my ACF fields aren't showing as translatable in Polylang, ho
+
+Improving description...
+Proposed (25.8s): Use this skill to export content from a Polylang (Pro) WordPress site as XLIFF translation files with the existing translations already filled into the target fields — a true bilingual source+translation file, not the source-only file Polylang gives you. Reach for it whenever someone wants to: hand pages, posts, custom post types, or GeneratePress/GenerateBlocks GP Elements (header/footer/etc.) to a translation agency or CAT tool; back up or migrate existing Polylang translations as XLIFF before a migration; or produce one XLIFF per language (en, de, fr…). Critically, use it when a Polylang XLIFF export comes back with the page body (post_content) empty or blank even though the translation exists — a known Polylang behavior on block/Gutenberg content that this skill works around. Applies equally to French phrasing (exporter les pages pour l'agence de traduction, le corps des pages est vide).
+
+============================================================
+Iteration 2/5
+Description: Use this skill to export content from a Polylang (Pro) WordPress site as XLIFF translation files with the existing translations already filled into the target fields — a true bilingual source+translation file, not the source-only file Polylang gives you. Reach for it whenever someone wants to: hand pages, posts, custom post types, or GeneratePress/GenerateBlocks GP Elements (header/footer/etc.) to a translation agency or CAT tool; back up or migrate existing Polylang translations as XLIFF before a migration; or produce one XLIFF per language (en, de, fr…). Critically, use it when a Polylang XLIFF export comes back with the page body (post_content) empty or blank even though the translation exists — a known Polylang behavior on block/Gutenberg content that this skill works around. Applies equally to French phrasing (exporter les pages pour l'agence de traduction, le corps des pages est vide).
+============================================================
+Train: 18/36 correct, precision=100% recall=0% accuracy=50% (103.8s)
+  [FAIL] rate=0/3 expected=True: the post_content targets come out blank in my polylang expor
+  [FAIL] rate=0/3 expected=True: back up all our polylang translations as xliff files before 
+  [FAIL] rate=0/3 expected=True: can you give me xliff files of the header and footer GP elem
+  [FAIL] rate=0/3 expected=True: we're handing content to a CAT tool — need the pages exporte
+  [FAIL] rate=0/3 expected=True: on utilise Polylang sur notre site WP, il faut que j'exporte
+  [FAIL] rate=0/3 expected=True: polylang m'a exporté un xliff mais le corps des pages est vi
+  [PASS] rate=0/3 expected=False: translate this paragraph into German for me: 'Découvrez notr
+  [PASS] rate=0/3 expected=False: import this xliff file the translator sent back into polylan
+  [PASS] rate=0/3 expected=False: the polylang language switcher widget disappeared from the f
+  [PASS] rate=0/3 expected=False: how do I sync ACF field groups from the theme's acf-json fol
+  [PASS] rate=0/3 expected=False: export all our WooCommerce orders from last month to a CSV
+  [PASS] rate=0/3 expected=False: write the English copy for our new About page, keep it aroun
+Test : 12/24 correct, precision=100% recall=0% accuracy=50% (0.0s)
+  [FAIL] rate=0/3 expected=True: hey can u export the site content so i can send it to a tran
+  [FAIL] rate=0/3 expected=True: export the vehicle custom post type content to xliff, french
+  [FAIL] rate=0/3 expected=True: I need a bilingual XLIFF with the existing German translatio
+  [FAIL] rate=0/3 expected=True: produce translation files in XLIFF for all entries of our 'd
+  [PASS] rate=0/3 expected=False: build a new hero section in GenerateBlocks for the homepage 
+  [PASS] rate=0/3 expected=False: generate a .pot file for my theme so the strings can be tran
+  [PASS] rate=0/3 expected=False: set up WPML on my WooCommerce store and configure the langua
+  [PASS] rate=0/3 expected=False: my ACF fields aren't showing as translatable in Polylang, ho
+
+Improving description...
+Proposed (20.5s): Use this skill to get existing Polylang (Pro) WordPress translations OUT of the site as XLIFF files — pages, posts, custom post types, or GeneratePress/GenerateBlocks GP Elements (header, footer, etc.). Reach for it whenever someone wants to export site content for a translation agency, translator, or CAT tool; hand off pages/posts as XLIFF; produce one file per language; or back up / migrate translations before a site move. Also use it when a Polylang XLIFF export comes back with the page body empty or blank while titles are fine — a known Polylang limitation on Gutenberg/block content this skill fixes by pre-filling the target with the real translation. Handles French requests too (exporter les pages pour l'agence de traduction, le corps des pages est vide). Not for importing XLIFF back, translating a snippet, or CSV/WooCommerce exports.
+
+============================================================
+Iteration 3/5
+Description: Use this skill to get existing Polylang (Pro) WordPress translations OUT of the site as XLIFF files — pages, posts, custom post types, or GeneratePress/GenerateBlocks GP Elements (header, footer, etc.). Reach for it whenever someone wants to export site content for a translation agency, translator, or CAT tool; hand off pages/posts as XLIFF; produce one file per language; or back up / migrate translations before a site move. Also use it when a Polylang XLIFF export comes back with the page body empty or blank while titles are fine — a known Polylang limitation on Gutenberg/block content this skill fixes by pre-filling the target with the real translation. Handles French requests too (exporter les pages pour l'agence de traduction, le corps des pages est vide). Not for importing XLIFF back, translating a snippet, or CSV/WooCommerce exports.
+============================================================
+Train: 18/36 correct, precision=100% recall=0% accuracy=50% (472.0s)
+  [FAIL] rate=0/3 expected=True: we're handing content to a CAT tool — need the pages exporte
+  [FAIL] rate=0/3 expected=True: the post_content targets come out blank in my polylang expor
+  [FAIL] rate=0/3 expected=True: back up all our polylang translations as xliff files before 
+  [FAIL] rate=0/3 expected=True: can you give me xliff files of the header and footer GP elem
+  [FAIL] rate=0/3 expected=True: on utilise Polylang sur notre site WP, il faut que j'exporte
+  [FAIL] rate=0/3 expected=True: polylang m'a exporté un xliff mais le corps des pages est vi
+  [PASS] rate=0/3 expected=False: translate this paragraph into German for me: 'Découvrez notr
+  [PASS] rate=0/3 expected=False: import this xliff file the translator sent back into polylan
+  [PASS] rate=0/3 expected=False: the polylang language switcher widget disappeared from the f
+  [PASS] rate=0/3 expected=False: how do I sync ACF field groups from the theme's acf-json fol
+  [PASS] rate=0/3 expected=False: export all our WooCommerce orders from last month to a CSV
+  [PASS] rate=0/3 expected=False: write the English copy for our new About page, keep it aroun
+Test : 12/24 correct, precision=100% recall=0% accuracy=50% (0.0s)
+  [FAIL] rate=0/3 expected=True: hey can u export the site content so i can send it to a tran
+  [FAIL] rate=0/3 expected=True: export the vehicle custom post type content to xliff, french
+  [FAIL] rate=0/3 expected=True: produce translation files in XLIFF for all entries of our 'd
+  [FAIL] rate=0/3 expected=True: I need a bilingual XLIFF with the existing German translatio
+  [PASS] rate=0/3 expected=False: build a new hero section in GenerateBlocks for the homepage 
+  [PASS] rate=0/3 expected=False: generate a .pot file for my theme so the strings can be tran
+  [PASS] rate=0/3 expected=False: set up WPML on my WooCommerce store and configure the langua
+  [PASS] rate=0/3 expected=False: my ACF fields aren't showing as translatable in Polylang, ho
+
+Improving description...
+Proposed (23.9s): Export Polylang (Pro) WordPress translations as XLIFF files. Use whenever someone wants to hand site content to a translation agency, translator, or CAT tool; produce XLIFF for pages, posts, custom post types, or GeneratePress/GenerateBlocks GP Elements (header, footer, etc.); get one file per target language; or back up / migrate existing translations before a site move. Also use when a Polylang XLIFF export comes back with the page body / post_content targets empty or blank while the titles are fine — a known Polylang limitation on block/Gutenberg content that this skill works around by pre-filling each target with the real existing translation (a true source+translation bilingual file). Applies to any language pair (en, de, fr…) and to French-worded requests (exporter les pages pour l'agence de traduction; le corps des pages est vide). Not for importing an XLIFF back into the site, translating a short snippet of text, or CSV / WooCommerce exports.
+
+============================================================
+Iteration 4/5
+Description: Export Polylang (Pro) WordPress translations as XLIFF files. Use whenever someone wants to hand site content to a translation agency, translator, or CAT tool; produce XLIFF for pages, posts, custom post types, or GeneratePress/GenerateBlocks GP Elements (header, footer, etc.); get one file per target language; or back up / migrate existing translations before a site move. Also use when a Polylang XLIFF export comes back with the page body / post_content targets empty or blank while the titles are fine — a known Polylang limitation on block/Gutenberg content that this skill works around by pre-filling each target with the real existing translation (a true source+translation bilingual file). Applies to any language pair (en, de, fr…) and to French-worded requests (exporter les pages pour l'agence de traduction; le corps des pages est vide). Not for importing an XLIFF back into the site, translating a short snippet of text, or CSV / WooCommerce exports.
+============================================================
+Train: 18/36 correct, precision=100% recall=0% accuracy=50% (103.9s)
+  [FAIL] rate=0/3 expected=True: back up all our polylang translations as xliff files before 
+  [FAIL] rate=0/3 expected=True: the post_content targets come out blank in my polylang expor
+  [FAIL] rate=0/3 expected=True: we're handing content to a CAT tool — need the pages exporte
+  [FAIL] rate=0/3 expected=True: can you give me xliff files of the header and footer GP elem
+  [FAIL] rate=0/3 expected=True: on utilise Polylang sur notre site WP, il faut que j'exporte
+  [FAIL] rate=0/3 expected=True: polylang m'a exporté un xliff mais le corps des pages est vi
+  [PASS] rate=0/3 expected=False: translate this paragraph into German for me: 'Découvrez notr
+  [PASS] rate=0/3 expected=False: import this xliff file the translator sent back into polylan
+  [PASS] rate=0/3 expected=False: the polylang language switcher widget disappeared from the f
+  [PASS] rate=0/3 expected=False: how do I sync ACF field groups from the theme's acf-json fol
+  [PASS] rate=0/3 expected=False: export all our WooCommerce orders from last month to a CSV
+  [PASS] rate=0/3 expected=False: write the English copy for our new About page, keep it aroun
+Test : 12/24 correct, precision=100% recall=0% accuracy=50% (0.0s)
+  [FAIL] rate=0/3 expected=True: hey can u export the site content so i can send it to a tran
+  [FAIL] rate=0/3 expected=True: export the vehicle custom post type content to xliff, french
+  [FAIL] rate=0/3 expected=True: produce translation files in XLIFF for all entries of our 'd
+  [PASS] rate=0/3 expected=False: build a new hero section in GenerateBlocks for the homepage 
+  [PASS] rate=0/3 expected=False: generate a .pot file for my theme so the strings can be tran
+  [FAIL] rate=0/3 expected=True: I need a bilingual XLIFF with the existing German translatio
+  [PASS] rate=0/3 expected=False: set up WPML on my WooCommerce store and configure the langua
+  [PASS] rate=0/3 expected=False: my ACF fields aren't showing as translatable in Polylang, ho
+
+Improving description...
+Proposed (39.5s): Use whenever someone on a WordPress + Polylang site wants their translated content OUT as XLIFF files. Covers: exporting pages, posts, custom post types, or GeneratePress/GenerateBlocks GP Elements (header, footer, menus) for a translation agency, translator, or CAT tool; producing a bilingual source+translation file (not source-only); making one XLIFF per language (en, de, fr…); or backing up / migrating existing Polylang translations before a site move. Also use when a Polylang XLIFF export comes back with the page body / post_content targets empty or blank while titles look fine — this skill fills those targets with the real existing translation. Works in any language and fires on French requests too (exporter les pages pour l'agence de traduction; le corps des pages est vide). Do NOT use for importing an XLIFF back into the site, translating a short snippet, or CSV / WooCommerce exports.
+
+============================================================
+Iteration 5/5
+Description: Use whenever someone on a WordPress + Polylang site wants their translated content OUT as XLIFF files. Covers: exporting pages, posts, custom post types, or GeneratePress/GenerateBlocks GP Elements (header, footer, menus) for a translation agency, translator, or CAT tool; producing a bilingual source+translation file (not source-only); making one XLIFF per language (en, de, fr…); or backing up / migrating existing Polylang translations before a site move. Also use when a Polylang XLIFF export comes back with the page body / post_content targets empty or blank while titles look fine — this skill fills those targets with the real existing translation. Works in any language and fires on French requests too (exporter les pages pour l'agence de traduction; le corps des pages est vide). Do NOT use for importing an XLIFF back into the site, translating a short snippet, or CSV / WooCommerce exports.
+============================================================
+Train: 18/36 correct, precision=100% recall=0% accuracy=50% (102.3s)
+  [FAIL] rate=0/3 expected=True: the post_content targets come out blank in my polylang expor
+  [FAIL] rate=0/3 expected=True: back up all our polylang translations as xliff files before 
+  [FAIL] rate=0/3 expected=True: we're handing content to a CAT tool — need the pages exporte
+  [FAIL] rate=0/3 expected=True: can you give me xliff files of the header and footer GP elem
+  [FAIL] rate=0/3 expected=True: on utilise Polylang sur notre site WP, il faut que j'exporte
+  [PASS] rate=0/3 expected=False: translate this paragraph into German for me: 'Découvrez notr
+  [FAIL] rate=0/3 expected=True: polylang m'a exporté un xliff mais le corps des pages est vi
+  [PASS] rate=0/3 expected=False: import this xliff file the translator sent back into polylan
+  [PASS] rate=0/3 expected=False: the polylang language switcher widget disappeared from the f
+  [PASS] rate=0/3 expected=False: export all our WooCommerce orders from last month to a CSV
+  [PASS] rate=0/3 expected=False: how do I sync ACF field groups from the theme's acf-json fol
+  [PASS] rate=0/3 expected=False: write the English copy for our new About page, keep it aroun
+Test : 12/24 correct, precision=100% recall=0% accuracy=50% (0.0s)
+  [FAIL] rate=0/3 expected=True: hey can u export the site content so i can send it to a tran
+  [FAIL] rate=0/3 expected=True: export the vehicle custom post type content to xliff, french
+  [PASS] rate=0/3 expected=False: build a new hero section in GenerateBlocks for the homepage 
+  [FAIL] rate=0/3 expected=True: produce translation files in XLIFF for all entries of our 'd
+  [FAIL] rate=0/3 expected=True: I need a bilingual XLIFF with the existing German translatio
+  [PASS] rate=0/3 expected=False: generate a .pot file for my theme so the strings can be tran
+  [PASS] rate=0/3 expected=False: set up WPML on my WooCommerce store and configure the langua
+  [PASS] rate=0/3 expected=False: my ACF fields aren't showing as translatable in Polylang, ho
+
+Max iterations reached (5).
+
+Exit reason: max_iterations (5)
+Best score: 4/8 (iteration 1)
+
+Report: /Users/khelil/.claude/skills/generatepress-polylang-export-workspace/optimization-report.html
+{
+  "exit_reason": "max_iterations (5)",
+  "original_description": "Produce bilingual XLIFF translation files from a Polylang (Pro) WordPress site \u2014 including sites built with GeneratePress / GenerateBlocks or any block-based (Gutenberg) content \u2014 with the EXISTING translations pre-filled into the <target> fields. Use this whenever the user wants to export site content for translation via Polylang, generate XLIFF for pages / custom post types / GP Elements / dealers / any post type, hand content to a translator or CAT tool, or back up / migrate existing translations as XLIFF. ESPECIALLY reach for this skill when a Polylang XLIFF export comes back with the translated body (post_content) empty even though the translation exists in the DB \u2014 that is a known, deliberate Polylang behavior this skill works around. Trigger on \"XLIFF\", \"Polylang export\", \"export the translations\", \"translate the pages\", \"bilingual XLIFF\", or \"the post_content targets are empty\", even if the user does not name the exact mechanism.",
+  "best_description": "Produce bilingual XLIFF translation files from a Polylang (Pro) WordPress site \u2014 including sites built with GeneratePress / GenerateBlocks or any block-based (Gutenberg) content \u2014 with the EXISTING translations pre-filled into the <target> fields. Use this whenever the user wants to export site content for translation via Polylang, generate XLIFF for pages / custom post types / GP Elements / dealers / any post type, hand content to a translator or CAT tool, or back up / migrate existing translations as XLIFF. ESPECIALLY reach for this skill when a Polylang XLIFF export comes back with the translated body (post_content) empty even though the translation exists in the DB \u2014 that is a known, deliberate Polylang behavior this skill works around. Trigger on \"XLIFF\", \"Polylang export\", \"export the translations\", \"translate the pages\", \"bilingual XLIFF\", or \"the post_content targets are empty\", even if the user does not name the exact mechanism.",
+  "best_score": "4/8",
+  "best_train_score": "6/12",
+  "best_test_score": "4/8",
+  "final_description": "Use whenever someone on a WordPress + Polylang site wants their translated content OUT as XLIFF files. Covers: exporting pages, posts, custom post types, or GeneratePress/GenerateBlocks GP Elements (header, footer, menus) for a translation agency, translator, or CAT tool; producing a bilingual source+translation file (not source-only); making one XLIFF per language (en, de, fr\u2026); or backing up / migrating existing Polylang translations before a site move. Also use when a Polylang XLIFF export comes back with the page body / post_content targets empty or blank while titles look fine \u2014 this skill fills those targets with the real existing translation. Works in any language and fires on French requests too (exporter les pages pour l'agence de traduction; le corps des pages est vide). Do NOT use for importing an XLIFF back into the site, translating a short snippet, or CSV / WooCommerce exports.",
+  "iterations_run": 5,
+  "holdout": 0.4,
+  "train_size": 12,
+  "test_size": 8,
+  "history": [
+    {
+      "iteration": 1,
+      "description": "Produce bilingual XLIFF translation files from a Polylang (Pro) WordPress site \u2014 including sites built with GeneratePress / GenerateBlocks or any block-based (Gutenberg) content \u2014 with the EXISTING translations pre-filled into the <target> fields. Use this whenever the user wants to export site content for translation via Polylang, generate XLIFF for pages / custom post types / GP Elements / dealers / any post type, hand content to a translator or CAT tool, or back up / migrate existing translations as XLIFF. ESPECIALLY reach for this skill when a Polylang XLIFF export comes back with the translated body (post_content) empty even though the translation exists in the DB \u2014 that is a known, deliberate Polylang behavior this skill works around. Trigger on \"XLIFF\", \"Polylang export\", \"export the translations\", \"translate the pages\", \"bilingual XLIFF\", or \"the post_content targets are empty\", even if the user does not name the exact mechanism.",
+      "train_passed": 6,
+      "train_failed": 6,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "back up all our polylang translations as xliff files before the migration",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "the post_content targets come out blank in my polylang export on this generateblocks site even though the translation exists",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "can you give me xliff files of the header and footer GP elements, one per language (en + de)",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "we're handing content to a CAT tool \u2014 need the pages exported as source+translation xliff, not just source",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "on utilise Polylang sur notre site WP, il faut que j'exporte toutes les pages pour l'agence de traduction, tu peux me sortir les fichiers ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "polylang m'a export\u00e9 un xliff mais le corps des pages est vide, les titres eux sont bien l\u00e0. c'est normal ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "translate this paragraph into German for me: 'D\u00e9couvrez notre nouvelle gamme de camping-cars'",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "the polylang language switcher widget disappeared from the footer after the last update, can you fix it",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "import this xliff file the translator sent back into polylang and apply the translations",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "how do I sync ACF field groups from the theme's acf-json folder?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "write the English copy for our new About page, keep it around 300 words",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "export all our WooCommerce orders from last month to a CSV",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "hey can u export the site content so i can send it to a translator, its a polylang multilingual wordpress site with gutenberg blocks",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "export the vehicle custom post type content to xliff, french to english, for our translators",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "build a new hero section in GenerateBlocks for the homepage with a two-column layout",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "produce translation files in XLIFF for all entries of our 'dealer' post type, FR->EN and FR->DE",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need a bilingual XLIFF with the existing German translations already filled into the target fields",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "generate a .pot file for my theme so the strings can be translated with Loco Translate",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "set up WPML on my WooCommerce store and configure the language switcher",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "my ACF fields aren't showing as translatable in Polylang, how do I make them translatable in the settings?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "failed": 6,
+      "total": 12,
+      "results": [
+        {
+          "query": "back up all our polylang translations as xliff files before the migration",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "the post_content targets come out blank in my polylang export on this generateblocks site even though the translation exists",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "can you give me xliff files of the header and footer GP elements, one per language (en + de)",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "we're handing content to a CAT tool \u2014 need the pages exported as source+translation xliff, not just source",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "on utilise Polylang sur notre site WP, il faut que j'exporte toutes les pages pour l'agence de traduction, tu peux me sortir les fichiers ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "polylang m'a export\u00e9 un xliff mais le corps des pages est vide, les titres eux sont bien l\u00e0. c'est normal ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "translate this paragraph into German for me: 'D\u00e9couvrez notre nouvelle gamme de camping-cars'",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "the polylang language switcher widget disappeared from the footer after the last update, can you fix it",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "import this xliff file the translator sent back into polylang and apply the translations",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "how do I sync ACF field groups from the theme's acf-json folder?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "write the English copy for our new About page, keep it around 300 words",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "export all our WooCommerce orders from last month to a CSV",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 2,
+      "description": "Use this skill to export content from a Polylang (Pro) WordPress site as XLIFF translation files with the existing translations already filled into the target fields \u2014 a true bilingual source+translation file, not the source-only file Polylang gives you. Reach for it whenever someone wants to: hand pages, posts, custom post types, or GeneratePress/GenerateBlocks GP Elements (header/footer/etc.) to a translation agency or CAT tool; back up or migrate existing Polylang translations as XLIFF before a migration; or produce one XLIFF per language (en, de, fr\u2026). Critically, use it when a Polylang XLIFF export comes back with the page body (post_content) empty or blank even though the translation exists \u2014 a known Polylang behavior on block/Gutenberg content that this skill works around. Applies equally to French phrasing (exporter les pages pour l'agence de traduction, le corps des pages est vide).",
+      "train_passed": 6,
+      "train_failed": 6,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "the post_content targets come out blank in my polylang export on this generateblocks site even though the translation exists",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "back up all our polylang translations as xliff files before the migration",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "can you give me xliff files of the header and footer GP elements, one per language (en + de)",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "we're handing content to a CAT tool \u2014 need the pages exported as source+translation xliff, not just source",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "on utilise Polylang sur notre site WP, il faut que j'exporte toutes les pages pour l'agence de traduction, tu peux me sortir les fichiers ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "polylang m'a export\u00e9 un xliff mais le corps des pages est vide, les titres eux sont bien l\u00e0. c'est normal ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "translate this paragraph into German for me: 'D\u00e9couvrez notre nouvelle gamme de camping-cars'",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "import this xliff file the translator sent back into polylang and apply the translations",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "the polylang language switcher widget disappeared from the footer after the last update, can you fix it",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "how do I sync ACF field groups from the theme's acf-json folder?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "export all our WooCommerce orders from last month to a CSV",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "write the English copy for our new About page, keep it around 300 words",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "hey can u export the site content so i can send it to a translator, its a polylang multilingual wordpress site with gutenberg blocks",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "export the vehicle custom post type content to xliff, french to english, for our translators",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need a bilingual XLIFF with the existing German translations already filled into the target fields",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "produce translation files in XLIFF for all entries of our 'dealer' post type, FR->EN and FR->DE",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "build a new hero section in GenerateBlocks for the homepage with a two-column layout",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "generate a .pot file for my theme so the strings can be translated with Loco Translate",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "set up WPML on my WooCommerce store and configure the language switcher",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "my ACF fields aren't showing as translatable in Polylang, how do I make them translatable in the settings?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "failed": 6,
+      "total": 12,
+      "results": [
+        {
+          "query": "the post_content targets come out blank in my polylang export on this generateblocks site even though the translation exists",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "back up all our polylang translations as xliff files before the migration",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "can you give me xliff files of the header and footer GP elements, one per language (en + de)",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "we're handing content to a CAT tool \u2014 need the pages exported as source+translation xliff, not just source",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "on utilise Polylang sur notre site WP, il faut que j'exporte toutes les pages pour l'agence de traduction, tu peux me sortir les fichiers ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "polylang m'a export\u00e9 un xliff mais le corps des pages est vide, les titres eux sont bien l\u00e0. c'est normal ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "translate this paragraph into German for me: 'D\u00e9couvrez notre nouvelle gamme de camping-cars'",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "import this xliff file the translator sent back into polylang and apply the translations",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "the polylang language switcher widget disappeared from the footer after the last update, can you fix it",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "how do I sync ACF field groups from the theme's acf-json folder?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "export all our WooCommerce orders from last month to a CSV",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "write the English copy for our new About page, keep it around 300 words",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 3,
+      "description": "Use this skill to get existing Polylang (Pro) WordPress translations OUT of the site as XLIFF files \u2014 pages, posts, custom post types, or GeneratePress/GenerateBlocks GP Elements (header, footer, etc.). Reach for it whenever someone wants to export site content for a translation agency, translator, or CAT tool; hand off pages/posts as XLIFF; produce one file per language; or back up / migrate translations before a site move. Also use it when a Polylang XLIFF export comes back with the page body empty or blank while titles are fine \u2014 a known Polylang limitation on Gutenberg/block content this skill fixes by pre-filling the target with the real translation. Handles French requests too (exporter les pages pour l'agence de traduction, le corps des pages est vide). Not for importing XLIFF back, translating a snippet, or CSV/WooCommerce exports.",
+      "train_passed": 6,
+      "train_failed": 6,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "we're handing content to a CAT tool \u2014 need the pages exported as source+translation xliff, not just source",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "the post_content targets come out blank in my polylang export on this generateblocks site even though the translation exists",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "back up all our polylang translations as xliff files before the migration",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "can you give me xliff files of the header and footer GP elements, one per language (en + de)",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "on utilise Polylang sur notre site WP, il faut que j'exporte toutes les pages pour l'agence de traduction, tu peux me sortir les fichiers ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "polylang m'a export\u00e9 un xliff mais le corps des pages est vide, les titres eux sont bien l\u00e0. c'est normal ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "translate this paragraph into German for me: 'D\u00e9couvrez notre nouvelle gamme de camping-cars'",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "import this xliff file the translator sent back into polylang and apply the translations",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "the polylang language switcher widget disappeared from the footer after the last update, can you fix it",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "how do I sync ACF field groups from the theme's acf-json folder?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "export all our WooCommerce orders from last month to a CSV",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "write the English copy for our new About page, keep it around 300 words",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "hey can u export the site content so i can send it to a translator, its a polylang multilingual wordpress site with gutenberg blocks",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "export the vehicle custom post type content to xliff, french to english, for our translators",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "produce translation files in XLIFF for all entries of our 'dealer' post type, FR->EN and FR->DE",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need a bilingual XLIFF with the existing German translations already filled into the target fields",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "build a new hero section in GenerateBlocks for the homepage with a two-column layout",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "generate a .pot file for my theme so the strings can be translated with Loco Translate",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "set up WPML on my WooCommerce store and configure the language switcher",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "my ACF fields aren't showing as translatable in Polylang, how do I make them translatable in the settings?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "failed": 6,
+      "total": 12,
+      "results": [
+        {
+          "query": "we're handing content to a CAT tool \u2014 need the pages exported as source+translation xliff, not just source",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "the post_content targets come out blank in my polylang export on this generateblocks site even though the translation exists",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "back up all our polylang translations as xliff files before the migration",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "can you give me xliff files of the header and footer GP elements, one per language (en + de)",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "on utilise Polylang sur notre site WP, il faut que j'exporte toutes les pages pour l'agence de traduction, tu peux me sortir les fichiers ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "polylang m'a export\u00e9 un xliff mais le corps des pages est vide, les titres eux sont bien l\u00e0. c'est normal ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "translate this paragraph into German for me: 'D\u00e9couvrez notre nouvelle gamme de camping-cars'",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "import this xliff file the translator sent back into polylang and apply the translations",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "the polylang language switcher widget disappeared from the footer after the last update, can you fix it",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "how do I sync ACF field groups from the theme's acf-json folder?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "export all our WooCommerce orders from last month to a CSV",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "write the English copy for our new About page, keep it around 300 words",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 4,
+      "description": "Export Polylang (Pro) WordPress translations as XLIFF files. Use whenever someone wants to hand site content to a translation agency, translator, or CAT tool; produce XLIFF for pages, posts, custom post types, or GeneratePress/GenerateBlocks GP Elements (header, footer, etc.); get one file per target language; or back up / migrate existing translations before a site move. Also use when a Polylang XLIFF export comes back with the page body / post_content targets empty or blank while the titles are fine \u2014 a known Polylang limitation on block/Gutenberg content that this skill works around by pre-filling each target with the real existing translation (a true source+translation bilingual file). Applies to any language pair (en, de, fr\u2026) and to French-worded requests (exporter les pages pour l'agence de traduction; le corps des pages est vide). Not for importing an XLIFF back into the site, translating a short snippet of text, or CSV / WooCommerce exports.",
+      "train_passed": 6,
+      "train_failed": 6,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "back up all our polylang translations as xliff files before the migration",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "the post_content targets come out blank in my polylang export on this generateblocks site even though the translation exists",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "we're handing content to a CAT tool \u2014 need the pages exported as source+translation xliff, not just source",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "can you give me xliff files of the header and footer GP elements, one per language (en + de)",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "on utilise Polylang sur notre site WP, il faut que j'exporte toutes les pages pour l'agence de traduction, tu peux me sortir les fichiers ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "polylang m'a export\u00e9 un xliff mais le corps des pages est vide, les titres eux sont bien l\u00e0. c'est normal ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "translate this paragraph into German for me: 'D\u00e9couvrez notre nouvelle gamme de camping-cars'",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "import this xliff file the translator sent back into polylang and apply the translations",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "the polylang language switcher widget disappeared from the footer after the last update, can you fix it",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "how do I sync ACF field groups from the theme's acf-json folder?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "export all our WooCommerce orders from last month to a CSV",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "write the English copy for our new About page, keep it around 300 words",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "hey can u export the site content so i can send it to a translator, its a polylang multilingual wordpress site with gutenberg blocks",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "export the vehicle custom post type content to xliff, french to english, for our translators",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "produce translation files in XLIFF for all entries of our 'dealer' post type, FR->EN and FR->DE",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "build a new hero section in GenerateBlocks for the homepage with a two-column layout",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "generate a .pot file for my theme so the strings can be translated with Loco Translate",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "I need a bilingual XLIFF with the existing German translations already filled into the target fields",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "set up WPML on my WooCommerce store and configure the language switcher",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "my ACF fields aren't showing as translatable in Polylang, how do I make them translatable in the settings?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "failed": 6,
+      "total": 12,
+      "results": [
+        {
+          "query": "back up all our polylang translations as xliff files before the migration",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "the post_content targets come out blank in my polylang export on this generateblocks site even though the translation exists",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "we're handing content to a CAT tool \u2014 need the pages exported as source+translation xliff, not just source",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "can you give me xliff files of the header and footer GP elements, one per language (en + de)",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "on utilise Polylang sur notre site WP, il faut que j'exporte toutes les pages pour l'agence de traduction, tu peux me sortir les fichiers ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "polylang m'a export\u00e9 un xliff mais le corps des pages est vide, les titres eux sont bien l\u00e0. c'est normal ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "translate this paragraph into German for me: 'D\u00e9couvrez notre nouvelle gamme de camping-cars'",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "import this xliff file the translator sent back into polylang and apply the translations",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "the polylang language switcher widget disappeared from the footer after the last update, can you fix it",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "how do I sync ACF field groups from the theme's acf-json folder?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "export all our WooCommerce orders from last month to a CSV",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "write the English copy for our new About page, keep it around 300 words",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 5,
+      "description": "Use whenever someone on a WordPress + Polylang site wants their translated content OUT as XLIFF files. Covers: exporting pages, posts, custom post types, or GeneratePress/GenerateBlocks GP Elements (header, footer, menus) for a translation agency, translator, or CAT tool; producing a bilingual source+translation file (not source-only); making one XLIFF per language (en, de, fr\u2026); or backing up / migrating existing Polylang translations before a site move. Also use when a Polylang XLIFF export comes back with the page body / post_content targets empty or blank while titles look fine \u2014 this skill fills those targets with the real existing translation. Works in any language and fires on French requests too (exporter les pages pour l'agence de traduction; le corps des pages est vide). Do NOT use for importing an XLIFF back into the site, translating a short snippet, or CSV / WooCommerce exports.",
+      "train_passed": 6,
+      "train_failed": 6,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "the post_content targets come out blank in my polylang export on this generateblocks site even though the translation exists",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "back up all our polylang translations as xliff files before the migration",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "we're handing content to a CAT tool \u2014 need the pages exported as source+translation xliff, not just source",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "can you give me xliff files of the header and footer GP elements, one per language (en + de)",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "on utilise Polylang sur notre site WP, il faut que j'exporte toutes les pages pour l'agence de traduction, tu peux me sortir les fichiers ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "translate this paragraph into German for me: 'D\u00e9couvrez notre nouvelle gamme de camping-cars'",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "polylang m'a export\u00e9 un xliff mais le corps des pages est vide, les titres eux sont bien l\u00e0. c'est normal ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "import this xliff file the translator sent back into polylang and apply the translations",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "the polylang language switcher widget disappeared from the footer after the last update, can you fix it",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "export all our WooCommerce orders from last month to a CSV",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "how do I sync ACF field groups from the theme's acf-json folder?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "write the English copy for our new About page, keep it around 300 words",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "hey can u export the site content so i can send it to a translator, its a polylang multilingual wordpress site with gutenberg blocks",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "export the vehicle custom post type content to xliff, french to english, for our translators",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "build a new hero section in GenerateBlocks for the homepage with a two-column layout",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "produce translation files in XLIFF for all entries of our 'dealer' post type, FR->EN and FR->DE",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need a bilingual XLIFF with the existing German translations already filled into the target fields",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "generate a .pot file for my theme so the strings can be translated with Loco Translate",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "set up WPML on my WooCommerce store and configure the language switcher",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "my ACF fields aren't showing as translatable in Polylang, how do I make them translatable in the settings?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "failed": 6,
+      "total": 12,
+      "results": [
+        {
+          "query": "the post_content targets come out blank in my polylang export on this generateblocks site even though the translation exists",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "back up all our polylang translations as xliff files before the migration",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "we're handing content to a CAT tool \u2014 need the pages exported as source+translation xliff, not just source",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "can you give me xliff files of the header and footer GP elements, one per language (en + de)",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "on utilise Polylang sur notre site WP, il faut que j'exporte toutes les pages pour l'agence de traduction, tu peux me sortir les fichiers ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "translate this paragraph into German for me: 'D\u00e9couvrez notre nouvelle gamme de camping-cars'",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "polylang m'a export\u00e9 un xliff mais le corps des pages est vide, les titres eux sont bien l\u00e0. c'est normal ?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "import this xliff file the translator sent back into polylang and apply the translations",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "the polylang language switcher widget disappeared from the footer after the last update, can you fix it",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "export all our WooCommerce orders from last month to a CSV",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "how do I sync ACF field groups from the theme's acf-json folder?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "write the English copy for our new About page, keep it around 300 words",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "skill_name": "facturation-pro",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Fais-moi un devis pour Mediasmeteo : refonte de leur site WordPress, 3 jours de conception à 600 € HT/jour et 6 jours d'intégration à 600 € HT/jour, TVA 20 %, paiement à 30 jours. Si le client n'existe pas encore chez moi, crée-le (c'est une société, contact contact@mediasmeteo.com). Montre-moi le récap avant d'envoyer quoi que ce soit.",
+      "expected_output": "Recherche du client par company, création si absent avec individual=false, création du devis via fp.py post quotes avec 2 lignes (quantity 3 et 6, unit_price 600, vat 0.200, pay_before 30), aucune conversion en facture ni envoi mail sans confirmation, récapitulatif HT/TTC affiché.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Quelles factures sont en retard de paiement ? Donne-moi le total et prépare la relance pour la plus ancienne.",
+      "expected_output": "Appel fp.py get invoices -p bill_type=term --all avec --fields et --sum total_with_vat ; liste triée par échéance ; proposition d'envoi via emails?bill_id=ID en dry-run ou en attente de confirmation (--yes non passé sans accord).",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "J'ai payé 71,99 € TTC à OVH le 1er septembre par carte pour l'hébergement, la TVA est de 12 €. Enregistre l'achat et joins le PDF ~/Downloads/facture-ovh-sept.pdf.",
+      "expected_output": "Recherche du fournisseur OVH (création si absent), fp.py post purchases avec total_with_vat 71.99, vat_amount 12.00, paid_on 2026-09-01, payment_mode 2, puis fp.py upload purchases ID <fichier>.",
+      "files": []
+    }
+  ]
+}

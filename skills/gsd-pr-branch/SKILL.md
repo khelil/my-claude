@@ -18,7 +18,7 @@ changes that are irrelevant to code review.
 </objective>
 
 <execution_context>
-@$HOME/.claude/get-shit-done/workflows/pr-branch.md
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/pr-branch.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/pr-branch.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
 </execution_context>
 
 <process>

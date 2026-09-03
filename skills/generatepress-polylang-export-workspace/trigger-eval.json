@@ -1,0 +1,22 @@
+[
+  {"query": "on utilise Polylang sur notre site WP, il faut que j'exporte toutes les pages pour l'agence de traduction, tu peux me sortir les fichiers ?", "should_trigger": true},
+  {"query": "polylang m'a exporté un xliff mais le corps des pages est vide, les titres eux sont bien là. c'est normal ?", "should_trigger": true},
+  {"query": "I need a bilingual XLIFF with the existing German translations already filled into the target fields", "should_trigger": true},
+  {"query": "export the vehicle custom post type content to xliff, french to english, for our translators", "should_trigger": true},
+  {"query": "can you give me xliff files of the header and footer GP elements, one per language (en + de)", "should_trigger": true},
+  {"query": "back up all our polylang translations as xliff files before the migration", "should_trigger": true},
+  {"query": "the post_content targets come out blank in my polylang export on this generateblocks site even though the translation exists", "should_trigger": true},
+  {"query": "hey can u export the site content so i can send it to a translator, its a polylang multilingual wordpress site with gutenberg blocks", "should_trigger": true},
+  {"query": "produce translation files in XLIFF for all entries of our 'dealer' post type, FR->EN and FR->DE", "should_trigger": true},
+  {"query": "we're handing content to a CAT tool — need the pages exported as source+translation xliff, not just source", "should_trigger": true},
+  {"query": "import this xliff file the translator sent back into polylang and apply the translations", "should_trigger": false},
+  {"query": "translate this paragraph into German for me: 'Découvrez notre nouvelle gamme de camping-cars'", "should_trigger": false},
+  {"query": "set up WPML on my WooCommerce store and configure the language switcher", "should_trigger": false},
+  {"query": "build a new hero section in GenerateBlocks for the homepage with a two-column layout", "should_trigger": false},
+  {"query": "my ACF fields aren't showing as translatable in Polylang, how do I make them translatable in the settings?", "should_trigger": false},
+  {"query": "generate a .pot file for my theme so the strings can be translated with Loco Translate", "should_trigger": false},
+  {"query": "export all our WooCommerce orders from last month to a CSV", "should_trigger": false},
+  {"query": "the polylang language switcher widget disappeared from the footer after the last update, can you fix it", "should_trigger": false},
+  {"query": "how do I sync ACF field groups from the theme's acf-json folder?", "should_trigger": false},
+  {"query": "write the English copy for our new About page, keep it around 300 words", "should_trigger": false}
+]

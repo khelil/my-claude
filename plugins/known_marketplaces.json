@@ -5,7 +5,7 @@
       "repo": "anthropics/claude-code"
     },
     "installLocation": "/Users/khelil/.claude/plugins/marketplaces/claude-code-plugins",
-    "lastUpdated": "2026-06-19T09:27:26.474Z"
+    "lastUpdated": "2026-09-03T12:07:08.883Z"
   },
   "claude-plugins-official": {
     "source": {
@@ -13,7 +13,7 @@
       "repo": "anthropics/claude-plugins-official"
     },
     "installLocation": "/Users/khelil/.claude/plugins/marketplaces/claude-plugins-official",
-    "lastUpdated": "2026-06-19T20:13:08.165Z"
+    "lastUpdated": "2026-09-03T12:07:06.135Z"
   },
   "claude-code-warp": {
     "source": {
@@ -22,5 +22,21 @@
     },
     "installLocation": "/Users/khelil/.claude/plugins/marketplaces/claude-code-warp",
     "lastUpdated": "2026-05-30T16:01:12.830Z"
+  },
+  "paper": {
+    "source": {
+      "source": "github",
+      "repo": "paper-design/agent-plugins"
+    },
+    "installLocation": "/Users/khelil/.claude/plugins/marketplaces/paper",
+    "lastUpdated": "2026-06-29T06:26:15.730Z"
+  },
+  "cloudflare": {
+    "source": {
+      "source": "github",
+      "repo": "cloudflare/skills"
+    },
+    "installLocation": "/Users/khelil/.claude/plugins/marketplaces/cloudflare",
+    "lastUpdated": "2026-08-24T13:26:44.144Z"
   }
 }

@@ -19,7 +19,7 @@ Output: Forensic report saved to `.planning/forensics/`, presented inline, with 
 </objective>
 
 <execution_context>
-@$HOME/.claude/get-shit-done/workflows/forensics.md
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/forensics.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/forensics.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
 </execution_context>
 
 <context>

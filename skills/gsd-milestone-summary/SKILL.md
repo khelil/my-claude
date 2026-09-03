@@ -19,7 +19,7 @@ Output: MILESTONE_SUMMARY written to `.planning/reports/`, presented inline, opt
 </objective>
 
 <execution_context>
-@$HOME/.claude/get-shit-done/workflows/milestone-summary.md
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/milestone-summary.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/milestone-summary.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
 </execution_context>
 
 <context>

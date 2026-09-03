@@ -21,7 +21,7 @@ Output: .planning/codebase/ folder with 7 structured documents about the codebas
 </objective>
 
 <execution_context>
-@$HOME/.claude/get-shit-done/workflows/map-codebase.md
+To load this command's workflow spec: check for `.claude/gsd-core/workflows/map-codebase.md` relative to the current working directory first (project-local); if it is not there, fall back to `~/.claude/gsd-core/workflows/map-codebase.md` (the global install). If neither file exists, stop — a workflow spec is required and none was found.
 </execution_context>
 
 <flags>
@@ -34,7 +34,7 @@ Output: .planning/codebase/ folder with 7 structured documents about the codebas
 Arguments: $ARGUMENTS
 
 Parse the first token of $ARGUMENTS:
-- If it is `--fast`: strip the flag, run the scan workflow (passing remaining args including optional --focus).
+- If it is `--fast`: strip the flag, then read and execute `$HOME/.claude/gsd-core/workflows/scan.md` (passing remaining args including optional --focus). Load it on demand here — it is deliberately not in `<execution_context>`, so the common full-map path does not pay for it.
 - If it is `--query`: strip the flag, run the intel workflow (passing remaining args as the subcommand).
 - Otherwise: pass all of $ARGUMENTS as focus area to the map-codebase workflow.
 
@@ -42,8 +42,8 @@ Parse the first token of $ARGUMENTS:
 Check for .planning/STATE.md - loads context if project already initialized
 
 **This command can run:**
-- Before /gsd:new-project (brownfield codebases) - creates codebase map first
-- After /gsd:new-project (greenfield codebases) - updates codebase map as code evolves
+- Via /gsd-onboard for first-time brownfield setup - creates codebase map first
+- After /gsd-new-project (greenfield codebases) - updates codebase map as code evolves
 - Anytime to refresh codebase understanding
 </context>
 
@@ -51,7 +51,7 @@ Check for .planning/STATE.md - loads context if project already initialized
 **Use map-codebase for:**
 - Brownfield projects before initialization (understand existing code first)
 - Refreshing codebase map after significant changes
-- Onboarding to an unfamiliar codebase
+- Refreshing or deepening an onboarded codebase map
 - Before major refactoring (understand current state)
 - When STATE.md references outdated codebase info
 
@@ -71,7 +71,7 @@ Check for .planning/STATE.md - loads context if project already initialized
 4. Wait for agents to complete, collect confirmations (NOT document contents)
 5. Verify all 7 documents exist with line counts
 6. Commit codebase map
-7. Offer next steps (typically: /gsd:new-project or /gsd:plan-phase)
+7. Offer next steps (typically: /gsd-onboard, /gsd-new-project, or /gsd-plan-phase)
 </process>
 
 <success_criteria>
