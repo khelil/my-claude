@@ -1,0 +1,9 @@
+{"eval_id": 3, "eval_name": "achat-ovh",
+ "prompt": "J'ai payé 71,99 € TTC à OVH le 1er septembre par carte pour l'hébergement, la TVA est de 12 €. Enregistre l'achat et joins le PDF.",
+ "assertions": [
+  "Réutilise le fournisseur OVH existant (id 29306), aucun fournisseur créé",
+  "Achat créé avec total_with_vat 71.99 et vat_amount 12.00 (pas de HT envoyé)",
+  "invoiced_on et paid_on 2026-09-01, payment_mode 2 (CB)",
+  "Justificatif joint via fp.py upload purchases ID",
+  "Aucun --yes nécessaire, aucune suppression"
+ ]}

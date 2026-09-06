@@ -1,0 +1,11 @@
+{"eval_id": 2, "eval_name": "relance-impayes",
+ "prompt": "Quelles factures sont en retard de paiement ? Donne-moi le total et prépare la relance pour la plus ancienne.",
+ "assertions": [
+  "Utilise bill_type=term (pas unpaid seul) avec --all",
+  "Utilise --fields et --sum total_with_vat",
+  "Rapporte 8 factures pour 8389.80 EUR TTC",
+  "Identifie la plus ancienne par term_on (202601-10 ou antérieure)",
+  "Récupère le nom client via customer_identity (pas de colonne vide)",
+  "Prépare la relance via emails?bill_id=ID en dry-run ou en attente, sans --yes",
+  "Aucune écriture effectuée"
+ ]}

@@ -13,7 +13,7 @@ Configuration (variables d'environnement, ou fichier ~/.config/facturation-pro/c
 Exemples :
   fp.py account
   fp.py get customers -p company=acme
-  fp.py get invoices -p bill_type=unpaid --all --fields id,invoice_ref,customer_name,total_with_vat,term_on --sum total_with_vat
+  fp.py get invoices -p bill_type=unpaid --all --fields id,invoice_ref,customer_identity,total_with_vat,term_on --sum total_with_vat
   fp.py get quotes/123
   fp.py post quotes -d '{"customer_id":1,"title":"Site web","items":[{"position":1,"title":"Dev","quantity":"1","unit_price":"1500","vat":"0.200"}]}'
   fp.py post invoices -p type_doc=draft -d @facture.json
@@ -160,7 +160,7 @@ def call(cfg, method, url, body=None, raw_body=None, content_type=None, accept="
         req = request.Request(url, data=data, headers=headers, method=method)
         try:
             with request.urlopen(req, timeout=90) as resp:
-                return resp.status, dict(resp.headers), resp.read()
+                return resp.status, {k.lower(): v for k, v in resp.headers.items()}, resp.read()
         except error.HTTPError as e:
             if e.code == 429 and attempt < retries:
                 wait = int(e.headers.get("Retry-After", "10") or 10)
@@ -170,12 +170,26 @@ def call(cfg, method, url, body=None, raw_body=None, content_type=None, accept="
             if e.code >= 500 and attempt < retries:
                 time.sleep(2 ** attempt)
                 continue
-            return e.code, dict(e.headers), e.read()
+            return e.code, {k.lower(): v for k, v in e.headers.items()}, e.read()
         except (error.URLError, TimeoutError) as e:
             if attempt < retries:
                 time.sleep(2 ** attempt)
                 continue
             sys.exit(f"Erreur réseau : {e}")
+
+
+def check_html(status, headers, content):
+    """L'API répond parfois 200 + page HTML (fonction absente de l'abonnement, ex. pièces jointes = option Gold)."""
+    ctype = (headers.get("content-type") or "").lower()
+    if status < 400 and ("text/html" in ctype or (content or b"")[:64].lstrip().lower().startswith((b"<!doctype", b"<html"))):
+        import re as _re
+        text = content.decode("utf-8", errors="replace")
+        note = _re.search(r'class="note"[^>]*>(.*?)</', text, _re.S)
+        msg = _re.sub(r"<[^>]+>", " ", note.group(1)).strip() if note else "réponse HTML au lieu de JSON"
+        sys.stderr.write(json.dumps({"error": True, "status": status, "html_response": True, "message": msg}, ensure_ascii=False) + "\n")
+        sys.stderr.write("Indice : fonctionnalité probablement absente de l'abonnement (les pièces jointes exigent l'option Gold ; "
+                         "vérifie disk_free dans `fp.py account`).\n")
+        sys.exit(4)
 
 
 def decode(content):
@@ -188,7 +202,7 @@ def decode(content):
 
 def fail(status, headers, content):
     payload = decode(content)
-    sys.stderr.write(json.dumps({"error": True, "status": status, "message": headers.get("Status") or "", "body": payload},
+    sys.stderr.write(json.dumps({"error": True, "status": status, "message": headers.get("status") or "", "body": payload},
                                 ensure_ascii=False, indent=2) + "\n")
     hints = {
         400: "Données mal formatées (JSON ou en-têtes). Vérifie le corps envoyé.",
@@ -237,7 +251,7 @@ def is_dangerous(method, url):
     path = url.split("?")[0]
     query = url.split("?")[1] if "?" in url else ""
     if method == "DELETE":
-        return "suppression définitive (aucune corbeille côté API)"
+        return "suppression (corbeille 14 jours côté Facturation.PRO, puis purge définitive)"
     if method == "POST":
         if path.endswith("/refund.json"):
             return "création d'un avoir (numéroté, irréversible)"
@@ -268,6 +282,7 @@ def cmd_account(cfg, args):
     status, headers, content = call(cfg, "GET", BASE + "/account.json", dry_run=args.dry_run)
     if status >= 400:
         fail(status, headers, content)
+    check_html(status, headers, content)
     emit(decode(content), args.compact)
 
 
@@ -278,11 +293,12 @@ def cmd_get(cfg, args):
     status, headers, content = call(cfg, "GET", url, dry_run=args.dry_run)
     if status >= 400:
         fail(status, headers, content)
+    check_html(status, headers, content)
     payload = decode(content)
     pagination = None
-    if headers.get("X-Pagination"):
+    if headers.get("x-pagination"):
         try:
-            pagination = json.loads(headers["X-Pagination"])
+            pagination = json.loads(headers["x-pagination"])
         except json.JSONDecodeError:
             pagination = None
     if args.all and pagination and isinstance(payload, list):
@@ -299,27 +315,28 @@ def cmd_get(cfg, args):
                 payload.extend(more)
     elif pagination and int(pagination.get("total_pages", 1)) > 1 and not args.all:
         sys.stderr.write(f"Pagination : {json.dumps(pagination)} — ajoute --all pour tout récupérer ou -p page=N.\n")
-    payload = pick_fields(payload, args.fields)
-    emit(payload, args.compact)
     if args.sum and isinstance(payload, list):
         total = sum(to_number(o.get(args.sum)) for o in payload if isinstance(o, dict))
         sys.stderr.write(json.dumps({"count": len(payload), f"sum_{args.sum}": round(total, 2)}) + "\n")
+    emit(pick_fields(payload, args.fields), args.compact)
 
 
 def cmd_write(cfg, args, method):
     require(cfg, dry_run=args.dry_run)
     params = parse_params(args.param)
     url = build_url(cfg, args.path, params)
-    guard(method, url, args.yes)
+    if not args.dry_run:
+        guard(method, url, args.yes)
     body = load_body(args.data)
     if method in ("POST", "PATCH") and body is None:
         body = {}
     status, headers, content = call(cfg, method, url, body=body, dry_run=args.dry_run)
     if status >= 400:
         fail(status, headers, content)
+    check_html(status, headers, content)
     payload = decode(content)
-    if headers.get("Location"):
-        sys.stderr.write(f"Location: {headers['Location']}\n")
+    if headers.get("location"):
+        sys.stderr.write(f"Location: {headers['location']}\n")
     emit(pick_fields(payload, args.fields), args.compact)
     if payload is None:
         sys.stderr.write(f"OK ({status})\n")
@@ -336,6 +353,7 @@ def cmd_pdf(cfg, args):
     status, headers, content = call(cfg, "GET", url, accept="application/pdf", dry_run=args.dry_run)
     if status >= 400:
         fail(status, headers, content)
+    check_html(status, headers, content)
     out = args.output or f"{args.kind[:-1]}-{args.id}.pdf"
     with open(out, "wb") as fh:
         fh.write(content)
@@ -356,19 +374,21 @@ def cmd_upload(cfg, args):
     status, headers, content = call(cfg, "POST", url, raw_body=raw, content_type=ctype, dry_run=args.dry_run)
     if status >= 400:
         fail(status, headers, content)
+    check_html(status, headers, content)
     emit(decode(content), args.compact)
 
 
 # --------------------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser(description="Client CLI pour l'API Facturation.PRO", formatter_class=argparse.RawDescriptionHelpFormatter, epilog=__doc__)
-    ap.add_argument("--dry-run", action="store_true", help="affiche la requête sans l'envoyer")
-    ap.add_argument("--compact", action="store_true", help="JSON sur une ligne")
+    common = argparse.ArgumentParser(add_help=False)
+    common.add_argument("--dry-run", action="store_true", help="affiche la requête sans l'envoyer")
+    common.add_argument("--compact", action="store_true", help="JSON sur une ligne")
     sub = ap.add_subparsers(dest="cmd", required=True)
 
-    sub.add_parser("account", help="GET /account.json : compte et liste des FIRM_ID")
+    sub.add_parser("account", help="GET /account.json : compte et liste des FIRM_ID", parents=[common])
 
-    g = sub.add_parser("get", help="GET sur une ressource (liste ou détail)")
+    g = sub.add_parser("get", help="GET sur une ressource (liste ou détail)", parents=[common])
     g.add_argument("path", help="ex: customers, invoices/123, quotes")
     g.add_argument("-p", "--param", action="append", help="paramètre de requête cle=valeur (répétable)")
     g.add_argument("--all", action="store_true", help="suit la pagination X-Pagination et concatène toutes les pages")
@@ -376,27 +396,27 @@ def main():
     g.add_argument("--sum", metavar="FIELD", help="affiche la somme d'un champ numérique sur la liste (stderr)")
 
     for name, help_ in (("post", "POST (création / action)"), ("patch", "PATCH (mise à jour partielle)")):
-        w = sub.add_parser(name, help=help_)
+        w = sub.add_parser(name, help=help_, parents=[common])
         w.add_argument("path")
         w.add_argument("-p", "--param", action="append", help="paramètre d'URL cle=valeur (ex: type_doc=draft)")
         w.add_argument("-d", "--data", help="corps JSON, ou @fichier.json")
         w.add_argument("--fields")
         w.add_argument("--yes", action="store_true", help="confirme une opération sensible (facture finale, avoir, envoi mail…)")
 
-    d = sub.add_parser("delete", help="DELETE (nécessite --yes)")
+    d = sub.add_parser("delete", help="DELETE (nécessite --yes)", parents=[common])
     d.add_argument("path")
     d.add_argument("-p", "--param", action="append")
     d.add_argument("--fields")
     d.add_argument("--yes", action="store_true")
 
-    p = sub.add_parser("pdf", help="télécharge le PDF d'un devis ou d'une facture")
+    p = sub.add_parser("pdf", help="télécharge le PDF d'un devis ou d'une facture", parents=[common])
     p.add_argument("kind", choices=["quotes", "invoices"])
     p.add_argument("id")
     p.add_argument("-o", "--output")
     p.add_argument("--proforma", action="store_true", help="devis en facture pro-forma")
     p.add_argument("--original", action="store_true", help="facture originale sans mention de règlement")
 
-    u = sub.add_parser("upload", help="joint un fichier à un client / devis / facture / achat")
+    u = sub.add_parser("upload", help="joint un fichier à un client / devis / facture / achat", parents=[common])
     u.add_argument("kind", choices=["customers", "quotes", "invoices", "purchases"])
     u.add_argument("id")
     u.add_argument("file")

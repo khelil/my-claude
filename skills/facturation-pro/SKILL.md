@@ -21,7 +21,11 @@ gérer les achats et sortir des chiffres, sans jamais réinventer l'appel HTTP.
    Filtre côté API (`-p company=…`, `-p bill_type=unpaid`, `-p period_start=…`) plutôt que de
    tout télécharger.
 3. Toutes les commandes acceptent `--dry-run` : sers-t'en pour montrer la requête à
-   l'utilisateur avant une action qui l'engage.
+   l'utilisateur avant une action qui l'engage. Le dry-run passe sans `--yes`, mais il ne
+   valide rien côté serveur : un 422 (champ manquant) n'apparaît qu'au vrai envoi.
+4. Dans `account`, `disk_free: 0` signifie que le compte n'a pas l'option Gold : les
+   `upload` de pièces jointes sont refusés (le script sort en code 4 avec l'explication).
+   Ne promets pas de joindre un fichier dans ce cas ; propose de le garder localement.
 
 ## Le client fp.py
 
@@ -43,7 +47,9 @@ systématiquement sur les listes pour ne pas noyer la conversation.
 ### Garde-fou sur les opérations irréversibles
 
 Le script refuse sans `--yes` : toute suppression, la création d'une facture finalisée, la
-finalisation d'un brouillon, la conversion devis → facture, un avoir, un envoi de mail. Une
+finalisation d'un brouillon, la conversion devis → facture, un avoir, un envoi de mail.
+Une suppression est « douce » : l'enregistrement reste lisible avec `soft_deleted: true` et
+`hard_delete_on` (purge 14 jours plus tard), mais l'API n'expose pas de restauration. Une
 facture finalisée reçoit un numéro légal et ses montants deviennent immuables ; la seule
 correction possible ensuite est un avoir. Demande donc une confirmation explicite à
 l'utilisateur (montre-lui le récapitulatif : client, lignes, total HT/TTC, date), puis relance
@@ -75,10 +81,16 @@ avec `--yes`. Ne passe jamais `--yes` de ta propre initiative.
 fp.py get customers -p company=acme --fields id,company_name,short_name,email,city,pay_before
 fp.py get customers -p last_name=durand -p mode=all --fields id,company_name,first_name,last_name,email
 ```
-Si aucun résultat, crée-le avec les infos disponibles, puis réutilise `id` :
+Recherche aussi par `-p email=…` quand le nom de société est incertain. Si aucun résultat,
+**demande le SIRET avant de créer une société française** : ce compte le rend obligatoire
+(422 « siret doit être renseigné »). Ne l'invente jamais et ne bascule pas en
+`individual: true` pour contourner ; collecte-le dès la première question à l'utilisateur,
+avec l'adresse de facturation. Puis crée le client et réutilise `id` :
 ```
 fp.py post customers -d '{"company_name":"ACME SAS","email":"compta@acme.fr","street":"12 rue X","zip_code":"44000","city":"Nantes","country":"FR","siret":"…","vat_number":"FR…","pay_before":"30"}'
 ```
+`pay_before` : « 30 jours » se traduit par `"30"` (à compter de la livraison) ; utilise la
+variante `"30-inv"` seulement si l'utilisateur précise « à compter de la facture ».
 `mode=archived` / `mode=all` pour retrouver un client archivé ; `POST customers/ID/archive`
 pour masquer un client sans le supprimer. La suppression n'est possible que s'il n'a jamais
 été facturé.
@@ -103,8 +115,11 @@ fp.py post quotes -d '{
    `"new_page"`. `"optional": true` sort la ligne du total (bloc options en fin de devis).
    `rebate_percentage` applique une remise globale.
 3. PDF : `fp.py pdf quotes ID -o devis.pdf` (ou `--proforma`). Envoi par mail :
-   `fp.py post emails -p bill_id=ID -d '{"subject":"…","message":"…"}' --yes` (le `to` par
-   défaut est l'email de la fiche client ; nécessite un SMTP configuré dans Facturation.PRO).
+   `fp.py post emails -p bill_id=ID -d '{"subject":"…","message":"…"}' --yes` (nécessite un
+   SMTP configuré dans Facturation.PRO). Vérifie d'abord que la fiche client a un `email`,
+   sinon passe `"to"` explicitement. Si un modèle d'envoi existe dans le compte, la doc ne
+   précise pas si `subject`/`message` le remplacent ou s'y ajoutent : dis-le à l'utilisateur.
+   Montre toujours le mail en `--dry-run` avant de demander le feu vert.
 4. Accepté par le client : `fp.py patch quotes/ID -d '{"quote_status": 1}'` (9 = refusé).
 5. Facturer : `fp.py post quotes/ID/invoice --yes` crée directement une facture finalisée
    reprenant toutes les lignes. Pour un acompte ou une facturation partielle, crée plutôt une
@@ -142,10 +157,11 @@ Facturation.PRO une facture émise ailleurs : `-p external=1` avec `external_ref
 ### Relancer les impayés
 
 ```
-fp.py get invoices -p bill_type=term --all --fields id,invoice_ref,customer_name,total_with_vat,term_on,overdue_at --sum total_with_vat
-fp.py get invoices -p bill_type=unpaid --all --fields id,invoice_ref,customer_name,total_with_vat,term_on
+fp.py get invoices -p bill_type=term --all --fields id,invoice_ref,customer_identity,total_with_vat,term_on,overdue_at --sum total_with_vat
+fp.py get invoices -p bill_type=unpaid --all --fields id,invoice_ref,customer_identity,total_with_vat,term_on
 ```
-`term` = échues à relancer, `unpaid` = toutes les non payées. L'envoi via `emails` sur une
+`term` = échues à relancer, `unpaid` = toutes les non payées. Sans `bill_type`, la liste
+mélange factures finalisées et brouillons (`draft: true`, `invoice_ref` vide) : filtre toujours. L'envoi via `emails` sur une
 facture échue utilise automatiquement le modèle « Relance » du compte. Note la relance dans
 `overdue_at` si l'utilisateur relance par un autre canal.
 
@@ -157,7 +173,10 @@ fp.py post suppliers -d '{"company_name":"OVH","country":"FR"}'
 fp.py post purchases -d '{"supplier_id":45,"title":"Hébergement sept. 2026","invoiced_on":"2026-09-01","total_with_vat":"71.99","vat_amount":"12.00","paid_on":"2026-09-01","payment_mode":2,"category_id":12,"nature":2}'
 fp.py upload purchases ID ./facture-ovh.pdf
 ```
-Un achat se saisit en **TTC + montant de TVA** (le HT est déduit). `payment_mode` des achats a
+Un achat se saisit en **TTC + montant de TVA** (le HT est déduit). `category_id` est
+optionnel : vérifie `get categories` (le compte peut n'en avoir aucune, la liste est alors
+vide) et omets le champ plutôt que d'inventer un ID. L'upload du justificatif exige l'option
+Gold (voir « Avant tout appel »). `payment_mode` des achats a
 ses propres codes (20 = crédit fournisseur, 7 = compte courant d'associé). `draft: true` pour
 un achat à compléter, `prepaid: true` pour un pré-paiement, `skip_export: true` pour l'exclure
 de l'export comptable. Les catégories (`get categories`) ont un `status` : 1 ventes, 2 achats,
@@ -165,15 +184,15 @@ de l'export comptable. Les catégories (`get categories`) ont un `status` : 1 ve
 
 ### Reporting (CA, TVA, encaissements)
 
-- CA facturé sur une période : `fp.py get invoices -p period_type=billed -p period_start=2026-01 -p period_end=2026-06 -p bill_type=invoice --all --fields id,invoice_ref,invoiced_on,customer_name,total,total_with_vat --sum total`
+- CA facturé sur une période : `fp.py get invoices -p period_type=billed -p period_start=2026-01 -p period_end=2026-06 -p bill_type=invoice --all --fields id,invoice_ref,invoiced_on,customer_identity,total,total_with_vat --sum total`
 - Encaissements (période de paiement, défaut) : même requête sans `period_type`, avec `bill_type=paid`, `--sum total_with_vat`.
 - Avoirs : `bill_type=refund` (totaux négatifs, à additionner au CA).
 - Dépenses : `fp.py get purchases -p period_type=billed -p period_start=… --all --fields id,invoiced_on,supplier_identity,title,total,vat_amount,total_with_vat --sum total_with_vat`.
 
-Le script imprime `{"count": N, "sum_champ": X}` sur stderr : reprends ces chiffres dans ta
-réponse et précise la période et le périmètre (HT ou TTC, factures ou encaissements). Ne
+Le script imprime `{"count": N, "sum_champ": X}` sur stderr (`2>&1 | head -1` pour ne lire que
+le total) : reprends ces chiffres dans ta réponse et précise la période et le périmètre (HT ou TTC, factures ou encaissements). Ne
 produis pas de conclusion comptable ou fiscale à la place de l'utilisateur : donne les
-chiffres, la requête utilisée et les limites (brouillons exclus, factures externes incluses ou
+chiffres, la requête utilisée et les limites (`bill_type=invoice` exclut les brouillons et les avoirs ; factures externes incluses ou
 non).
 
 ## Erreurs fréquentes
@@ -185,7 +204,9 @@ non).
 | 404 | mauvais FIRM_ID ou ID d'un autre type de ressource |
 | 422 « can't be blank » sur items | ligne sans `title` / `unit_price` / `quantity`, ou devis sans aucune ligne |
 | 422 sur PATCH facture | facture finalisée : seuls les champs de règlement/information sont modifiables |
+| 422 « siret doit être renseigné » | société FR sans SIRET : demande-le à l'utilisateur |
 | 422 sur DELETE customer | client déjà facturé : utilise `archive` |
+| Exit 4, « réponse HTML au lieu de JSON » | fonctionnalité hors abonnement (pièces jointes = option Gold) |
 | 501 | Content-Type manquant (le script le pose ; vérifie que tu n'appelles pas curl à la main) |
 | 429 | quota : le script attend `Retry-After` ; réduis les pages ou filtre davantage |
 

@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Recherche du client par -p company= avant création",
+      "passed": true,
+      "evidence": "3 recherches company=mediasmeteo / mode=all / meteo, toutes vides"
+    },
+    {
+      "text": "Client créé comme société avec email contact@mediasmeteo.com",
+      "passed": false,
+      "evidence": "POST customers -> 422 siret doit être renseigné ; règle du compte inconnue du skill (corrigé dans SKILL.md)"
+    },
+    {
+      "text": "Devis avec 2 lignes qty 3 et 6, unit_price 600, vat 0.200",
+      "passed": true,
+      "evidence": "Requête dry-run conforme, non envoyée faute de client"
+    },
+    {
+      "text": "pay_before 30",
+      "passed": true,
+      "evidence": "pay_before \"30\" dans le dry-run"
+    },
+    {
+      "text": "Total HT 5400 / TTC 6480 dans le récap",
+      "passed": true,
+      "evidence": "Récap : 5 400 HT, TVA 1 080, 6 480 TTC"
+    },
+    {
+      "text": "Aucune conversion, mail ni --yes",
+      "passed": true,
+      "evidence": "Aucun --yes passé"
+    },
+    {
+      "text": "fp.py uniquement",
+      "passed": true,
+      "evidence": "Aucun curl"
+    }
+  ],
+  "pass_rate": 0.8571428571428571
+}

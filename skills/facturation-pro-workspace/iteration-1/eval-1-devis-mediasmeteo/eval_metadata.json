@@ -1,0 +1,11 @@
+{"eval_id": 1, "eval_name": "devis-mediasmeteo",
+ "prompt": "Fais-moi un devis pour Mediasmeteo : refonte de leur site WordPress, 3 jours de conception à 600 € HT/jour et 6 jours d'intégration à 600 € HT/jour, TVA 20 %, paiement à 30 jours. Si le client n'existe pas encore chez moi, crée-le (c'est une société, contact contact@mediasmeteo.com). Montre-moi le récap avant d'envoyer quoi que ce soit.",
+ "assertions": [
+  "Recherche du client par -p company= avant création (pas de doublon)",
+  "Client créé comme société (individual false) avec email contact@mediasmeteo.com",
+  "Devis créé avec 2 lignes : quantity 3 et 6, unit_price 600, vat 0.200",
+  "pay_before 30 sur le devis",
+  "Total HT 5400, TTC 6480 affichés dans le récap",
+  "Aucune conversion en facture, aucun mail, aucun --yes passé",
+  "Utilise fp.py uniquement (pas de curl)"
+ ]}

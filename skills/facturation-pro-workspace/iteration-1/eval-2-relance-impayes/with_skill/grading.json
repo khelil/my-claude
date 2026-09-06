@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "bill_type=term avec --all",
+      "passed": true,
+      "evidence": "Commande exacte du skill utilisée"
+    },
+    {
+      "text": "--fields et --sum total_with_vat",
+      "passed": true,
+      "evidence": "sum_total_with_vat 8389.8"
+    },
+    {
+      "text": "8 factures pour 8389.80 EUR",
+      "passed": true,
+      "evidence": "Tableau de 8 lignes, total 8 389,80"
+    },
+    {
+      "text": "Plus ancienne identifiée par term_on",
+      "passed": true,
+      "evidence": "UmanIT 202407-5, échue 2024-07-11"
+    },
+    {
+      "text": "customer_identity utilisé, pas de colonne vide",
+      "passed": true,
+      "evidence": "Noms clients présents"
+    },
+    {
+      "text": "Relance préparée sans --yes",
+      "passed": true,
+      "evidence": "Commande proposée avec --yes laissé à l'utilisateur ; --dry-run bloqué par le guard (bug corrigé)"
+    },
+    {
+      "text": "Aucune écriture",
+      "passed": true,
+      "evidence": "Diff avant/après vide"
+    }
+  ],
+  "pass_rate": 1.0
+}

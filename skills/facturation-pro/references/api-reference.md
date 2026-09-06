@@ -3,7 +3,7 @@
 Base : `https://www.facturation.pro/` · Auth : Basic `IdentifiantApi:CleApi` · JSON snake_case
 sans élément racine · toutes les URL en `.json` · tout est préfixé `/firms/FIRM_ID/` sauf
 `/account.json`. Création → `201 Created` + en-tête `Location`. Listes : 50 par page,
-paramètre `page=N`, en-tête `X-Pagination` `{"current_page","total_pages","per_page","total_entries"}`.
+paramètre `page=N`, en-tête `x-pagination` (minuscules) `{"current_page","total_pages","per_page","total_entries"}`.
 Quota : 600 req / 5 min, 10 000 / jour, `429` + `Retry-After`. Champs `api_id` (bigint) et
 `api_custom` (string 255) libres sur presque toutes les ressources.
 

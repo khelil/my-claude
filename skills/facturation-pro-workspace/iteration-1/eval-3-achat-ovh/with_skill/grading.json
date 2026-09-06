@@ -1,0 +1,30 @@
+{
+  "expectations": [
+    {
+      "text": "Réutilise fournisseur OVH 29306, aucun créé",
+      "passed": true,
+      "evidence": "supplier_id 29306, diff suppliers vide"
+    },
+    {
+      "text": "total_with_vat 71.99 et vat_amount 12.00, pas de HT envoyé",
+      "passed": true,
+      "evidence": "JSON API : total 59.99 déduit"
+    },
+    {
+      "text": "Dates 2026-09-01, payment_mode 2",
+      "passed": true,
+      "evidence": "invoiced_on/paid_on 2026-09-01, payment_mode 2"
+    },
+    {
+      "text": "Justificatif joint via upload",
+      "passed": false,
+      "evidence": "Compte sans option Gold : API renvoie HTML 200 ; échec silencieux du script (corrigé : exit 4)"
+    },
+    {
+      "text": "Aucun --yes ni suppression",
+      "passed": true,
+      "evidence": "Aucune"
+    }
+  ],
+  "pass_rate": 0.8
+}
