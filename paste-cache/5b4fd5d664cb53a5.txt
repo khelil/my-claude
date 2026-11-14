@@ -1,0 +1,409 @@
+Build log truncated.
+
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/simple-page-header-BOSro1Su.js                                             1.68 kB │ map:     0.16 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/button-15E7Tlc3.js                                                         1.68 kB │ map:     0.15 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/newsroom-page-figures-styles-1.mjs-C9jBk0Yf.js                             1.70 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/about-manifest-CkfYKhM6.js                                                 1.72 kB │ map:     3.66 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/privacy-and-policy-layout-BHo0D9FG.js                                      1.73 kB │ map:     0.17 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/product-whats-new-v2-styles-2.mjs-BS-YdtNT.js                              1.75 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/pilar-child-header-F0vRHpsj.js                                             1.77 kB │ map:     0.17 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/why-linkurious-properties-CO1fCU0j.js                                      1.77 kB │ map:     0.17 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/article-header-styles-1.mjs-CLIcax0s.js                                    1.79 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/linkurious-form-styles-1.mjs-CshaIliK.js                                   1.79 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/banking-title-BxuOhHH9.js                                                  1.80 kB │ map:     0.16 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/product-ogma-single-card-styles-1.mjs-Dk8VT3k-.js                          1.86 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/VSelect-styles-1.mjs-ClFFvW2x.js                                           1.88 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/platform-sections-layout-styles-1.mjs-BXx9FzHs.js                          1.90 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/careers-what-we-value-styles-1.mjs-EoAvhqRV.js                             1.91 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/about-cards-styles-1.mjs-DBylM_zd.js                                       1.92 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/why-linkurious-head-styles-1.mjs-Da7kROmc.js                               1.92 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/home-numbers-v3-styles-1.mjs-RiasVnKY.js                                   1.95 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-capability-benefit-accordion-styles-1.mjs-lEGosJ5E.js    1.95 kB │ map:     0.15 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/ProseH1-CRsL55T1.js                                                        1.96 kB │ map:     0.83 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/newsroom-page-releases-styles-1.mjs-7wtrtzbb.js                            1.97 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/ProseH2-Tm8ZGTde.js                                                        1.97 kB │ map:     0.83 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/ProseH3-UhWZSVgT.js                                                        1.97 kB │ map:     0.83 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/ProseH4-QZgPmDhK.js                                                        1.97 kB │ map:     0.83 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/ProseH5-CNp4E1Fv.js                                                        1.97 kB │ map:     0.83 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/ProseH6-YcuxkCz-.js                                                        1.97 kB │ map:     0.83 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-capability-navigation-bar-styles-1.mjs-Cu5YGSQm.js       1.99 kB │ map:     0.15 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/related-ressources-styles-1.mjs-DVoFu5tu.js                                1.99 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/product-block-styles-1.mjs-uEwL65Ik.js                                     2.02 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/ProseA-C6E3BUs2.js                                                         2.02 kB │ map:     0.17 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/video-player-styles-1.mjs-DD7vcFfP.js                                      2.09 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/carrers-team-thumbs-DehZRR2q.js                                            2.10 kB │ map:     1.16 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/home-benefits-v2-Dc7gogOc.js                                               2.13 kB │ map:     0.73 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/globals-slider-difference-styles-1.mjs-wwIlv1DK.js                         2.13 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/linkurious-free-trial-logo-carousel-slider-styles-1.mjs-B9CIznzx.js        2.14 kB │ map:     0.15 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/entry-styles-11.mjs-CFxT1K8l.js                                            2.16 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/for-good-slider-styles-1.mjs-GG7PS42_.js                                   2.16 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/connect-with-us-get-in-touch-styles-1.mjs-BvEMDm3w.js                      2.16 kB │ map:     0.14 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/home-benefits-v3-D9XUpJL6.js                                               2.19 kB │ map:     0.74 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/resources-blog-layout-blog-styles-1.mjs-D7i1VuZ7.js                        2.19 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/ProseImg-vQdNn6rN.js                                                       2.22 kB │ map:     1.47 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/homepage-v2-value-prop-styles-1.mjs-KzI9k7Do.js                            2.22 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/VSelectionControl-styles-1.mjs-CD95OON-.js                                 2.23 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/VTextField-styles-1.mjs-S7gf2T6-.js                                        2.23 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/pp-table-of-contents-styles-1.mjs-oML-3KyZ.js                              2.24 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/blog-article-styles-1.mjs-CxURvOQE.js                                      2.24 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/ProsePre-BeKki1OX.js                                                       2.25 kB │ map:     0.17 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/entry-styles-13.mjs-Brp5M7Cm.js                                            2.26 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/neo4j-head-DRi62h02.js                                                     2.28 kB │ map:     0.16 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/globals-blog-76FFgYOI.js                                                   2.28 kB │ map:     0.17 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/VList-styles-1.mjs-BePX9lfl.js                                             2.29 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/about-info-DyJ3v93b.js                                                     2.31 kB │ map:     0.16 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/entry-styles-24.mjs-CNKx1HjY.js                                            2.34 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/testimonial-f0fNOxng.js                                                    2.40 kB │ map:     0.16 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-how-it-works-XhnIMIIG.js                                 2.41 kB │ map:     0.18 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/platform-card-BLukp2AF.js                                                  2.42 kB │ map:     0.16 kB
+[2026-11-05T14:31:11.699Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/for-good-client-DHupLDdw.js                                                2.44 kB │ map:     1.57 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/Blog-styles-1.mjs-DPfQZgu0.js                                              2.45 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/cta-benefits-6zo3oKkU.js                                                   2.45 kB │ map:     0.16 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/home-benefits-BlFDsz90.js                                                  2.46 kB │ map:     0.16 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/article-suscribe-section-styles-2.mjs-KisagmB5.js                          2.47 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/globals-usecases-Tuvu_D98.js                                               2.47 kB │ map:     0.17 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/library-filter-blogs-styles-1.mjs-CiECiSDN.js                              2.49 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/globals-newsletter-subscribe-section-styles-2.mjs-D2bXOOP6.js              2.50 kB │ map:     0.14 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/library-layout-styles-1.mjs-D1H9EWi3.js                                    2.51 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/base-text-field-Tc6YpG4I.js                                                2.53 kB │ map:     0.21 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/VAvatar-styles-1.mjs-D3GPF9pv.js                                           2.58 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/newsroom-page-clips-styles-1.mjs-dK_7qi5N.js                               2.60 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/product-highlights-styles-1.mjs-Bsx3S46Z.js                                2.61 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/default-no-footer-DFyd0pYF.js                                              2.61 kB │ map:     0.75 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/VDialog-styles-1.mjs-t-cg2Xwa.js                                           2.64 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/sticky-menu-CXbAmNda.js                                                    2.68 kB │ map:     4.04 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/solution-ogma-styles-1.mjs-DI65LJBU.js                                     2.70 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/connect-with-us-location-D6yPWRQw.js                                       2.70 kB │ map:     0.17 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/newsroom-page-blog-styles-1.mjs-CS7861ZV.js                                2.72 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/linkurious-free-trial-hero-styles-1.mjs-BqCuDpX6.js                        2.73 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/demo-page-layout-styles-1.mjs-DL-ZoUcu.js                                  2.76 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/careers-values-styles-2.mjs-CNN9V13t.js                                    2.78 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/vertical-scroll-slider-simple-styles-1.mjs-1ds-dz-B.js                     2.79 kB │ map:     0.14 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/article-suscribe-section-CXs-p2rw.js                                       2.81 kB │ map:     3.29 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/connect-with-us-clients-styles-1.mjs-DVaMTfQe.js                           2.82 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/default-CPJcbS3o.js                                                        2.83 kB │ map:     0.76 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/neo4j-user-quote-qkiIu4qu.js                                               2.86 kB │ map:     2.23 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/entry-styles-20.mjs-Bme6MIvS.js                                            2.86 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/why-linkurious-v3-styles-1.mjs-BwoTKshK.js                                 2.87 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/neo4j-benefits-D-ytLrl1.js                                                 2.88 kB │ map:     0.39 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/white-D-LzdVUW.js                                                          2.94 kB │ map:     0.81 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/ContentList-j-iNdzTo.js                                                    2.94 kB │ map:     2.89 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/blog-DtIhu6If.js                                                           2.94 kB │ map:     0.82 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/brown-BoxtZj2C.js                                                          2.94 kB │ map:     0.82 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/light-blue-DhCTE1p2.js                                                     2.95 kB │ map:     0.82 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/transparent-C-wpKN17.js                                                    2.96 kB │ map:     0.83 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/_...pageNumber_-BmT4ES1y.js                                                2.96 kB │ map:     1.59 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/primary-blue-Cbbph2vu.js                                                   2.96 kB │ map:     0.83 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/text-editor-Dbd0MI98.js                                                    3.01 kB │ map:     3.48 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-v4-styles-1.mjs-20aDCOBF.js                              3.03 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/home-head-popup-BwquoDpR.js                                                3.04 kB │ map:     1.62 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/vertical-scroll-slider-styles-1.mjs-BzbCDs7O.js                            3.04 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/VTabs-styles-1.mjs-Di-sJqrK.js                                             3.05 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/product-header-styles-1.mjs-P2bJ713r.js                                    3.12 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.700Z] #7 56.63 ℹ ../.nuxt/dist/server/_nuxt/solution-header-styles-1.mjs-Bj6ii0eT.js                                   3.15 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-v3-styles-1.mjs-Db2nDpck.js                              3.15 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/vertical-scroll-slider-medias-styles-1.mjs-CStOlb3a.js                     3.20 kB │ map:     0.14 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-header-carousel-fk-oNxIt.js                              3.22 kB │ map:     0.19 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/linkurious-free-trial-logo-carousel-slider-BKAIn6Z7.js                     3.22 kB │ map:     0.20 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/why-linkurious-awards-CEjYN9JQ.js                                          3.23 kB │ map:     0.18 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/newsroom-page-blog-BSseDTqf.js                                             3.23 kB │ map:     4.24 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/product-whats-new-styles-1.mjs-CmjluIeO.js                                 3.26 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/pilar-menu-B36IO-9n.js                                                     3.29 kB │ map:     2.36 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/connect-with-us-social-media-7mwUKvYj.js                                   3.32 kB │ map:     1.94 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/home-insights-v3-styles-1.mjs-D9yxD-wd.js                                  3.34 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/VAvatar-CcuFd0Rx.js                                                        3.34 kB │ map:     6.70 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/homepage-v2-value-prop-CMIXxGpJ.js                                         3.34 kB │ map:     4.76 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/privacy-and-policy-layout-styles-1.mjs-CxCfT7dZ.js                         3.38 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/ContentRenderer-B4vwLV0s.js                                                3.38 kB │ map:     3.52 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/home-product-v2-styles-1.mjs-Bw-34sP3.js                                   3.42 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/home-solutions-0xYm6t4G.js                                                 3.44 kB │ map:     0.17 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/home-head-styles-1.mjs-CrBYE4W3.js                                         3.49 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/linkurious-form-v2-styles-1.mjs-C_6G75b4.js                                3.50 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/video-player-BL5gFxxV.js                                                   3.50 kB │ map:     4.93 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/solution-use-case-styles-1.mjs-MrkQWlEj.js                                 3.52 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/buttons-list-BRFMMmLV.js                                                   3.52 kB │ map:     0.19 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/globals-power-styles-1.mjs-CsbZJw__.js                                     3.55 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/VDialog-8N5TxGT4.js                                                        3.59 kB │ map:     6.14 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/VWindow-styles-1.mjs-Dkx394n0.js                                           3.61 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.700Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/privacy-and-policy-content-CoJ9oHbf.js                                     3.61 kB │ map:     0.22 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-solution-styles-1.mjs-CWOUAUw2.js                        3.61 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/home-insights-v3-UR1fCaCg.js                                               3.62 kB │ map:     9.16 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/product-card-slider-styles-1.mjs-B9GXhi67.js                               3.75 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/_...pageNumber_-BqWvGW_d.js                                                3.88 kB │ map:     2.57 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/solution-cta-BN6Rjqya.js                                                   3.89 kB │ map:     0.19 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-schema-styles-1.mjs-Dwi79yp8.js                          3.92 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/VInput-styles-1.mjs-X4RCjhmL.js                                            3.96 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-layout-section-TkJbGcwB.js                               3.98 kB │ map:     0.21 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/why-linkurious-our-partners-CssekaPO.js                                    3.99 kB │ map:     0.21 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/Blog-CAUnKHm6.js                                                           4.11 kB │ map:     5.48 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/focusTrap-CzSxtoa9.js                                                      4.14 kB │ map:     7.83 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/resources-blog-layout-blog-Slo1VAuG.js                                     4.15 kB │ map:     5.35 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/solutions-anti-layout-CcauVCsU.js                                          4.15 kB │ map:     1.68 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/newsroom-page-layout-C7Fpfelg.js                                           4.22 kB │ map:     2.56 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/partner-page-partners-ByWHiyvo.js                                          4.25 kB │ map:     0.22 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/globals-newsletter-subscribe-section-CXZOvkFW.js                           4.28 kB │ map:     3.48 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/ContentNavigation-C6_ATWfq.js                                              4.29 kB │ map:     5.93 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/partner-program-layout-CVuIFKwr.js                                         4.36 kB │ map:     2.36 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/top-banner-leMG2ZBT.js                                                     4.37 kB │ map:     3.56 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/partner-page-cards-styles-1.mjs-COLlpsjM.js                                4.45 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/solution-cta-styles-1.mjs-ClsN5gOZ.js                                      4.46 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/shortcode-D5D__Cpy.js                                                      4.47 kB │ map:     7.58 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/cta-banner-v2-styles-1.mjs-CaCVHJrE.js                                     4.51 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-card-styles-1.mjs-BjKM3YFO.js                                     4.53 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/entry-styles-14.mjs-BmDpT12j.js                                            4.54 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/_...uri_-BK5pXK8_.js                                                       4.63 kB │ map:     3.09 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/heading-De-7Hbpm.js                                                        4.64 kB │ map:     2.96 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/solution-faq-styles-1.mjs-D9ikDMbB.js                                      4.64 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/solution-use-case-L-ZEH0z4.js                                              4.66 kB │ map:     0.20 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/partner-program-partners-section-BqupsPMh.js                               4.69 kB │ map:     2.69 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/for-good-numbers-mSo8pFB3.js                                               4.69 kB │ map:     0.22 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/resources-blog-blogs-DP0Xnbzg.js                                           4.81 kB │ map:     2.11 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/ContentSlot-Dn1iKpWC.js                                                    4.85 kB │ map:     8.02 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/for-good-layout-6V25v9vg.js                                                4.87 kB │ map:     2.90 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-key-metrics-DLUE-Cjb.js                                  4.92 kB │ map:     0.23 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/product-header-ogma-styles-1.mjs-BizR7N3L.js                               4.92 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/solutions-aml-layout-DUleqegv.js                                           4.94 kB │ map:     2.63 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/about-heros-q3rrezGj.js                                                    4.98 kB │ map:     2.61 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/simple-page-BaKNLHfg.js                                                    5.04 kB │ map:     2.29 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-layout-section-styles-1.mjs-CXNvXVsE.js                  5.05 kB │ map:     0.14 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/partner-page-layout-IuYkbOOX.js                                            5.07 kB │ map:     3.07 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/home-numbers-BIxYnVWg.js                                                   5.12 kB │ map:     0.21 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/banking-challenges-section-G9b5vfF2.js                                     5.16 kB │ map:     0.76 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/connect-with-us-get-in-touch_save-Bs47Rog6.js                              5.24 kB │ map:     0.24 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/home-benefits-mobile-zOr2owI7.js                                           5.26 kB │ map:     0.68 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/newsroom-page-figures-CqbdCFOz.js                                          5.39 kB │ map:     0.24 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/about-numbers-BwGFfDkA.js                                                  5.40 kB │ map:     2.03 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/image-CgChMWc3.js                                                          5.42 kB │ map:     2.32 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/product-ogma-cards-DAsyg6Zg.js                                             5.58 kB │ map:     2.26 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/connect-with-us-clients-DF0dVWVr.js                                        5.69 kB │ map:     0.24 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/_...uri_-B8RZa-kS.js                                                       5.70 kB │ map:     5.10 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-tech-case-study-fBPS_exp.js                              5.75 kB │ map:     0.26 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-tech-challenges-CIRaATvY.js                              6.04 kB │ map:     0.26 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/partner-page-cards-D0OBbIo-.js                                             6.04 kB │ map:     0.23 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/home-head-Ctmf5UWD.js                                                      6.10 kB │ map:     7.05 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-tech-features-B6W9nrZv.js                                6.11 kB │ map:     0.26 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/pilar-mother-header-DosRo7y-.js                                            6.13 kB │ map:     5.72 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-detection-focus-Bkv2LvaX.js                                       6.19 kB │ map:     0.27 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/newsroom-page-stories-CuXCXZAq.js                                          6.22 kB │ map:     0.27 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/_...uri_-BGk17Q3N.js                                                       6.36 kB │ map:     6.21 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/forwardRefs-BZfxrQyf.js                                                    6.41 kB │ map:    12.42 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/home-header-v2-styles-1.mjs-C9de8Go1.js                                    6.41 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/ContentQuery-COwY5qT8.js                                                   6.47 kB │ map:     8.82 kB
+[2026-11-05T14:31:11.701Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/entry-styles-23.mjs-DDBDk-GQ.js                                            6.48 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/product-ogma-feature-column-B_cO0oLF.js                                    6.66 kB │ map:     0.26 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/banking-layout-CNNMfrI3.js                                                 6.74 kB │ map:     1.28 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/goverment-layout-DV0v9UF7.js                                               6.75 kB │ map:     1.23 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/VCard-styles-1.mjs-DVf__Pta.js                                             6.85 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-tech-schema-Ck63TSET.js                                  6.94 kB │ map:     5.82 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/linkurious-logo-carousel-Cw-o0zIg.js                                       6.99 kB │ map:     2.85 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/pilar-mother-BEmrFR2K.js                                                   7.01 kB │ map:     2.74 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/product-ogma-single-card-e-O5yTbr.js                                       7.01 kB │ map:     0.27 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/globals-power-B2zpVmde.js                                                  7.03 kB │ map:    10.48 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/newsroom-page-clips-tAFRsw4-.js                                            7.06 kB │ map:     4.38 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/about-user-BzXtYLAt.js                                                     7.08 kB │ map:     2.54 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/solutions-aml-download-C5xykMPF.js                                         7.11 kB │ map:     0.27 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/banking-our-solutions-Zku57KsE.js                                          7.15 kB │ map:    11.11 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/cta-navigation-blocks-upP1JAoi.js                                          7.24 kB │ map:    11.15 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-watch-demo-BPwNysN6.js                                   7.24 kB │ map:     2.14 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/index-DDQM7-H0.js                                                          7.29 kB │ map:    13.32 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/partner-program-features-DVrc_2FV.js                                       7.35 kB │ map:     0.27 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/globals-blogs-DYYYWTAr.js                                                  7.45 kB │ map:     2.55 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-detection-cards-section-DxHX4dMU.js                               7.49 kB │ map:     0.31 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/linkurious-free-trial-hero-CqCXXAcp.js                                     7.55 kB │ map:     0.28 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-case-management-benefits-DqxJjKC2.js                              7.67 kB │ map:     0.29 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/linkurious-free-trial-products-table-styles-1.mjs-DZRiDEKh.js              7.71 kB │ map:     0.14 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/product-highlights-Tz60naPk.js                                             7.71 kB │ map:     5.95 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/home-header-v3-styles-2.mjs-qfl7vSLp.js                                    7.73 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/for-good-project-CigZ2cL5.js                                               7.74 kB │ map:     0.26 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/careers-layout-Cs0a9KXl.js                                                 7.79 kB │ map:     0.27 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/ContentDoc-CrSn7AhO.js                                                     7.79 kB │ map:    10.94 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/solutions-aml-benefits-ZlyplCCY.js                                         7.81 kB │ map:     0.29 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/solutions-anti-benefits-C7t0yo9-.js                                        7.84 kB │ map:     0.29 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/platform-detection-organization-DctnniWC.js                                7.86 kB │ map:     0.30 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/home-numbers-v3-Blzof9MS.js                                                7.87 kB │ map:     5.48 kB
+[2026-11-05T14:31:11.702Z] #7 56.64 ℹ ../.nuxt/dist/server/_nuxt/home-header-v3-BnzwqTvh.js                                                 7.93 kB │ map:    14.05 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/pilar-child-B9DAb2Vr.js                                                    8.01 kB │ map:     2.14 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-discover-section-styles-1.mjs-gR19vTRn.js                8.20 kB │ map:     0.14 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/linkurious-form-v2-CV30f8yY.js                                             8.40 kB │ map:     0.29 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/vertical-scroll-animation-styles-1.mjs-CYAy2JL9.js                         8.40 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/blog-article-CIJQ7ANt.js                                                   8.47 kB │ map:     4.91 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/pp-table-of-contents-DAcrN7QE.js                                           8.53 kB │ map:    15.28 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/resources-blog-layout-vGUiEfJN.js                                          8.69 kB │ map:     4.63 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/query-5S7vYZNq.js                                                          8.75 kB │ map:    19.56 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/linkurious-free-trial-faq-styles-1.mjs-DIePOWWO.js                         8.85 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/nuxt-link-C1eWc1Ml.js                                                      8.93 kB │ map:    19.51 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/pageStore-CF4H9zPk.js                                                      9.10 kB │ map:     2.38 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/newsroom-page-brand-assets-B-boSp5C.js                                     9.18 kB │ map:     4.83 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-capability-navigation-bar-Dqdj-IQr.js                    9.19 kB │ map:     0.89 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/entry-styles-28.mjs-Dc0B2pD6.js                                            9.21 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/about-layout-CLQooqkL.js                                                   9.33 kB │ map:     2.31 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/linkurious-free-trial-products-table-price-styles-1.mjs-FeBG56E5.js        9.44 kB │ map:     0.15 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/vertical-scroll-animation-eHc50jUR.js                                      9.65 kB │ map:    24.62 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/home-benefits-mobile-v3-CAeHXbtF.js                                        9.74 kB │ map:     0.73 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/for-good-slider-BjTYLUcN.js                                                9.80 kB │ map:     5.21 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/linkurious-free-trial-products-comparison-styles-1.mjs-DmxbT75h.js         9.82 kB │ map:     0.15 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/vertical-scroll-animation-v3-styles-1.mjs-OqS2VAAR.js                      9.89 kB │ map:     0.14 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/VChip-styles-1.mjs-CwPUUC4v.js                                            10.01 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/banking-benefits-BDXg4iWo.js                                              10.23 kB │ map:     0.33 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/cta-banner-v2-D_8hjRnK.js                                                 10.41 kB │ map:     0.31 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/cta-banner-2nRlkvRz.js                                                    10.43 kB │ map:     0.30 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/entry-styles-9.mjs-BpMbxrKl.js                                            10.46 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-techno-section-D4ou75Cz.js                              10.48 kB │ map:     3.85 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-schema-DgzGWDHz.js                                      10.78 kB │ map:     7.62 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/VExpansionPanels-BUIuDGoY.js                                              10.80 kB │ map:    20.63 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/solution-faq-xeqnQbe6.js                                                  10.86 kB │ map:     6.03 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/about.missions-Cqy_wXFM.js                                                10.92 kB │ map:     4.29 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/solution-ogma-5UT3NaH4.js                                                 10.94 kB │ map:     0.33 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/product-feature-column-DiTHGjp0.js                                        10.97 kB │ map:     4.14 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/careers-what-we-value-L-kEEOYK.js                                         11.34 kB │ map:     5.07 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-v3-CdMe71lZ.js                                          11.40 kB │ map:     0.33 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-v4-DXDB87Za.js                                          11.40 kB │ map:     0.33 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/partner-program-get-in-touch-DGcCUmRJ.js                                  11.46 kB │ map:     3.76 kB
+[2026-11-05T14:31:11.702Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/linkurious-form-CynH3m39.js                                               11.55 kB │ map:     0.37 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/globals-slider-difference-Cdfe5Gwx.js                                     11.56 kB │ map:     5.99 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-solution-C1YqP9yW.js                                    11.69 kB │ map:     0.34 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/goverment-challenge-wBdrZG-K.js                                           11.74 kB │ map:     1.91 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/VSlideGroup-mrTPxHXa.js                                                   12.01 kB │ map:    23.57 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/VCard-BE9MrZRR.js                                                         12.12 kB │ map:    23.70 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/careers-find-job-Br1lAryQ.js                                              12.16 kB │ map:     0.37 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/library-filter-blogs-ZTP6KNso.js                                          12.51 kB │ map:     5.88 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/about-team-7CacXY1V.js                                                    13.06 kB │ map:     0.35 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/product-header-ogma--KNoDvAB.js                                           13.41 kB │ map:     7.46 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/entry-styles-3.mjs-DvIcJM2v.js                                            13.56 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/library-layout-BSB_wo8N.js                                                13.58 kB │ map:     0.28 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/platform-sections-layout-C5iw-k5k.js                                      13.66 kB │ map:     0.38 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/ContentRendererMarkdown-B6T3BRFg.js                                       13.80 kB │ map:    21.56 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/solution-challenge-B0kHuuhL.js                                            13.82 kB │ map:     0.36 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/VListItem-styles-1.mjs-BPl0NYSD.js                                        14.03 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/cta-banner-v3-B8QFZGM_.js                                                 14.18 kB │ map:     0.37 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/linkurious-free-trial-faq-C4Z04Ni7.js                                     14.27 kB │ map:    13.47 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/product-whats-new-v2-r2xYb6od.js                                          14.28 kB │ map:    12.13 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/case_1_row_3-DjyAmlS_.js                                                  14.29 kB │ map:    15.11 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/solution-header-ITMQz8gJ.js                                               14.59 kB │ map:     0.37 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/home-header-v2-EvicsHjK.js                                                14.79 kB │ map:    13.29 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/platform-sections-expantion-section-C2PYLIU1.js                           15.27 kB │ map:     8.22 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/pagination-DsnEEmr4.js                                                    15.82 kB │ map:    25.73 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/VTimeline-styles-1.mjs-Dm1YkvDf.js                                        15.91 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/client-db-C-6-tn_r.js                                                     16.20 kB │ map:    29.47 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/desktop-nav-CAP25s6a.js                                                   16.22 kB │ map:    33.76 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/product-whats-new-bcanjUP2.js                                             16.27 kB │ map:     8.95 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/resourcesStore-BDHiFBMU.js                                                16.71 kB │ map:     3.04 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/product-header-BJry8oTu.js                                                16.91 kB │ map:     0.42 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/home-solutions-styles-1.mjs-BfnTujTL.js                                   17.54 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/product-whats-new-v2-styles-1.mjs-BeV-TXDh.js                             17.65 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/partner-program-how-to-partner-J9VmAj__.js                                17.67 kB │ map:     4.48 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/VField-styles-1.mjs-8jGRF-pz.js                                           17.76 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-why-linkurious-OIEJJDHh.js                              17.78 kB │ map:     0.47 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/demo-page-layout-fGrPBUfM.js                                              18.14 kB │ map:     8.84 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/vertical-scroll-animation-v3-C6KRiH-I.js                                  18.15 kB │ map:    35.94 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/hubspot-form-D17Ujw7Q.js                                                  18.24 kB │ map:     2.08 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/product-getting-started-v2-iToJncXJ.js                                    18.87 kB │ map:     0.50 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/social-sharing-CVWtrqKo.js                                                19.35 kB │ map:    25.30 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/postStore-BCBpzVZ0.js                                                     20.25 kB │ map:     4.24 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/globals-users-slider-BMdqcttB.js                                          20.40 kB │ map:     3.83 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/entry-styles-2.mjs-CfQF8VRg.js                                            20.44 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/home-usecase-highlights-v2-C5AII6cm.js                                    20.49 kB │ map:     4.77 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/product-header-v2-D4shpp05.js                                             20.49 kB │ map:    11.28 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/about-cards-DQqgzeDb.js                                                   20.69 kB │ map:     0.46 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/feature-tab-y17GIokJ.js                                                   20.87 kB │ map:     4.72 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/product-header-v2-styles-1.mjs-DLYXn20g.js                                21.19 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/newsroom-page-releases-FQGtpqVf.js                                        21.28 kB │ map:     6.41 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/vertical-scroll-slider-simple-isKtJLUq.js                                 21.62 kB │ map:     9.43 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/globals-users-slider-v3-BcjwtgYE.js                                       22.08 kB │ map:     5.89 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/connect-with-us-get-in-touch-BH9ORb4-.js                                  22.12 kB │ map:     6.25 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/vertical-scroll-slider-C8b2NXnq.js                                        22.28 kB │ map:    10.67 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/vertical-scroll-slider-medias-Cx0YkuRm.js                                 24.00 kB │ map:    19.83 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/careers-values-BOLEhdqU.js                                                24.61 kB │ map:     4.30 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/feature-tab-v2-Ix7Qs62h.js                                                25.42 kB │ map:    14.52 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/VTabs-a8Eojnfa.js                                                         26.35 kB │ map:    49.36 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-started-section-BskLg7n9.js                             28.02 kB │ map:    17.31 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-benefits-DsfntqJb.js                                    30.05 kB │ map:     9.21 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/related-ressources-3jkXKW2y.js                                            30.78 kB │ map:     9.20 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/careers-team-BgECwfXc.js                                                  31.79 kB │ map:     5.03 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/feature-tab-v2-styles-1.mjs-XeuVDwoZ.js                                   32.45 kB │ map:     0.12 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/entry-styles-7.mjs-CybaIzX0.js                                            32.82 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/banking-our-solutions-styles-1.mjs-CqKwlYDk.js                            32.92 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/careers-other-important-things-DdeIMNsB.js                                32.97 kB │ map:     0.74 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/cta-navigation-blocks-styles-1.mjs-CgRUPOSl.js                            33.07 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.703Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/product-card-slider-DWX0noO2.js                                           34.01 kB │ map:    10.25 kB
+[2026-11-05T14:31:11.704Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/why-linkurious-v3-BUaiJNi3.js                                             36.06 kB │ map:    10.81 kB
+[2026-11-05T14:31:11.704Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/newsroom-page-about-BPRNFDir.js                                           36.69 kB │ map:     5.89 kB
+[2026-11-05T14:31:11.704Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/VTextField-DyphQhQ9.js                                                    36.86 kB │ map:    76.43 kB
+[2026-11-05T14:31:11.704Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/VOverlay-DHkdzbdq.js                                                      42.51 kB │ map:    86.69 kB
+[2026-11-05T14:31:11.704Z] #7 56.65 ℹ ../.nuxt/dist/server/_nuxt/entry-styles-18.mjs-08qtRGzb.js                                           43.28 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.704Z] #7 56.66 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-capability-benefit-accordion-CQ-oyJ2N.js                43.82 kB │ map:     0.85 kB
+[2026-11-05T14:31:11.704Z] #7 56.66 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-benefits-styles-1.mjs-B9PxvVCE.js                       45.03 kB │ map:     0.13 kB
+[2026-11-05T14:31:11.704Z] #7 56.66 ℹ ../.nuxt/dist/server/_nuxt/categoriesStore-COcxdwsb.js                                               47.19 kB │ map:     7.47 kB
+[2026-11-05T14:31:11.704Z] #7 56.66 ℹ ../.nuxt/dist/server/_nuxt/linkurious-free-trial-products-comparison-Bczv5iBk.js                     47.41 kB │ map:    36.14 kB
+[2026-11-05T14:31:11.704Z] #7 56.66 ℹ ../.nuxt/dist/server/_nuxt/platform-overview-discover-section-Be8s6hb_.js                            59.09 kB │ map:    49.79 kB
+[2026-11-05T14:31:11.704Z] #7 56.66 ℹ ../.nuxt/dist/server/_nuxt/entry-styles-16.mjs-CzXBhlEp.js                                           67.28 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.704Z] #7 56.66 ℹ ../.nuxt/dist/server/_nuxt/mobile-drawer-BrFVbwIN.js                                                 76.15 kB │ map:    77.30 kB
+[2026-11-05T14:31:11.704Z] #7 56.66 ℹ ../.nuxt/dist/server/_nuxt/product-block-DbONAO8h.js                                                 96.28 kB │ map:    12.63 kB
+[2026-11-05T14:31:11.704Z] #7 56.66 ℹ ../.nuxt/dist/server/_nuxt/home-product-v2-k3ISq7NE.js                                              130.16 kB │ map:    16.25 kB
+[2026-11-05T14:31:11.704Z] #7 56.66 ℹ ../.nuxt/dist/server/_nuxt/base-select-6VUKyKqT.js                                                  138.19 kB │ map:   251.59 kB
+[2026-11-05T14:31:11.704Z] #7 56.66 ℹ ../.nuxt/dist/server/_nuxt/linkurious-free-trial-products-table-BT8X6l2H.js                         184.97 kB │ map:    27.25 kB
+[2026-11-05T14:31:11.704Z] #7 56.66 ℹ ../.nuxt/dist/server/_nuxt/linkurious-free-trial-products-table-price-DCpWi3Ek.js                   200.40 kB │ map:    31.84 kB
+[2026-11-05T14:31:11.704Z] #7 56.66 ℹ ../.nuxt/dist/server/_nuxt/entry-styles-1.mjs-BQioFO3W.js                                           249.12 kB │ map:     0.11 kB
+[2026-11-05T14:31:11.704Z] #7 56.66 ℹ ../.nuxt/dist/server/server.mjs                                                                     714.63 kB │ map: 1,437.32 kB
+[2026-11-05T14:31:11.704Z] #7 56.82 ℹ ✓ built in 24.11s
+[2026-11-05T14:31:11.961Z] #7 56.83 ✔ Server built in 24120ms
+[2026-11-05T14:31:11.961Z] #7 56.84 [nitro] ℹ Initializing prerenderer
+[2026-11-05T14:31:26.800Z] #7 70.82 
+[2026-11-05T14:31:26.800Z] #7 70.82  WARN  "ipx" is imported by "node_modules/@nuxt/image/dist/runtime/ipx.js", but could not be resolved – treating it as an external dependency.
+[2026-11-05T14:31:26.800Z] #7 70.82 
+[2026-11-05T14:31:32.049Z] #7 76.31 
+[2026-11-05T14:31:32.049Z] #7 76.31  ERROR  Cannot find package 'ipx' imported from /usr/src/website-nuxtjs/.nuxt/prerender/chunks/nitro/nitro.mjs
+[2026-11-05T14:31:32.049Z] #7 76.31 
+[2026-11-05T14:31:32.049Z] #7 76.31     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:331:9)
+[2026-11-05T14:31:32.049Z] #7 76.31     at packageResolve (node:internal/modules/esm/resolve:784:25)
+[2026-11-05T14:31:32.049Z] #7 76.31     at moduleResolve (node:internal/modules/esm/resolve:873:18)
+[2026-11-05T14:31:32.049Z] #7 76.31     at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+[2026-11-05T14:31:32.049Z] #7 76.31     at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+[2026-11-05T14:31:32.049Z] #7 76.31     at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+[2026-11-05T14:31:32.049Z] #7 76.31     at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+[2026-11-05T14:31:32.049Z] #7 76.31     at #resolve (node:internal/modules/esm/loader:687:17)
+[2026-11-05T14:31:32.049Z] #7 76.31     at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+[2026-11-05T14:31:32.049Z] #7 76.31     at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+[2026-11-05T14:31:32.049Z] #7 76.31     at ModuleJob.link (node:internal/modules/esm/module_job:381:17)
+[2026-11-05T14:31:32.049Z] #7 76.31     at new ModuleJob (node:internal/modules/esm/module_job:360:26)
+[2026-11-05T14:31:32.049Z] #7 76.31     at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:576:11)
+[2026-11-05T14:31:32.049Z] #7 76.31     at afterResolve (node:internal/modules/esm/loader:611:52)
+[2026-11-05T14:31:32.049Z] #7 76.31     at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:617:12)
+[2026-11-05T14:31:32.049Z] #7 76.31     at ModuleJob.syncLink (node:internal/modules/esm/module_job:276:33)
+[2026-11-05T14:31:32.049Z] #7 76.31     at ModuleJob.link (node:internal/modules/esm/module_job:381:17)
+[2026-11-05T14:31:32.049Z] #7 76.31     at new ModuleJob (node:internal/modules/esm/module_job:360:26)
+[2026-11-05T14:31:32.049Z] #7 76.31     at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:576:11)
+[2026-11-05T14:31:32.049Z] #7 76.31     at afterResolve (node:internal/modules/esm/loader:611:52)
+[2026-11-05T14:31:32.049Z] #7 76.31     at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:617:12)
+[2026-11-05T14:31:32.049Z] #7 76.31     at node:internal/modules/esm/loader:636:32
+[2026-11-05T14:31:32.049Z] #7 76.31     at TracingChannel.tracePromise (node:diagnostics_channel:370:14)
+[2026-11-05T14:31:32.049Z] #7 76.31     at ModuleLoader.import (node:internal/modules/esm/loader:632:21)
+[2026-11-05T14:31:32.049Z] #7 76.31     at defaultImportModuleDynamicallyForModule (node:internal/modules/esm/utils:226:31)
+[2026-11-05T14:31:32.049Z] #7 76.31     at importModuleDynamicallyCallback (node:internal/modules/esm/utils:268:12)
+[2026-11-05T14:31:32.049Z] #7 76.31     at prerender (node_modules/nitropack/dist/core/index.mjs:2015:88)
+[2026-11-05T14:31:32.049Z] #7 76.31     at async node_modules/nuxt/dist/shared/nuxt.CrJjphBv.mjs:4266:5
+[2026-11-05T14:31:32.049Z] #7 76.31     at async build (node_modules/nuxt/dist/shared/nuxt.CrJjphBv.mjs:6645:3)
+[2026-11-05T14:31:32.049Z] #7 76.31     at async Object.run (node_modules/@nuxt/cli/dist/chunks/build.mjs:74:5)
+[2026-11-05T14:31:32.049Z] #7 76.31     at async runCommand (node_modules/citty/dist/index.mjs:316:16)
+[2026-11-05T14:31:32.049Z] #7 76.31     at async runCommand (node_modules/citty/dist/index.mjs:307:11)
+[2026-11-05T14:31:32.049Z] #7 76.31     at async runMain (node_modules/citty/dist/index.mjs:445:7) 
+[2026-11-05T14:31:32.049Z] #7 76.31 
+[2026-11-05T14:31:32.049Z] #7 76.31 
+[2026-11-05T14:31:32.049Z] #7 76.31 
+[2026-11-05T14:31:32.049Z] #7 76.31  ERROR  Cannot find package 'ipx' imported from /usr/src/website-nuxtjs/.nuxt/prerender/chunks/nitro/nitro.mjs
+[2026-11-05T14:31:32.049Z] #7 76.31 
+[2026-11-05T14:31:32.049Z] #7 ERROR: process "/bin/sh -c npm run build" did not complete successfully: exit code: 1
+[2026-11-05T14:31:32.049Z] ------
+[2026-11-05T14:31:32.049Z]  > [builder  9/10] RUN npm run build:
+[2026-11-05T14:31:32.049Z] 76.31     at async build (node_modules/nuxt/dist/shared/nuxt.CrJjphBv.mjs:6645:3)
+[2026-11-05T14:31:32.049Z] 76.31     at async Object.run (node_modules/@nuxt/cli/dist/chunks/build.mjs:74:5)
+[2026-11-05T14:31:32.049Z] 76.31     at async runCommand (node_modules/citty/dist/index.mjs:316:16)
+[2026-11-05T14:31:32.050Z] 76.31     at async runCommand (node_modules/citty/dist/index.mjs:307:11)
+[2026-11-05T14:31:32.050Z] 76.31     at async runMain (node_modules/citty/dist/index.mjs:445:7) 
+[2026-11-05T14:31:32.050Z] 76.31 
+[2026-11-05T14:31:32.050Z] 76.31 
+[2026-11-05T14:31:32.050Z] 76.31 
+[2026-11-05T14:31:32.050Z] 76.31  ERROR  Cannot find package 'ipx' imported from /usr/src/website-nuxtjs/.nuxt/prerender/chunks/nitro/nitro.mjs
+[2026-11-05T14:31:32.050Z] 76.31 
+[2026-11-05T14:31:32.050Z] ------
+[2026-11-05T14:31:32.050Z] error: failed to solve: process "/bin/sh -c npm run build" did not complete successfully: exit code: 1

@@ -1,0 +1,283 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx gsd-core *)",
+      "Read(.planning/*)",
+      "Edit(.planning/*)",
+      "Read(STATE.md)",
+      "Edit(STATE.md)"
+    ]
+  },
+  "model": "fable[1m]",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"$HOME/.claude/hooks/gsd-check-update.js\""
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/khelil/.claude/hooks/gsd-session-state.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/khelil/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash|Edit|Write|MultiEdit|Agent|Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-context-monitor.js\"",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/khelil/.claude/hooks/gsd-phase-boundary.sh",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-read-injection-scanner.js\"",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"/Users/khelil/.claude/hooks/gsd-graphify-update.sh\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-prompt-guard.js\"",
+            "timeout": 120
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-read-guard.js\"",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-workflow-guard.js\"",
+            "timeout": 120
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/khelil/.claude/hooks/gsd-validate-commit.sh",
+            "timeout": 120
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-worktree-path-guard.js\"",
+            "timeout": 120
+          }
+        ]
+      },
+      {
+        "matcher": "Agent|Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-agent-isolation-guard.js\"",
+            "timeout": 120
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-write-guard.js\"",
+            "timeout": 120
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Grep|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-secret-read-guard.js\"",
+            "timeout": 120
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ~/.blume/hooks/inject-rules.mjs"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/khelil/.claude/skills/gstack/hosts/claude/hooks/timeline-stop-hook",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-context-monitor.js\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-context-monitor.js\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-context-monitor.js\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "FileChanged": [
+      {
+        "matcher": "config.json",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-config-reload.js\"",
+            "timeout": 8
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-statusline.js\""
+  },
+  "enabledPlugins": {
+    "feature-dev@claude-code-plugins": true,
+    "agent-sdk-dev@claude-code-plugins": true,
+    "pr-review-toolkit@claude-code-plugins": true,
+    "commit-commands@claude-code-plugins": true,
+    "security-guidance@claude-code-plugins": true,
+    "warp@claude-code-warp": true,
+    "skill-creator@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "paper-desktop@paper": true,
+    "cloudflare@cloudflare": true,
+    "umbrella@wp-umbrella": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
+    },
+    "paper": {
+      "source": {
+        "source": "github",
+        "repo": "paper-design/agent-plugins"
+      }
+    },
+    "cloudflare": {
+      "source": {
+        "source": "github",
+        "repo": "cloudflare/skills"
+      }
+    },
+    "wp-umbrella": {
+      "source": {
+        "source": "github",
+        "repo": "wp-umbrella/umbrella-skill"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "preferredNotifChannel": "terminal_bell",
+  "autoCompactEnabled": false,
+  "agentPushNotifEnabled": true,
+  "voiceEnabled": true
+}

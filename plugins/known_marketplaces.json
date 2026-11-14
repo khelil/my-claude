@@ -5,7 +5,7 @@
       "repo": "anthropics/claude-code"
     },
     "installLocation": "/Users/khelil/.claude/plugins/marketplaces/claude-code-plugins",
-    "lastUpdated": "2026-09-03T12:07:08.883Z"
+    "lastUpdated": "2026-09-17T06:27:45.909Z"
   },
   "claude-plugins-official": {
     "source": {
@@ -13,15 +13,7 @@
       "repo": "anthropics/claude-plugins-official"
     },
     "installLocation": "/Users/khelil/.claude/plugins/marketplaces/claude-plugins-official",
-    "lastUpdated": "2026-09-03T12:07:06.135Z"
-  },
-  "claude-code-warp": {
-    "source": {
-      "source": "github",
-      "repo": "warpdotdev/claude-code-warp"
-    },
-    "installLocation": "/Users/khelil/.claude/plugins/marketplaces/claude-code-warp",
-    "lastUpdated": "2026-05-30T16:01:12.830Z"
+    "lastUpdated": "2026-11-14T17:03:37.564Z"
   },
   "paper": {
     "source": {
@@ -38,5 +30,37 @@
     },
     "installLocation": "/Users/khelil/.claude/plugins/marketplaces/cloudflare",
     "lastUpdated": "2026-08-24T13:26:44.144Z"
+  },
+  "wp-umbrella": {
+    "source": {
+      "source": "github",
+      "repo": "wp-umbrella/umbrella-skill"
+    },
+    "installLocation": "/Users/khelil/.claude/plugins/marketplaces/wp-umbrella",
+    "lastUpdated": "2026-09-09T09:20:49.474Z"
+  },
+  "typesafe-ai": {
+    "source": {
+      "source": "github",
+      "repo": "typesafe-ai/skills"
+    },
+    "installLocation": "/Users/khelil/.claude/plugins/marketplaces/typesafe-ai",
+    "lastUpdated": "2026-09-19T02:44:56.794Z"
+  },
+  "humanizer": {
+    "source": {
+      "source": "github",
+      "repo": "blader/humanizer"
+    },
+    "installLocation": "/Users/khelil/.claude/plugins/marketplaces/humanizer",
+    "lastUpdated": "2026-09-28T16:51:00.764Z"
+  },
+  "claude-code-warp": {
+    "source": {
+      "source": "github",
+      "repo": "warpdotdev/claude-code-warp"
+    },
+    "installLocation": "/Users/khelil/.claude/plugins/marketplaces/claude-code-warp",
+    "lastUpdated": "2026-10-20T15:21:49.989Z"
   }
 }

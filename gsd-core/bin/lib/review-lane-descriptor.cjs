@@ -45,6 +45,9 @@
  *   4. `flags: string[]` — Antigravity is selected by BOTH `--antigravity` and
  *      `--agy`, which a single-valued field cannot express. This also flattens
  *      D8's uniqueness invariant across every lane's flags.
+ *   5. `NATIVE_TIMEOUT` — a lane whose CLI takes its own native inner timeout flag (today only
+ *      antigravity's `--print-timeout`) declares where the resolved value goes; `resolveLanePlan`
+ *      computes what it is from the same resolved outer `timeoutMs` (#3274).
  *
  * Phase 2 (#2795) implements the manifest validator against the amended
  * vocabulary, which is the point of amending rather than leaving it to be
@@ -55,13 +58,14 @@ exports.DOCS_PARITY_VIOLATION = exports.LANE_SLUG_RE = exports.PARITY_VIOLATION 
 exports.mergeReviewerLanes = mergeReviewerLanes;
 exports.checkReviewerLaneParity = checkReviewerLaneParity;
 exports.checkReviewerDocsParity = checkReviewerDocsParity;
+const text_lines_cjs_1 = require("./text-lines.cjs");
 /**
  * Argv placeholders (Phase 5b, #2799).
  *
  * `args` is an argv TEMPLATE, not a prefix. The injected pieces — model, effort, output file,
  * argv-borne prompt — do not all go in the same place, and no positional rule expresses that:
  * `codex` injects the model in the MIDDLE (after the `exec --ephemeral` subcommand) and the output
- * file later still, while `gemini` injects the model first and five lanes end with a bare `-` that
+ * file later still, while `kimi-code` injects the model first and five lanes end with a bare `-` that
  * must stay last. Splicing by position silently produced
  * `codex --model M -o F exec --ephemeral …`, which is not a valid codex invocation.
  *
@@ -69,7 +73,7 @@ exports.checkReviewerDocsParity = checkReviewerDocsParity;
  * and vanishes when it has nothing to contribute (no model configured, no effort channel, prompt on
  * stdin), which is what lets one template serve the configured and unconfigured cases.
  *
- * This is a closed four-member vocabulary with no expressions, no nesting and no conditionals — a
+ * This is a closed five-member vocabulary with no expressions, no nesting and no conditionals — a
  * placeholder set, deliberately not a template language. The moment it needs a conditional, the
  * lane wants a `handler` instead (D6).
  */
@@ -82,39 +86,25 @@ exports.ARGV_PLACEHOLDER = Object.freeze({
     OUTPUT: '{{output}}',
     /** The argv-borne prompt, or nothing unless `promptChannel` is `argv`/`argv-file-ref`. */
     PROMPT: '{{prompt}}',
+    /** A lane's own CLI-native inner timeout duration, derived from the resolved outer `timeoutMs`
+     * (never independently configured) — see `resolveLanePlan`'s expansion of this token. */
+    NATIVE_TIMEOUT: '{{nativeTimeout}}',
 });
 const SPAWN_STDIN_STDOUT = {
     promptChannel: 'stdin',
     outputChannel: 'stdout',
 };
 /**
- * The twelve declared lanes, in `write_reviews` order.
+ * The eleven declared lanes, in `write_reviews` order.
+ *
+ * The `gemini` lane was retired by #4709: Google sunset Gemini CLI on 2026-06-18 (the same
+ * sunset that removed the gemini RUNTIME in #1928/1.8.0), so the lane spawned a binary that no
+ * longer serves the free/Pro/Ultra tiers that are GSD's audience.
  *
  * `kimi-code` joined in Phase 5b (#2799, closes #2718) — ADR-2782's phase table lands it here
  * rather than in 5a precisely so it arrives together with the iteration that can invoke it.
  */
 exports.REVIEWER_LANES = Object.freeze([
-    {
-        slug: 'gemini',
-        flags: ['--gemini'],
-        transport: 'spawn',
-        probe: { kind: 'command-exists', binary: 'gemini' },
-        invoke: {
-            binary: 'gemini',
-            args: ['{{model}}', '-p', '-'],
-            ...SPAWN_STDIN_STDOUT,
-            modelArg: '-m',
-            effortChannel: 'none',
-        },
-        timeoutFloorMs: 900_000,
-        emptyOutput: 'stub-with-stderr',
-        reviewsSection: 'Gemini',
-        evidenceClass: 'source-grounded',
-        requiresBinaries: [],
-        promptBudgetKey: 'review.max_prompt_tokens_per_reviewer.gemini',
-        modelConfigKey: 'review.models.gemini',
-        handler: null,
-    },
     {
         // 1_200_000 rather than the 900_000 floor: headless Claude measured ~525 s
         // on a large plan set (review.md:304).
@@ -130,8 +120,8 @@ exports.REVIEWER_LANES = Object.freeze([
             effortChannel: 'argv',
             // #2483: without these the claude leg is the only reviewer that additionally inherits the
             // invoking user's global CLAUDE.md, the project CLAUDE.md, and Claude Code auto-memory —
-            // a context asymmetry against the independent-review premise (gemini sees only the
-            // assembled prompt; codex runs --ephemeral). Both flags, not just the first: CLAUDE.md
+            // a context asymmetry against the independent-review premise (codex sees only the
+            // assembled prompt and runs --ephemeral). Both flags, not just the first: CLAUDE.md
             // loading and auto-memory are independently-toggled mechanisms, and an environment
             // exporting CLAUDE_CODE_DISABLE_AUTO_MEMORY=0 forces auto-memory back ON — the explicit
             // pair is robust against that. Applies when /gsd:review runs from a non-Claude-Code host;
@@ -139,12 +129,17 @@ exports.REVIEWER_LANES = Object.freeze([
             env: { CLAUDE_CODE_DISABLE_CLAUDE_MDS: '1', CLAUDE_CODE_DISABLE_AUTO_MEMORY: '1' },
         },
         timeoutFloorMs: 1_200_000,
+        timeoutConfigKey: 'review.timeouts.claude',
         emptyOutput: 'stub-with-stderr',
         reviewsSection: 'Claude',
         evidenceClass: 'source-grounded',
         requiresBinaries: [],
         promptBudgetKey: 'review.max_prompt_tokens_per_reviewer.claude',
+        contextWindowTokens: 200000,
+        contextWindowConfigKey: 'review.context_window_tokens.claude',
         modelConfigKey: 'review.models.claude',
+        effortConfigKey: 'review.effort.claude',
+        defaultEffort: 'high',
         handler: null,
     },
     {
@@ -167,12 +162,17 @@ exports.REVIEWER_LANES = Object.freeze([
             effortChannel: 'argv',
         },
         timeoutFloorMs: 1_200_000,
+        timeoutConfigKey: 'review.timeouts.codex',
         emptyOutput: 'stub-with-stderr',
         reviewsSection: 'Codex',
         evidenceClass: 'source-grounded',
         requiresBinaries: [],
         promptBudgetKey: 'review.max_prompt_tokens_per_reviewer.codex',
+        contextWindowTokens: 272000,
+        contextWindowConfigKey: 'review.context_window_tokens.codex',
         modelConfigKey: 'review.models.codex',
+        effortConfigKey: 'review.effort.codex',
+        defaultEffort: 'high',
         handler: null,
     },
     {
@@ -192,13 +192,18 @@ exports.REVIEWER_LANES = Object.freeze([
             effortChannel: 'none',
         },
         timeoutFloorMs: 360_000,
+        timeoutConfigKey: null,
         emptyOutput: 'stub-with-stderr',
         reviewsSection: 'CodeRabbit',
         evidenceClass: 'diff-only',
         requiresBinaries: [],
         promptBudgetKey: 'review.max_prompt_tokens_per_reviewer.coderabbit',
+        contextWindowTokens: null,
+        contextWindowConfigKey: null,
         // Accepts no model flag at all (review.md:367) — not merely "none configured".
         modelConfigKey: null,
+        effortConfigKey: null,
+        defaultEffort: null,
         handler: null,
     },
     {
@@ -217,6 +222,7 @@ exports.REVIEWER_LANES = Object.freeze([
             effortChannel: 'argv',
         },
         timeoutFloorMs: 660_000,
+        timeoutConfigKey: 'review.timeouts.opencode',
         emptyOutput: 'stub-with-stderr',
         reviewsSection: 'OpenCode',
         evidenceClass: 'source-grounded',
@@ -224,7 +230,11 @@ exports.REVIEWER_LANES = Object.freeze([
         // stock Windows/Git-Bash (#2589) — is no longer a prerequisite for this lane.
         requiresBinaries: [],
         promptBudgetKey: 'review.max_prompt_tokens_per_reviewer.opencode',
+        contextWindowTokens: null,
+        contextWindowConfigKey: 'review.context_window_tokens.opencode',
         modelConfigKey: 'review.models.opencode',
+        effortConfigKey: 'review.effort.opencode',
+        defaultEffort: 'high',
         // Phase 5b (#2799): was `null`. The review is REBUILT from assistant `text` parts; a plain
         // stdout copy would write the raw JSON envelope as the review (#1936). See LaneHandler.
         handler: 'opencode',
@@ -242,12 +252,17 @@ exports.REVIEWER_LANES = Object.freeze([
             effortChannel: 'none',
         },
         timeoutFloorMs: 900_000,
+        timeoutConfigKey: null,
         emptyOutput: 'stub-with-stderr',
         reviewsSection: 'Qwen',
         evidenceClass: 'source-grounded',
         requiresBinaries: [],
         promptBudgetKey: 'review.max_prompt_tokens_per_reviewer.qwen',
+        contextWindowTokens: 131072,
+        contextWindowConfigKey: 'review.context_window_tokens.qwen',
         modelConfigKey: null,
+        effortConfigKey: null,
+        defaultEffort: null,
         handler: null,
     },
     {
@@ -260,19 +275,25 @@ exports.REVIEWER_LANES = Object.freeze([
         probe: { kind: 'command-exists', binary: 'cursor-agent' },
         invoke: {
             binary: 'cursor-agent',
-            args: ['-p', '--mode', 'ask', '--trust', '--output-format', 'text', '{{prompt}}'],
+            args: ['-p', '{{model}}', '--mode', 'ask', '--trust', '--output-format', 'text', '{{prompt}}'],
             promptChannel: 'argv-file-ref',
             outputChannel: 'stdout',
-            modelArg: null,
+            modelArg: '--model',
             effortChannel: 'none',
         },
         timeoutFloorMs: 900_000,
+        timeoutConfigKey: null,
         emptyOutput: 'stub-with-stderr',
         reviewsSection: 'Cursor',
         evidenceClass: 'source-grounded',
         requiresBinaries: [],
         promptBudgetKey: 'review.max_prompt_tokens_per_reviewer.cursor',
-        modelConfigKey: null,
+        contextWindowTokens: null,
+        contextWindowConfigKey: 'review.context_window_tokens.cursor',
+        // #3653: cursor-agent exposes --model (204 selectable models); wired the same as codex.
+        modelConfigKey: 'review.models.cursor',
+        effortConfigKey: null,
+        defaultEffort: null,
         handler: null,
     },
     {
@@ -286,22 +307,32 @@ exports.REVIEWER_LANES = Object.freeze([
         probe: { kind: 'command-exists', binary: 'agy' },
         invoke: {
             binary: 'agy',
-            args: ['--print-timeout', '540s', '{{model}}', '-p', '{{prompt}}'],
+            // `{{nativeTimeout}}` is the fifth ARGV_PLACEHOLDER member (#3274) — `resolveLanePlan`
+            // (review-lane-invocation.cts) expands it to a value DERIVED from this same lane's resolved
+            // outer `timeoutMs`, so the native `--print-timeout` and the outer wall-clock cap can never
+            // drift apart. No other shipped lane's `args` template contains this token, so the expansion
+            // is inert everywhere else.
+            args: ['--print-timeout', '{{nativeTimeout}}', '{{model}}', '-p', '{{prompt}}'],
             promptChannel: 'argv-file-ref',
             outputChannel: 'stdout',
             modelArg: '--model',
             effortChannel: 'none',
         },
         timeoutFloorMs: 600_000,
+        timeoutConfigKey: 'review.timeouts.antigravity',
         emptyOutput: 'handler-owned',
         reviewsSection: 'Antigravity',
         evidenceClass: 'source-grounded',
         // Phase 5b: the handler reads the transcript with JSON.parse per line, not `jq`.
         requiresBinaries: [],
         promptBudgetKey: 'review.max_prompt_tokens_per_reviewer.antigravity',
+        contextWindowTokens: null,
+        contextWindowConfigKey: 'review.context_window_tokens.antigravity',
         // NOT `review.models.antigravity` — the shipped key is `review.models.agy` (review.md:291) and
         // Phase 4 federated it under that name. This lane is why the key is declared, not derived.
         modelConfigKey: 'review.models.agy',
+        effortConfigKey: null,
+        defaultEffort: null,
         handler: 'antigravity',
     },
     {
@@ -323,6 +354,7 @@ exports.REVIEWER_LANES = Object.freeze([
             effortChannel: 'none',
         },
         timeoutFloorMs: 120_000,
+        timeoutConfigKey: 'review.timeouts.ollama',
         emptyOutput: 'stub-with-stderr',
         reviewsSection: 'Ollama',
         evidenceClass: 'source-grounded',
@@ -330,7 +362,11 @@ exports.REVIEWER_LANES = Object.freeze([
         // neither `jq` nor `curl` is a prerequisite any more (#2589's stated Windows hazard).
         requiresBinaries: [],
         promptBudgetKey: 'review.max_prompt_tokens_per_reviewer.ollama',
+        contextWindowTokens: null,
+        contextWindowConfigKey: 'review.context_window_tokens.ollama',
         modelConfigKey: 'review.models.ollama',
+        effortConfigKey: null,
+        defaultEffort: null,
         handler: 'openai-compatible',
     },
     {
@@ -352,12 +388,17 @@ exports.REVIEWER_LANES = Object.freeze([
             effortChannel: 'none',
         },
         timeoutFloorMs: 120_000,
+        timeoutConfigKey: 'review.timeouts.lm_studio',
         emptyOutput: 'stub-with-stderr',
         reviewsSection: 'LM Studio',
         evidenceClass: 'source-grounded',
         requiresBinaries: [],
         promptBudgetKey: 'review.max_prompt_tokens_per_reviewer.lm_studio',
+        contextWindowTokens: null,
+        contextWindowConfigKey: 'review.context_window_tokens.lm_studio',
         modelConfigKey: 'review.models.lm_studio',
+        effortConfigKey: null,
+        defaultEffort: null,
         handler: 'openai-compatible',
     },
     {
@@ -379,12 +420,17 @@ exports.REVIEWER_LANES = Object.freeze([
             effortChannel: 'none',
         },
         timeoutFloorMs: 120_000,
+        timeoutConfigKey: 'review.timeouts.llama_cpp',
         emptyOutput: 'stub-with-stderr',
         reviewsSection: 'llama.cpp',
         evidenceClass: 'source-grounded',
         requiresBinaries: [],
         promptBudgetKey: 'review.max_prompt_tokens_per_reviewer.llama_cpp',
+        contextWindowTokens: null,
+        contextWindowConfigKey: 'review.context_window_tokens.llama_cpp',
         modelConfigKey: 'review.models.llama_cpp',
+        effortConfigKey: null,
+        defaultEffort: null,
         handler: 'openai-compatible',
     },
     {
@@ -424,12 +470,17 @@ exports.REVIEWER_LANES = Object.freeze([
             effortChannel: 'none',
         },
         timeoutFloorMs: 900_000,
+        timeoutConfigKey: 'review.timeouts.kimi-code',
         emptyOutput: 'stub-with-stderr',
         reviewsSection: 'Kimi Code',
         evidenceClass: 'source-grounded',
         requiresBinaries: [],
         promptBudgetKey: 'review.max_prompt_tokens_per_reviewer.kimi-code',
+        contextWindowTokens: 262144,
+        contextWindowConfigKey: 'review.context_window_tokens.kimi-code',
         modelConfigKey: 'review.models.kimi-code',
+        effortConfigKey: null,
+        defaultEffort: null,
         handler: null,
     },
 ].map((lane) => Object.freeze(lane)));
@@ -548,6 +599,7 @@ exports.PARITY_VIOLATION = Object.freeze({
     REGISTRY_LANE_UNDECLARED: 'registry_lane_undeclared',
     DESCRIPTOR_LANE_NOT_IN_REGISTRY: 'descriptor_lane_not_in_registry',
     BESPOKE_LEG_PRESENT: 'bespoke_leg_present',
+    AVAILABILITY_FALLBACK_MISMATCH: 'availability_fallback_mismatch',
     DUPLICATE_SLUG: 'duplicate_slug',
     DUPLICATE_FLAG: 'duplicate_flag',
     DUPLICATE_SECTION: 'duplicate_section',
@@ -579,6 +631,10 @@ const LEG_MARKER_RE = /<!--\s*reviewer-lane:\s*([a-z0-9_-]+)\s*-->/g;
  * design principle of this module.
  */
 exports.LANE_SLUG_RE = /^[a-z0-9][a-z0-9_-]*$/;
+/** The workflow's availability call: `gsd_run review-lane availability ...` at command position. */
+const AVAILABILITY_CALL_RE = /^\s*gsd_run review-lane availability(?:\s|$)/;
+/** One `<slug>:missing` row in the printf fallback; slug is LANE_SLUG_RE's grammar capped at 32 chars. */
+const AVAILABILITY_FALLBACK_ROW_RE = /(?:'|\\n)([a-z0-9][a-z0-9_-]{0,31}):missing/g;
 /** Bounds of the step a bespoke leg marker could appear inside. */
 const INVOKE_STEP_RE = /<step name="invoke_reviewers">([\s\S]*?)<\/step>/;
 function sliceStep(workflowText, re) {
@@ -599,8 +655,10 @@ function countOccurrences(haystack, re) {
 }
 /**
  * Bidirectional parity across three surfaces: the descriptor, the roster
- * (`KNOWN_REVIEWER_SLUGS`), and the generated capability **registry** — plus one anti-parity
- * assertion against the workflow.
+ * (`KNOWN_REVIEWER_SLUGS`), and the generated capability **registry** — plus two assertions
+ * against the workflow: the anti-parity check, and the availability-fallback check (the workflow
+ * makes the availability call, has a fallback row per lane, and the fallback slug set equals the
+ * openai-http lanes).
  *
  * **Re-pointed by Phase 5b (#2799).** Through Phase 5a this function also required a literal
  * `<!-- reviewer-lane: <slug> -->` per lane inside `invoke_reviewers` and a literal
@@ -643,6 +701,7 @@ function checkReviewerLaneParity(input) {
     const seenSlug = new Set();
     const seenFlag = new Set();
     const seenSection = new Set();
+    const httpSlugs = new Set();
     // The declared parameter type says `ReviewerLane[]`, but this function is a
     // trust boundary — narrow from `unknown` rather than believing the annotation.
     const rawLanes = Array.isArray(descriptor) ? descriptor : [];
@@ -661,6 +720,8 @@ function checkReviewerLaneParity(input) {
         if (seenSlug.has(slug))
             add(exports.PARITY_VIOLATION.DUPLICATE_SLUG, slug);
         seenSlug.add(slug);
+        if (lane.transport === 'openai-http')
+            httpSlugs.add(slug);
         const flags = Array.isArray(lane.flags) ? lane.flags : [];
         for (const flag of flags) {
             if (typeof flag !== 'string')
@@ -712,6 +773,28 @@ function checkReviewerLaneParity(input) {
     for (const slug of markerSlugs.keys()) {
         add(exports.PARITY_VIOLATION.BESPOKE_LEG_PRESENT, slug);
     }
+    // --- the availability call's `||` fallback must name exactly the openai-http lanes ---
+    //
+    // review.md prints these rows only when an older gsd-tools lacks `review-lane availability`, so
+    // they are a second hand-kept copy of the roster. Checked only when the call is present.
+    // Anchored to the command position so a comment or prose mention cannot shadow the real call;
+    // a missing call is itself a violation (otherwise deleting it would silently skip this check).
+    const availabilityLine = (0, text_lines_cjs_1.splitLines)(workflowText).find((line) => AVAILABILITY_CALL_RE.test(line));
+    if (availabilityLine === undefined) {
+        add(exports.PARITY_VIOLATION.AVAILABILITY_FALLBACK_MISMATCH, 'no-call');
+    }
+    else {
+        if (!availabilityLine.includes('review-lane availability ||')) {
+            add(exports.PARITY_VIOLATION.AVAILABILITY_FALLBACK_MISMATCH, 'no-fallback');
+        }
+        const fallback = new Set(Array.from(availabilityLine.matchAll(AVAILABILITY_FALLBACK_ROW_RE), (m) => m[1]));
+        for (const slug of fallback)
+            if (!httpSlugs.has(slug))
+                add(exports.PARITY_VIOLATION.AVAILABILITY_FALLBACK_MISMATCH, slug);
+        for (const slug of httpSlugs)
+            if (!fallback.has(slug))
+                add(exports.PARITY_VIOLATION.AVAILABILITY_FALLBACK_MISMATCH, slug);
+    }
     return { ok: violations.length === 0, violations };
 }
 /* ------------------------------------------------------------------ *
@@ -748,7 +831,7 @@ const NON_LANE_SIGNATURE_FLAGS = new Set(['--all']);
 /**
  * Is `flag` documented in `text` under one of the two structural shapes docs actually use?
  *
- * Backticked is the `COMMANDS.md` table-cell shape; bracketed (`[--gemini]`) is the
+ * Backticked is the `COMMANDS.md` table-cell shape; bracketed (`[--codex]`) is the
  * `FEATURES.md` signature shape. Requiring one of those two delimiters — rather than a bare
  * substring — is what keeps prose and fenced examples from satisfying the gate, and it bounds the
  * token for free: a backticked `--claude` demands its closing backtick, so a backticked
@@ -841,7 +924,7 @@ const BRACKETED_FLAG_RE = /\[(--[a-z0-9][a-z0-9-]*)\]/g;
  * cell 3. A file-scoped check is therefore satisfied by the forwarding row alone, so deleting a
  * lane's actual table row — the exact #2781 regression — passes. Keying on cell 1 separates the
  * two: `| `--agy` / `--antigravity` | … |` is one lane row declaring two flags, while
- * `| Reviewer flags | No | … `--gemini`, `--claude` … |` is not a lane row at all.
+ * `| Reviewer flags | No | … `--codex`, `--claude` … |` is not a lane row at all.
  */
 function flagsInFirstTableCell(lines, declared) {
     const found = new Set();

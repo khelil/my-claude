@@ -51,34 +51,24 @@
         "gitCommitSha": "2d5c3c6c85048de7a4426a91268076807ebaeba5"
       }
     ],
-    "warp@claude-code-warp": [
-      {
-        "scope": "user",
-        "installPath": "/Users/khelil/.claude/plugins/cache/claude-code-warp/warp/2.1.0",
-        "version": "2.1.0",
-        "installedAt": "2026-05-30T16:01:13.124Z",
-        "lastUpdated": "2026-05-30T16:01:13.124Z",
-        "gitCommitSha": "bb6c1cf2f5cd7eb609678a2b175e7f4504ca61c2"
-      }
-    ],
     "skill-creator@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/khelil/.claude/plugins/cache/claude-plugins-official/skill-creator/0120fb83da5d",
-        "version": "0120fb83da5d",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-plugins-official/skill-creator/b5b01ac4f889",
+        "version": "b5b01ac4f889",
         "installedAt": "2026-06-01T22:21:22.642Z",
-        "lastUpdated": "2026-09-02T16:26:23.276Z",
-        "gitCommitSha": "53163f106602398e145b5f3acc1aab35ad9857f3"
+        "lastUpdated": "2026-11-14T15:11:49.224Z",
+        "gitCommitSha": "b5b01ac4f889fec0c4c6bb89f27ca7c8574473f6"
       }
     ],
     "playwright@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/khelil/.claude/plugins/cache/claude-plugins-official/playwright/0120fb83da5d",
-        "version": "0120fb83da5d",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-plugins-official/playwright/b5b01ac4f889",
+        "version": "b5b01ac4f889",
         "installedAt": "2026-06-01T22:21:57.461Z",
-        "lastUpdated": "2026-09-02T16:26:23.275Z",
-        "gitCommitSha": "53163f106602398e145b5f3acc1aab35ad9857f3"
+        "lastUpdated": "2026-11-14T15:11:49.221Z",
+        "gitCommitSha": "b5b01ac4f889fec0c4c6bb89f27ca7c8574473f6"
       }
     ],
     "claude-code-setup@claude-plugins-official": [
@@ -93,21 +83,21 @@
     "figma@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/khelil/.claude/plugins/cache/claude-plugins-official/figma/2.2.107",
-        "version": "2.2.107",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-plugins-official/figma/2.2.157",
+        "version": "2.2.157",
         "installedAt": "2026-06-10T18:40:06.615Z",
-        "lastUpdated": "2026-09-02T16:26:25.081Z",
-        "gitCommitSha": "54ad156019d7362a56d8024b9adbe99952aa29b6"
+        "lastUpdated": "2026-10-15T08:40:22.837Z",
+        "gitCommitSha": "f2789420e7e8b4e2465dfeb1e12e1fc6a31397e5"
       }
     ],
     "superpowers@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/khelil/.claude/plugins/cache/claude-plugins-official/superpowers/6.3.0",
-        "version": "6.3.0",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-plugins-official/superpowers/7.0.2",
+        "version": "7.0.2",
         "installedAt": "2026-06-18T12:35:28.966Z",
-        "lastUpdated": "2026-08-13T21:31:59.734Z",
-        "gitCommitSha": "b62616fc12f6a007c6fd5118146821d748da0d33"
+        "lastUpdated": "2026-11-13T08:34:13.168Z",
+        "gitCommitSha": "22f0b463e7a5e579904dd6211a520321035526f7"
       }
     ],
     "paper-desktop@paper": [
@@ -128,6 +118,56 @@
         "installedAt": "2026-08-24T13:26:55.217Z",
         "lastUpdated": "2026-08-24T13:26:55.217Z",
         "gitCommitSha": "f96bff754e428838818017f75817f0f9428acd48"
+      }
+    ],
+    "umbrella@wp-umbrella": [
+      {
+        "scope": "user",
+        "installPath": "/Users/khelil/.claude/plugins/cache/wp-umbrella/umbrella/0.2.0",
+        "version": "0.2.0",
+        "installedAt": "2026-09-09T09:21:11.316Z",
+        "lastUpdated": "2026-09-09T09:21:11.316Z",
+        "gitCommitSha": "6e9b10af65fb004795137ed9805184d5f3ae0f5e"
+      }
+    ],
+    "typesafe@typesafe-ai": [
+      {
+        "scope": "user",
+        "installPath": "/Users/khelil/.claude/plugins/cache/typesafe-ai/typesafe/0.5.7",
+        "version": "0.5.7",
+        "installedAt": "2026-09-19T02:44:57.825Z",
+        "lastUpdated": "2026-09-19T02:44:57.825Z",
+        "gitCommitSha": "65a39f393687675ce170e6094757de20370365b9"
+      }
+    ],
+    "humanizer@humanizer": [
+      {
+        "scope": "user",
+        "installPath": "/Users/khelil/.claude/plugins/cache/humanizer/humanizer/3.1.0",
+        "version": "3.1.0",
+        "installedAt": "2026-09-28T16:51:24.005Z",
+        "lastUpdated": "2026-09-28T16:51:24.005Z",
+        "gitCommitSha": "225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8"
+      }
+    ],
+    "warp@claude-code-warp": [
+      {
+        "scope": "user",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-code-warp/warp/2.4.0",
+        "version": "2.4.0",
+        "installedAt": "2026-10-20T15:21:50.479Z",
+        "lastUpdated": "2026-10-20T15:21:50.479Z",
+        "gitCommitSha": "53ab8d63ef74d7653002444762812d2fb5639eee"
+      }
+    ],
+    "swift-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/khelil/.claude/plugins/cache/claude-plugins-official/swift-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-10-20T15:27:03.678Z",
+        "lastUpdated": "2026-10-20T15:27:03.678Z",
+        "gitCommitSha": "a0b04d9ddccaabe1976645f68b0eda50f74e7022"
       }
     ]
   }

@@ -28,7 +28,7 @@ If the prompt contains a `<required_reading>` block, you MUST use the `Read` too
 
 **Project skills:** Check `.claude/skills/` or `.agents/skills/` directory if either exists:
 
-**agent_skills:** self-load per @~/.claude/gsd-core/references/agent-skills-bootstrap.md
+**agent_skills:** self-load per @~/.claude/gsd-core/references/agent-skills-bootstrap.md (agent type: `gsd-roadmapper`)
 1. List available skills (subdirectories)
 2. Read `SKILL.md` for each skill (lightweight index ~130 lines)
 3. Load specific `rules/*.md` files as needed during implementation
@@ -331,6 +331,19 @@ After roadmap creation, REQUIREMENTS.md gets updated with phase mappings:
 ## ROADMAP.md Structure
 
 **CRITICAL: ROADMAP.md requires TWO phase representations. Both are mandatory.**
+
+### 0. Top-Level Title (H1)
+
+The H1 carries the PROJECT name only — never a version and never a milestone name:
+
+```markdown
+# Roadmap: [Project Name]
+```
+
+Milestone identity (version + name) lives in milestone headings (`## vX.Y — [Name]`) or
+`## Milestones` bullets (`🚧 **vX.Y [Name]**`), never in the H1. A trailing version in the
+H1 (`# Roadmap: [Project] — [Name] (vX.Y)`) corrupts milestone-name extraction (#4134).
+`$HOME/.claude/gsd-core/templates/roadmap.md` is the canonical shape.
 
 ### 1. Summary Checklist (under `## Phases`)
 

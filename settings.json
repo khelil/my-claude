@@ -1,19 +1,17 @@
 {
+  "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
-      "Bash(npx gsd-core *)",
       "Read(.planning/*)",
       "Edit(.planning/*)",
       "Read(STATE.md)",
-      "Edit(STATE.md)"
-    ],
-    "deny": [
-      "Read(.env)",
-      "Read(.env.*)",
-      "Read(.secrets)"
+      "Edit(STATE.md)",
+      "Bash(firecrawl search:*)",
+      "Bash(firecrawl scrape:*)",
+      "Bash(python3:*)"
     ]
   },
-  "model": "fable[1m]",
+  "model": "opus[1m]",
   "hooks": {
     "SessionStart": [
       {
@@ -29,6 +27,25 @@
           {
             "type": "command",
             "command": "bash /Users/khelil/.claude/hooks/gsd-session-state.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/khelil/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-path-export.js\"",
+            "timeout": 5
           }
         ]
       }
@@ -82,7 +99,7 @@
           {
             "type": "command",
             "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-prompt-guard.js\"",
-            "timeout": 5
+            "timeout": 120
           }
         ]
       },
@@ -102,7 +119,7 @@
           {
             "type": "command",
             "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-workflow-guard.js\"",
-            "timeout": 5
+            "timeout": 120
           }
         ]
       },
@@ -112,7 +129,7 @@
           {
             "type": "command",
             "command": "bash /Users/khelil/.claude/hooks/gsd-validate-commit.sh",
-            "timeout": 5
+            "timeout": 120
           }
         ]
       },
@@ -122,7 +139,7 @@
           {
             "type": "command",
             "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-worktree-path-guard.js\"",
-            "timeout": 5
+            "timeout": 120
           }
         ]
       },
@@ -132,7 +149,7 @@
           {
             "type": "command",
             "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-agent-isolation-guard.js\"",
-            "timeout": 5
+            "timeout": 120
           }
         ]
       },
@@ -142,7 +159,17 @@
           {
             "type": "command",
             "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-write-guard.js\"",
-            "timeout": 5
+            "timeout": 120
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Grep|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$(for n in \"/Users/khelil/.volta/bin/node\" \"$(command -v node)\" /usr/local/bin/node /usr/bin/node; do [ -x \"$n\" ] && { [ \"${n#/}\" != \"$n\" ] || [ \"${n#?:}\" != \"$n\" ]; } && printf '%s' \"$n\" && break; done)\" \"/Users/khelil/.claude/hooks/gsd-secret-read-guard.js\"",
+            "timeout": 120
           }
         ]
       }
@@ -165,8 +192,7 @@
             "command": "/Users/khelil/.claude/skills/gstack/hosts/claude/hooks/timeline-stop-hook",
             "timeout": 5
           }
-        ],
-        "_gstack_source": "gstack-timeline-stop"
+        ]
       },
       {
         "hooks": [
@@ -223,22 +249,21 @@
     "pr-review-toolkit@claude-code-plugins": true,
     "commit-commands@claude-code-plugins": true,
     "security-guidance@claude-code-plugins": true,
-    "warp@claude-code-warp": true,
     "skill-creator@claude-plugins-official": true,
     "playwright@claude-plugins-official": true,
     "claude-code-setup@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "paper-desktop@paper": true,
-    "cloudflare@cloudflare": true
+    "paper-desktop@paper": false,
+    "cloudflare@cloudflare": true,
+    "umbrella@wp-umbrella": true,
+    "typesafe@typesafe-ai": true,
+    "humanizer@humanizer": true,
+    "cc-plugin-you-should-know@builtin": true,
+    "warp@claude-code-warp": true,
+    "swift-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
-    "claude-code-warp": {
-      "source": {
-        "source": "github",
-        "repo": "warpdotdev/claude-code-warp"
-      }
-    },
     "paper": {
       "source": {
         "source": "github",
@@ -250,9 +275,38 @@
         "source": "github",
         "repo": "cloudflare/skills"
       }
+    },
+    "wp-umbrella": {
+      "source": {
+        "source": "github",
+        "repo": "wp-umbrella/umbrella-skill"
+      }
+    },
+    "typesafe-ai": {
+      "source": {
+        "source": "github",
+        "repo": "typesafe-ai/skills"
+      }
+    },
+    "humanizer": {
+      "source": {
+        "source": "github",
+        "repo": "blader/humanizer"
+      }
+    },
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
+  },
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "preferredNotifChannel": "terminal_bell",

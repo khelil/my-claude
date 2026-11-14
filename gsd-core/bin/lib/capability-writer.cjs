@@ -45,11 +45,13 @@ const configMod = require("./config.cjs");
 const { setConfigValues } = configMod;
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const planningWorkspaceMod = require("./planning-workspace.cjs");
+// eslint-disable-next-line @typescript-eslint/no-require-imports -- config-file-read.cjs is an export= CommonJS module
+const configFileReadMod = require("./config-file-read.cjs");
+const { readConfigFileBounded } = configFileReadMod;
 const { planningDir } = planningWorkspaceMod;
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const nodefs = require("fs");
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 const nodepath = require("path");
+const runtime_slash_cjs_1 = require("./runtime-slash.cjs");
 // ─── Implementation ───────────────────────────────────────────────────────────
 /**
  * Write-side capability state mutator.
@@ -160,8 +162,10 @@ function setCapabilityState(cwd, runtimeConfigDir, desired, opts) {
     if (pendingGateWrites.length > 0) {
         try {
             const configJsonPath = nodepath.join(planningDir(cwd), 'config.json');
-            if (nodefs.existsSync(configJsonPath)) {
-                const raw = nodefs.readFileSync(configJsonPath, 'utf-8');
+            // Bounded read (#5759): null is an absent file; a FIFO/device/oversized one throws to the
+            // outer catch below ("cannot read the file path — not an error").
+            const raw = readConfigFileBounded(configJsonPath);
+            if (raw !== null) {
                 try {
                     JSON.parse(raw);
                 }
@@ -184,6 +188,7 @@ function setCapabilityState(cwd, runtimeConfigDir, desired, opts) {
         };
     }
     // ── Step 4: APPLY PASS ────────────────────────────────────────────────────
+    let pendingSurfaceForCommit;
     // ── Surface writes ────────────────────────────────────────────────────────
     if (needsSurface && (idsToDisable.length > 0 || idsToEnable.length > 0)) {
         const existing = readSurface(resolvedConfigDir);
@@ -242,12 +247,18 @@ function setCapabilityState(cwd, runtimeConfigDir, desired, opts) {
             }
         }
         if (surfaceChanged) {
-            writeSurface(resolvedConfigDir, pendingSurface);
+            pendingSurfaceForCommit = pendingSurface;
         }
     }
     // ── Config writes (once, batched) ─────────────────────────────────────────
     if (pendingGateWrites.length > 0) {
         setConfigValues(cwd, pendingGateWrites);
+    }
+    // State-only callers preserve the existing direct-write behavior. A caller
+    // that requests materialization lets applySurface publish the candidate only
+    // after every artifact kind has staged and synchronized successfully.
+    if (pendingSurfaceForCommit && !opts?.materialize) {
+        writeSurface(resolvedConfigDir, pendingSurfaceForCommit);
     }
     // ── Materialize (optional) ────────────────────────────────────────────────
     if (opts?.materialize) {
@@ -274,9 +285,12 @@ function setCapabilityState(cwd, runtimeConfigDir, desired, opts) {
             // folded:issue-1575-agent-descriptor-parity describe block in
             // tests/golden-parity-single-source.test.cjs).
             // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-            applySurface(resolvedConfigDir, layout, manifest, undefined, registry, opts?.materialize?.resolveAttribution
-                ? { resolveAttribution: opts.materialize.resolveAttribution }
-                : undefined);
+            applySurface(resolvedConfigDir, layout, manifest, undefined, registry, {
+                ...(pendingSurfaceForCommit ? { surfaceState: pendingSurfaceForCommit } : {}),
+                ...(opts.materialize.resolveAttribution
+                    ? { resolveAttribution: opts.materialize.resolveAttribution }
+                    : {}),
+            });
         }
         catch (err) {
             const msg = err instanceof Error ? err.message : String(err);
@@ -295,7 +309,7 @@ function setCapabilityState(cwd, runtimeConfigDir, desired, opts) {
         if (entry.enabled === true) {
             const afterCap = after.capabilities.find((c) => c.id === entry.id);
             if (afterCap && afterCap.enabled !== true) {
-                errors.push(`cannot enable "${entry.id}": not in the active surface/profile (widen the profile or use /gsd:surface enable)`);
+                errors.push(`cannot enable "${entry.id}": not in the active surface/profile (widen the profile or use ${(0, runtime_slash_cjs_1.runtimeCommand)(cwd, 'surface enable')})`);
             }
         }
         // Fix B: desired enabled=false — assert it is actually disabled after write.

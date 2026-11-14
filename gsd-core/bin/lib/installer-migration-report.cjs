@@ -51,10 +51,13 @@ exports.BUNDLED_GSD_HOOK_FILES = Object.freeze(new Set([
     // #3662: portable node resolver staged into hooks/ (not itself a lifecycle
     // hook — managed JS hook commands route through it under --portable-hooks).
     'hooks/gsd-node-runner.sh',
+    // #5465: SessionStart PATH persistence through $CLAUDE_ENV_FILE.
+    'hooks/gsd-path-export.js',
     'hooks/gsd-phase-boundary.sh',
     'hooks/gsd-prompt-guard.js',
     'hooks/gsd-read-guard.js',
     'hooks/gsd-read-injection-scanner.js',
+    'hooks/gsd-secret-read-guard.js',
     'hooks/gsd-session-state.sh',
     'hooks/gsd-statusline.js',
     'hooks/gsd-update-banner.js',

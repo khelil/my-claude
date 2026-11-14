@@ -19,7 +19,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 const node_fs_1 = __importDefault(require("node:fs"));
 const node_path_1 = __importDefault(require("node:path"));
 const shell_command_projection_cjs_1 = require("./shell-command-projection.cjs");
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const configFileReadMod = require("./config-file-read.cjs");
+const { readConfigFileBounded } = configFileReadMod;
 const clock_cjs_1 = require("./clock.cjs");
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const planningScopeMod = require("./planning-scope.cjs");
+const { SCOPE } = planningScopeMod;
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const activeWorkstreamStore = require("./active-workstream-store.cjs");
 const { createSharedPointerAdapter, createSessionScopedPointerAdapter, createMemoryPointerAdapter, getActiveWorkstream: getStoredActiveWorkstream, peekActiveWorkstream: peekStoredActiveWorkstream, setActiveWorkstream: setStoredActiveWorkstream, clearActiveWorkstream: clearStoredActiveWorkstream, diagnoseUnresolvedActiveWorkstream: diagnoseUnresolvedStoredActiveWorkstream, } = activeWorkstreamStore;
@@ -97,11 +103,32 @@ const PLANNING_LOCK_RETRY_ERRNOS = new Set([
     'ENOENT', // Docker overlay-fs: parent dir transiently missing during race
     'ESTALE', // NFS: stale file handle (self-resolves on retry)
 ]);
+/**
+ * #4257: the ONE owner of the env workstream discriminator `planningDir`
+ * itself applies when handed no `ws` argument. `planningPaths(cwd)` — and
+ * therefore every workstream-scoped `PlanningSnapshot` read — resolves its
+ * base through exactly this read, and the CLI bootstrap has already folded
+ * the stored active-workstream pointer into the env by the time any
+ * diagnostic runs (`resolveActiveWorkstream` → `applyResolvedWorkstreamEnv`,
+ * `active-workstream-store.cjs`). Exposed so a consumer that needs to NAME
+ * the scope those reads used (W002's warning message, via the snapshot's
+ * `workstream` field) derives it from the same resolution point instead of
+ * growing a second env read site that can drift (the #612 PR-2
+ * two-readers-two-bases lesson).
+ */
+function resolveEnvWorkstream() {
+    const value = process.env['GSD_WORKSTREAM']?.trim();
+    return value || null;
+}
 function planningDir(cwd, ws, project) {
     if (project === undefined)
-        project = process.env['GSD_PROJECT'] ?? null;
+        project = process.env['GSD_PROJECT']?.trim() || null;
+    else if (typeof project === 'string')
+        project = project.trim() || null;
     if (ws === undefined)
-        ws = process.env['GSD_WORKSTREAM'] ?? null;
+        ws = resolveEnvWorkstream();
+    else if (typeof ws === 'string')
+        ws = ws.trim() || null;
     // Reject path separators and traversal components in project/workstream names
     const BAD_SEGMENT = /[/\\]|\.\./;
     if (project && BAD_SEGMENT.test(project)) {
@@ -120,60 +147,160 @@ function planningDir(cwd, ws, project) {
 function planningRoot(cwd) {
     return node_path_1.default.join(cwd, '.planning');
 }
+const CONFIG_VALUE_ABSENT = Object.freeze({ present: false, value: undefined });
+/**
+ * The value one config file sets at `keyPath`, if it sets one at all. Every
+ * segment must be an OWN property of a plain (non-null, non-array) object, so
+ * an absent, unreadable, or unparseable file — or a non-object anywhere on the
+ * path — does not set the key.
+ */
+function ownConfigValue(configPath, keyPath) {
+    let node;
+    try {
+        // Bounded read (#5759): null (absent) and any throw (FIFO, device, directory, oversized,
+        // errno) both mean this file sets nothing — never a block.
+        const raw = readConfigFileBounded(configPath);
+        if (raw === null)
+            return CONFIG_VALUE_ABSENT;
+        node = JSON.parse(raw);
+    }
+    catch {
+        return CONFIG_VALUE_ABSENT;
+    }
+    for (const key of keyPath) {
+        if (node === null || typeof node !== 'object' || Array.isArray(node))
+            return CONFIG_VALUE_ABSENT;
+        if (!Object.prototype.hasOwnProperty.call(node, key))
+            return CONFIG_VALUE_ABSENT;
+        node = node[key];
+    }
+    return { present: true, value: node };
+}
+/**
+ * #3972/#4975: the ONE scope-aware config read for surfaces that must answer
+ * with the value `config-get <keyPath>` reports but may not call loadConfig
+ * (it normalizes and rewrites config.json, spawns git, and prints warnings).
+ * Ladder: the scoped config's OWN key wins (planningDir is project- and
+ * workstream-aware); otherwise the flat root's key, but only under the
+ * GSD_WORKSTREAM env gate — config-get deliberately does NOT inherit root
+ * under GSD_PROJECT alone, and no reader of this ladder may diverge (#3963).
+ * An unreadable or unparseable file sets nothing, so the ladder moves on:
+ * under GSD_WORKSTREAM a broken workstream config inherits the root's key.
+ * That is the one place this read and config-get part ways — for a scoped
+ * config.json that exists but cannot be read or parsed, config-get fails
+ * with CONFIG_PARSE_FAILED instead of reporting a value.
+ * The value is returned uncoerced; each caller applies its own strict
+ * comparison. Never throws: planningDir/planningRoot reject a
+ * GSD_PROJECT/GSD_WORKSTREAM value containing path separators or `..`, and
+ * that shape resolves to "not present".
+ */
+function readScopedConfigValue(cwd, keyPath, workstream) {
+    try {
+        const scoped = ownConfigValue(node_path_1.default.join(planningDir(cwd, workstream), 'config.json'), keyPath);
+        if (scoped.present)
+            return scoped;
+        if ((workstream === undefined ? resolveEnvWorkstream() : workstream) !== null) {
+            return ownConfigValue(node_path_1.default.join(planningRoot(cwd), 'config.json'), keyPath);
+        }
+    }
+    catch {
+        // Degrade to "not present" — see the contract above.
+    }
+    return CONFIG_VALUE_ABSENT;
+}
 /**
  * #3972: the ONE owner of "is this planning scope opted out of worktrees?" —
  * the effective `workflow.use_worktrees === false` read every
  * isolation-deciding surface must share (config-get's merged view is the
- * contract). Ladder: the scoped config's OWN key wins (planningDir is
- * project- and workstream-aware); otherwise the flat root's key, but only
- * under the GSD_WORKSTREAM env gate — config-get deliberately does NOT
- * inherit root under GSD_PROJECT alone, and this read must not diverge
- * (#3963). Strict `=== false` (never coerced); any read failure degrades to
- * "not opted out" (worktrees on — the fail-safe direction: the guard keeps
- * enforcing). Direct file reads only — never loadConfig, which normalizes
- * and rewrites config on paths that back sentinel writes.
+ * contract), resolved on the readScopedConfigValue ladder. Strict `=== false`
+ * (never coerced); a config that cannot be read never opts out by itself
+ * (worktrees on — the fail-safe direction: the guard keeps enforcing).
  */
 function worktreesOptedOut(cwd) {
-    // #3972 review: the WHOLE body is guarded — planningDir/planningRoot
-    // themselves throw on a GSD_PROJECT/GSD_WORKSTREAM value containing path
-    // separators or `..`, and this contract ("any failure degrades to not
-    // opted out — worktrees on, keep enforcing") must hold for that shape too.
-    try {
-        return worktreesOptedOutUnguarded(cwd);
-    }
-    catch {
-        return false;
-    }
+    const { present, value } = readScopedConfigValue(cwd, ['workflow', 'use_worktrees']);
+    return present && value === false;
 }
-function worktreesOptedOutUnguarded(cwd) {
-    const readCfg = (p) => {
+/**
+ * #612: resolve `phase_id_convention` with the SAME workstream->root federation
+ * config-loader uses (config-loader.cts:618/:649) — the workstream config wins,
+ * the root config is the fallback.
+ *
+ * Why this exists rather than `loadConfig(cwd)['phase_id_convention']`: as of
+ * #2997 (aa7697fe, in `next`), loadConfig surfaces `phase_id_convention` in
+ * its resolved `_baseConfig` — the "loadConfig drops keys it does not know"
+ * rationale this comment used to give is stale. The surviving reasons for the
+ * direct read are (1) the workstream->root federation below, a standalone
+ * resolution this function needs to run against a GIVEN cwd rather than
+ * whatever base a `loadConfig(cwd)` call elsewhere would federate from, and
+ * (2) convention-ENUM validation, which is still #612 PR-4 work — this
+ * function returns the raw string unvalidated, same as the now-surfaced
+ * resolved key would. #2997 surfacing the key makes consuming it from
+ * resolved config (instead of re-reading config.json here) a natural PR-4
+ * consolidation, not this PR's scope. Cycles were never the obstacle.
+ *
+ * Why federation matters here specifically: the phase-id readers were splitting
+ * on this value from two different bases — one resolving from the workstream
+ * directory, one from the root — so a workstream repo got the widened ROADMAP
+ * read with the narrow directory read, or the reverse, and reported every phase
+ * either missing from disk or malformed on disk. One resolver, one answer.
+ *
+ * The workstream is `planningDir`'s own `ws` parameter, forwarded, so this
+ * shares the canonical resolution (and its GSD_PROJECT/GSD_WORKSTREAM
+ * handling). Root is consulted as a fallback only when a workstream is active,
+ * matching config-loader; a project-scoped directory stands alone. Returns null
+ * when unset, absent, or unreadable — every caller treats null as "not the
+ * bracket convention".
+ *
+ * #2761 B1 (trek-e review): `ws` is a PARAMETER, not read from the environment
+ * here. It was omitted at first on the reasoning that "the active workstream is
+ * whatever planningDir resolves" — true only for the env-driven caller. A
+ * caller that iterates workstreams passes the name as an ARGUMENT (it cannot
+ * set `GSD_WORKSTREAM` per iteration), and `planningDir` falls back to the env
+ * only when `ws` is `undefined`, so an argument-driven call resolved this
+ * convention from the ROOT config while reading that workstream's ROADMAP. Two
+ * consequences, both reproduced: a workstream that explicitly declares its OWN
+ * convention had it ignored — the root's value decided how the workstream's
+ * roadmap was parsed, so flipping ONLY the root config changed which milestone
+ * a workstream extracted; and `--workstream foo` disagreed with
+ * `GSD_WORKSTREAM=foo` on the same repo.
+ *
+ * `undefined` (the default) keeps `planningDir`'s env fallback, so every
+ * pre-#2761 call site is byte-identical; `null` means "explicitly no
+ * workstream". Same discriminator `planningDir` and `getMilestonePhaseFilter`
+ * already carry.
+ *
+ * SCOPE: this governs the #612 bracket-selection reads ONLY. The shipped
+ * milestone-prefixed W021 gate keeps its own root-only read — re-basing a
+ * legacy convention's gate onto a different config is a behaviour change to a
+ * shipped check, in both directions, and is not part of read tolerance.
+ */
+function resolvePhaseIdConvention(cwd, ws) {
+    const readFrom = (dir) => {
         try {
-            return JSON.parse(String(node_fs_1.default.readFileSync(p, 'utf8')));
+            // Bounded read (#5759): null is an absent file, a throw is an unreadable one; both mean "unset".
+            const raw = readConfigFileBounded(node_path_1.default.join(dir, 'config.json'));
+            if (raw === null)
+                return null;
+            const parsed = JSON.parse(raw);
+            const value = parsed['phase_id_convention'];
+            return typeof value === 'string' && value !== '' ? value : null;
         }
         catch {
             return null;
         }
     };
-    const ownKey = (cfg) => {
-        if (cfg === null || typeof cfg !== 'object')
-            return { present: false, value: undefined };
-        const wf = cfg.workflow;
-        if (wf === null || typeof wf !== 'object' || Array.isArray(wf))
-            return { present: false, value: undefined };
-        const wfRec = wf;
-        return Object.prototype.hasOwnProperty.call(wfRec, 'use_worktrees')
-            ? { present: true, value: wfRec['use_worktrees'] }
-            : { present: false, value: undefined };
-    };
-    const scoped = ownKey(readCfg(node_path_1.default.join(planningDir(cwd), 'config.json')));
-    if (scoped.present)
-        return scoped.value === false;
-    if (process.env['GSD_WORKSTREAM']) {
-        const root = ownKey(readCfg(node_path_1.default.join(planningRoot(cwd), 'config.json')));
-        if (root.present)
-            return root.value === false;
-    }
-    return false;
+    const scoped = planningDir(cwd, ws);
+    const root = planningRoot(cwd);
+    if (scoped === root)
+        return readFrom(root);
+    // Root is a fallback only when a WORKSTREAM is active — config-loader falls
+    // back to the root config under `if (ws)` and not otherwise, so a
+    // project-scoped directory stands alone. Detected by suppressing the
+    // workstream segment rather than re-reading the environment.
+    const projectOnly = planningDir(cwd, null);
+    if (scoped === projectOnly)
+        return readFrom(scoped);
+    return readFrom(scoped) ?? readFrom(root);
 }
 // Sorted list of workstream directory names under `<root>/.planning/workstreams`,
 // or `[]` when the project is flat (no workstreams dir). Single source of truth
@@ -200,6 +327,39 @@ function listAvailableWorkstreams(cwd) {
 function quickDirFrom(planningBase) {
     return node_path_1.default.join(planningBase, 'quick');
 }
+// #4256: the todos directory — deliberately ROOT-SCOPED, like debug (#5042).
+// Todos are shared project state by construction: the
+// migrateToWorkstreams contract keeps them among the shared files that "stay
+// in place" at .planning/todos/ (workstream.cts), and every workflow writer
+// writes that literal cwd-relative root path. The six todos readers
+// previously hand-composed `path.join(planningDir(cwd), 'todos', ...)`,
+// which silently re-scoped to .planning/workstreams/<ws>/todos/ — a
+// directory nothing creates — under a workstream, so todos went invisible
+// and audit-open passed the milestone-close gate vacuously. Same
+// two-composers-of-one-path shape the `debug` (#3149) and `quick` (#2142)
+// keys were introduced to eliminate (DEFECT.GENERATIVE-FIX).
+//
+// Exported as its own function pair (not only as a `planningPaths` key)
+// because `audit.cts`'s `scanTodos`/`cmdAuditAcknowledge` consume an
+// already-resolved todos base rather than a `cwd`, mirroring how #2142
+// exported `quickDirFrom` for `scanQuickTasks`. `todosDir` takes NO ws/project
+// parameter — todos have no workstream- or project-scoped form anywhere, so
+// there is no discriminator to thread. This is also the single root #4327's
+// future filename-containment guard should enforce against.
+function todosDirFrom(planningBase) {
+    return node_path_1.default.join(planningBase, 'todos');
+}
+function todosDir(cwd) {
+    return todosDirFrom(planningRoot(cwd));
+}
+// Debug sessions are shared project state: the workflow and debugger agent
+// write them under the root .planning/debug directory in every workstream.
+function debugDirFrom(planningBase) {
+    return node_path_1.default.join(planningBase, 'debug');
+}
+function debugDir(cwd) {
+    return debugDirFrom(planningRoot(cwd));
+}
 function planningPaths(cwd, ws) {
     const base = planningDir(cwd, ws);
     return {
@@ -210,12 +370,16 @@ function planningPaths(cwd, ws) {
         config: node_path_1.default.join(base, 'config.json'),
         phases: node_path_1.default.join(base, 'phases'),
         requirements: node_path_1.default.join(base, 'REQUIREMENTS.md'),
-        // #3149: the debug-session directory. Single source for both `state.load`'s
-        // `debug_dir` field and `init.debug`'s — previously each composed its own
-        // `path.join(planning, 'debug')` (DEFECT.GENERATIVE-FIX).
-        debug: node_path_1.default.join(base, 'debug'),
+        // #3149/#5042: the debug-session directory shared by state.load,
+        // init.debug, and the root-scoped writers.
+        debug: debugDir(cwd),
         // #2142: quick-task directory, composed via the shared quickDirFrom helper.
         quick: quickDirFrom(base),
+        // #4256: todos directory — deliberately ROOT-scoped like debug, while
+        // most other keys follow the active workstream/project (todos are shared
+        // project state per the migrateToWorkstreams contract), composed via the
+        // shared todosDir helper so this key and every direct caller agree.
+        todos: todosDir(cwd),
     };
 }
 /**
@@ -297,7 +461,8 @@ function withPlanningLock(cwd, fn, clock) {
                 // written atomically (writeFileSync …{flag:'wx'}) so there is no empty-body
                 // create window here — only the double-steal needs hardening.
                 try {
-                    const decisionStat = node_fs_1.default.statSync(lockPath);
+                    // Exact 64-bit (dev, ino): an NTFS file id does not fit a JS number (never serialized).
+                    const decisionId = node_fs_1.default.statSync(lockPath, { bigint: true });
                     // Snapshot the decision-time body too: (dev, ino) alone is defeated by inode
                     // REUSE (a racer's unlink+recreate can land on the same inode), so the body
                     // content binds the identity as well — mirrors capability-lock.cts's (dev,
@@ -314,7 +479,7 @@ function withPlanningLock(cwd, fn, clock) {
                         // Verified-live, but recover anyway once the lock crosses the absolute
                         // deadman ceiling — defeats a pid-reuse false-alive that would otherwise
                         // block forever (R4-FIX; mtime age is from lock creation, not this call).
-                        const age = clock.now() - decisionStat.mtimeMs;
+                        const age = clock.now() - Number(decisionId.mtimeMs);
                         stealable = age > deadmanCeilingMs;
                     }
                     if (stealable) {
@@ -325,7 +490,7 @@ function withPlanningLock(cwd, fn, clock) {
                         // NOT delete the replacement; back off and re-evaluate.
                         let confirmStat;
                         try {
-                            confirmStat = node_fs_1.default.statSync(lockPath);
+                            confirmStat = node_fs_1.default.statSync(lockPath, { bigint: true });
                         }
                         catch {
                             continue; // vanished between decision and steal — retry the create.
@@ -337,8 +502,8 @@ function withPlanningLock(cwd, fn, clock) {
                         catch {
                             confirmBody = null;
                         }
-                        const sameInstance = typeof decisionStat.dev === 'number' && typeof decisionStat.ino === 'number' &&
-                            confirmStat.dev === decisionStat.dev && confirmStat.ino === decisionStat.ino &&
+                        const sameInstance = typeof decisionId.dev === 'bigint' && typeof decisionId.ino === 'bigint' &&
+                            confirmStat.dev === decisionId.dev && confirmStat.ino === decisionId.ino &&
                             decisionBody !== null && confirmBody === decisionBody;
                         if (!sameInstance) {
                             clock.sleep(100); // a racer won the steal + recreated — re-evaluate, don't delete it.
@@ -449,53 +614,66 @@ function describeUnresolvedWorkstreamReason(reason) {
         return 'the name is not a valid workstream name';
     return "its workstream directory doesn't exist (it may have been renamed or removed)";
 }
-/**
- * Locate the CONTEXT.md file in a phase directory, handling both the bare
- * form (`CONTEXT.md`) and the padded-prefix convention (`NN-CONTEXT.md`,
- * `NN.N-CONTEXT.md`, etc.) used by gsd-discuss-phase output.
- *
- * Returns the filename (not the full path) of the first match, or null if
- * no CONTEXT.md exists in the directory.
- *
- * Canonical dual-form predicate extracted here to eliminate the 5-site
- * duplication that previously existed across init.cjs, roadmap.cjs,
- * core.cjs, gap-checker.cjs (#3739).
- *
- * @param absDirOrFiles - Absolute path to the phase directory,
- *   OR an already-read files array (avoids a redundant readdirSync at call sites
- *   that already hold a directory listing).
- */
 function findContextMdIn(absDirOrFiles) {
-    try {
-        const files = Array.isArray(absDirOrFiles)
-            ? absDirOrFiles
-            : node_fs_1.default.readdirSync(absDirOrFiles);
+    const matchIn = (files) => {
         if (files.includes('CONTEXT.md'))
             return 'CONTEXT.md';
         return files.find((f) => f.endsWith('-CONTEXT.md')) ?? null;
+    };
+    if (Array.isArray(absDirOrFiles)) {
+        return matchIn(absDirOrFiles);
+    }
+    try {
+        const files = node_fs_1.default.readdirSync(absDirOrFiles);
+        return { file: matchIn(files), files, scope: SCOPE.COMPLETE };
     }
     catch (err) {
-        // #1883: distinguish genuine absence from a permission/I-O failure. ENOENT
-        // ("nothing there") keeps the long-standing null contract the callers rely
-        // on; every other error (EACCES, EIO, …) is a real read failure that must
-        // propagate — otherwise an unreadable phase dir is silently reported as
-        // "no CONTEXT.md" and the discuss/plan gates wrongly skip context.
-        if (err.code === 'ENOENT')
-            return null;
-        throw err;
+        // #1883 / #4014: distinguish genuine absence from a permission/I-O
+        // failure. ENOENT ("nothing there") keeps the long-standing "real empty"
+        // contract callers rely on; every other error (EACCES, EIO, …) is a real
+        // read failure — reported as SCOPE.UNREADABLE rather than thrown, so a
+        // caller no longer needs its own try/catch to keep an unreadable phase
+        // dir from being silently reported the same as "no CONTEXT.md".
+        if (err.code === 'ENOENT') {
+            return { file: null, files: [], scope: SCOPE.COMPLETE };
+        }
+        return { file: null, files: [], scope: SCOPE.UNREADABLE };
     }
+}
+/**
+ * Is `name` the phase's requirements SPEC (#5629)? A plain `NN-SPEC.md`: the `-AI-SPEC.md` (AI design
+ * contract) and `-UI-SPEC.md` (UI design contract) variants have other purposes and never lock requirements.
+ * The one definition behind the init payloads' `has_spec` / `spec_path`, the discuss and plan-phase workflows
+ * (which read those fields) and the context-drift gate, so they cannot disagree about which file is "the SPEC".
+ */
+function isPhaseSpecFile(name) {
+    return name.endsWith('-SPEC.md') && !name.endsWith('-AI-SPEC.md') && !name.endsWith('-UI-SPEC.md');
+}
+/**
+ * The phase SPEC in an already-read directory listing, or `null`. The lexically first match, so the answer
+ * does not depend on the filesystem's readdir order. The caller's array is not reordered.
+ */
+function findPhaseSpecIn(files) {
+    return files.filter(isPhaseSpecFile).sort()[0] ?? null;
 }
 module.exports = {
     worktreesOptedOut,
+    readScopedConfigValue,
     createPlanningWorkspace,
     createSharedPointerAdapter,
     createSessionScopedPointerAdapter,
     createMemoryPointerAdapter,
     planningDir,
     planningRoot,
+    resolveEnvWorkstream,
+    resolvePhaseIdConvention,
     listAvailableWorkstreams,
     planningPaths,
     quickDirFrom,
+    debugDirFrom,
+    debugDir,
+    todosDirFrom,
+    todosDir,
     withPlanningLock,
     getActiveWorkstream,
     peekActiveWorkstream,
@@ -503,6 +681,8 @@ module.exports = {
     diagnoseUnresolvedActiveWorkstream,
     describeUnresolvedWorkstreamReason,
     findContextMdIn,
+    isPhaseSpecFile,
+    findPhaseSpecIn,
     // Test seam (audit M1): inject a deterministic isPidAlive so the liveness-gated
     // steal decision is exercised without real pids. Mirrors capability-lock.cts.
     _setLockProbes(probes) {

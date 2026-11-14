@@ -30,8 +30,23 @@ const CONTRACT_PATH = path.join(ROOT, 'gsd-core', 'bin', 'lib', 'loop-host-contr
 // The five step workflows in pipeline order
 const STEP_WORKFLOWS = [
   { file: 'discuss-phase.md', step: 'discuss' },
-  { file: 'plan-phase.md',    step: 'plan' },
-  { file: 'execute-phase.md', step: 'execute' },
+  {
+    file: 'plan-phase.md',
+    step: 'plan',
+    auxiliaryHosts: [
+      { file: 'quick.md', point: 'plan:pre', kinds: ['contribution'], into: 'planner' },
+    ],
+  },
+  {
+    file: 'execute-phase.md',
+    step: 'execute',
+    // #5118: execute:post's step AND gate dispatch (code_review_gate with
+    // its TDD escalation) lives in the ONE shared verification step that
+    // execute-phase includes (and verify-work includes too) — no per-caller copy.
+    auxiliaryHosts: [
+      { file: 'execute-phase/steps/verify-phase-goal.md', point: 'execute:post', kinds: ['step', 'gate'] },
+    ],
+  },
   { file: 'verify-work.md',   step: 'verify' },
   { file: 'ship.md',          step: 'ship' },
 ];
@@ -70,6 +85,26 @@ const ROLE_TO_AGENT = {
   checker:    'gsd-plan-checker',
   executor:   'gsd-executor',
   verifier:   'gsd-verifier',
+  // #4790 — the built-in source-code reviewer the code-review skill dispatches one hop below
+  // `execute:post`. Admitting the role is what lets a capability contribution name it.
+  'code-reviewer': 'gsd-code-reviewer',
+};
+
+// #4740 — Role → family mapping. Three families: orchestration, planning,
+// execution. This constrains what a workflow may DECLARE in agent-roles for
+// a given step (admissibility), a separate concern from ROLE_TO_AGENT's
+// agent-file presence check above.
+const ROLE_FAMILY = {
+  orchestrator: 'orchestration',
+  researcher: 'planning', planner: 'planning', checker: 'planning',
+  executor: 'execution', verifier: 'execution', 'code-reviewer': 'execution',
+};
+const EXPECTED_FAMILY_BY_STEP = {
+  discuss: 'orchestration',
+  plan: 'planning',
+  execute: 'execution',
+  verify: 'orchestration',
+  ship: 'orchestration',
 };
 
 // ─── Parser ───────────────────────────────────────────────────────────────────
@@ -222,6 +257,52 @@ function crossCheckRoles(content, agentRoles, fileName) {
   return errors;
 }
 
+// ─── Cross-check: declared roles vs. their permitted family (#4740) ──────────
+
+/**
+ * For a step, verify every role declared in agentRoles belongs to that step's
+ * expected family (orchestration / planning / execution).
+ *
+ * Unlike `assertPointsCoverage`'s `if (!expected) continue // caught
+ * elsewhere` guard, an unknown step here fails CLOSED: for points
+ * there is a second net (the canonical-set and duplicate checks), but nothing
+ * else in the repo validates role families, so failing open on an unknown
+ * step would make it the one input that silently bypasses this gate — the
+ * "unknown resolving to a safe known" failure mode this check exists to close.
+ *
+ * Pure: never sorts, de-dupes, or otherwise mutates `agentRoles` — the same
+ * array `buildContract` puts into the generated contract.
+ *
+ * @param {string}   step        The step named in the marker block.
+ * @param {string[]} agentRoles  Roles declared in the block.
+ * @param {string}   fileName    For error messages.
+ * @returns {string[]}           Array of error strings; empty = OK.
+ */
+function crossCheckRoleFamilies(step, agentRoles, fileName) {
+  const expectedFamily = EXPECTED_FAMILY_BY_STEP[step];
+  if (!expectedFamily) {
+    return [fileName + ': step "' + step + '" has no entry in EXPECTED_FAMILY_BY_STEP'];
+  }
+
+  const errors = [];
+  for (const role of agentRoles) {
+    const family = ROLE_FAMILY[role];
+    if (!family) {
+      errors.push(
+        fileName + ': declared agent-role "' + role + '" has no entry in ROLE_FAMILY mapping',
+      );
+      continue;
+    }
+    if (family !== expectedFamily) {
+      errors.push(
+        fileName + ': declared agent-role "' + role + '" (family "' + family +
+        '") is not permitted at step "' + step + '" (expected family "' + expectedFamily + '")',
+      );
+    }
+  }
+  return errors;
+}
+
 // ─── 12-points coverage assertion ────────────────────────────────────────────
 
 /**
@@ -295,7 +376,7 @@ function buildContract(workflowsDir) {
   const contract = [];
   const allErrors = [];
 
-  for (const { file, step } of STEP_WORKFLOWS) {
+  for (const { file, step, auxiliaryHosts = [] } of STEP_WORKFLOWS) {
     const filePath = path.join(resolvedDir, file);
     let content;
     try {
@@ -324,6 +405,38 @@ function buildContract(workflowsDir) {
     // Cross-check roles
     const roleErrors = crossCheckRoles(content, entry.agentRoles, file);
     allErrors.push(...roleErrors);
+
+    // Cross-check role families (#4740)
+    const roleFamilyErrors = crossCheckRoleFamilies(entry.step, entry.agentRoles, file);
+    allErrors.push(...roleFamilyErrors);
+
+    for (const auxiliary of auxiliaryHosts) {
+      let auxiliaryContent;
+      try {
+        auxiliaryContent = fs.readFileSync(path.join(resolvedDir, auxiliary.file), 'utf8');
+      } catch (err) {
+        allErrors.push('Could not read auxiliary host ' + auxiliary.file + ': ' + String(err.message));
+        continue;
+      }
+
+      const wiredPoints = scanWiredPoints(auxiliaryContent);
+      if (!wiredPoints.has(auxiliary.point)) {
+        allErrors.push(
+          auxiliary.file + ': auxiliary host missing expected point "' + auxiliary.point + '"',
+        );
+        continue;
+      }
+
+      const wiredKinds = scanWiredKinds(auxiliaryContent, auxiliary.into).get(auxiliary.point) || new Set();
+      for (const kind of auxiliary.kinds) {
+        if (!wiredKinds.has(kind)) {
+          allErrors.push(
+            auxiliary.file + ': auxiliary host point "' + auxiliary.point +
+            '" missing expected kind "' + kind + '"',
+          );
+        }
+      }
+    }
 
     contract.push(entry);
   }
@@ -437,7 +550,10 @@ function main() {
  * registry generator, conformance gate) must derive from this rather than maintaining
  * a separate hardcoded list.
  */
-const HOST_LOOP_FILES = STEP_WORKFLOWS.map((w) => 'gsd-core/workflows/' + w.file);
+const HOST_LOOP_FILES = STEP_WORKFLOWS.flatMap(({ file, auxiliaryHosts = [] }) => [
+  'gsd-core/workflows/' + file,
+  ...auxiliaryHosts.map((host) => 'gsd-core/workflows/' + host.file),
+]);
 
 /**
  * Pure function: scan a text string for `loop render-hooks <point>` call sites.
@@ -475,9 +591,11 @@ const HOOK_KINDS = ['contribution', 'step', 'gate'];
  * - A deferral line (one carrying an `@`-included path to the generic
  *   contract, e.g. `@gsd-core/references/loop-hook-dispatch.md`) that names a
  *   kind (`kind == "step"`) covers that kind; a deferral line with no kind
- *   discriminator ("apply each entry") covers every kind. A bare §-citation
- *   of the reference (validation guidance only, no `@`) covers nothing —
- *   plan-phase cites the gate-validation section while dispatching only gates.
+ *   discriminator ("apply each entry") covers every kind only when no role
+ *   target is required. With `expectedInto`, the same segment must explicitly
+ *   name both the kind and that exact `into` target. A bare §-citation of the
+ *   reference (validation guidance only, no `@`) covers nothing — plan-phase
+ *   cites the gate-validation section while dispatching only gates.
  * - Otherwise a kind is covered when some LINE dispatches it unconditionally:
  *   a `kind == "<kind>"` discriminator with NO same-line narrowing to one
  *   hook (`ref.skill ==`, `ref.agent ==`, `ref.command ==`). A narrowed line
@@ -491,19 +609,26 @@ const HOOK_KINDS = ['contribution', 'step', 'gate'];
  * Pure: same input, same output; CRLF-safe (line splitting tolerates \r).
  *
  * @param {string} region  Dispatch text following one call site.
+ * @param {string} [expectedInto]  Optional role target required in the same segment.
  * @returns {Set<string>}
  */
-function coveredKindsInRegion(region) {
+function coveredKindsInRegion(region, expectedInto) {
   const covered = new Set();
   // Same-SEGMENT narrowing to ONE hook voids credit: `ref.skill ==`, `capId ==`,
-  // and `into ==` each special-case a subset, not the kind generally
+  // and `into ==` each special-case a subset, not the kind generally. An
+  // auxiliary host may name the one role it actually hosts via `expectedInto`;
+  // any other role target still voids credit.
   // (plan-phase's `kind == "contribution" and capId == "security"` is the
   // hand-rolled shape; `into == "planner"` covers only planner-targeted
   // contributions). Segments, not lines: execute-phase legitimately writes
   // "dispatch `kind == "step"` hooks per … . `ref.skill == "code-review"`:" —
   // the deferral is one sentence, the specialization the next; narrowing in a
   // DIFFERENT segment must not void the deferral's credit.
-  const narrowingRe = /(?:ref\.(?:skill|agent|command)|capId|into)\s*={2,3}/;
+  const identityNarrowingRe = /(?:ref\.(?:skill|agent|command)|capId)\s*={2,3}/;
+  const intoNarrowingRe = /into\s*={2,3}/;
+  const expectedIntoRe = expectedInto
+    ? new RegExp(`into\\s*={2,3}\\s*["']${escapeRegExp(expectedInto)}["']`)
+    : null;
   // Negated mentions describe an absence, not a dispatch ("Branch 1 — no active
   // step hooks (`activeHooks` has no entry with `kind == "step"`)" — ship.md).
   const negationRe = /\b(?:no|without|absent|lacks?|missing)\b[^.|]*kind\s*={2,3}/;
@@ -519,17 +644,22 @@ function coveredKindsInRegion(region) {
       }
       if (kindDiscriminators.length === 0) {
         // A deferral with no kind discriminator ("apply each entry per …")
-        // still covers every kind.
-        if (deferralRe.test(segment)) for (const kind of HOOK_KINDS) covered.add(kind);
+        // still covers every kind for generic hosts. An auxiliary host with a
+        // required role target must state both its kind and target explicitly.
+        if (!expectedInto && deferralRe.test(segment)) for (const kind of HOOK_KINDS) covered.add(kind);
         continue;
       }
       if (negationRe.test(segment)) continue;
+      const narrowed = identityNarrowingRe.test(segment) ||
+        (expectedInto
+          ? !expectedIntoRe.test(segment)
+          : intoNarrowingRe.test(segment));
       if (deferralRe.test(segment)) {
         // Deferral naming kinds ("dispatch `kind == "step"` hooks per …").
-        if (!narrowingRe.test(segment)) for (const kind of kindDiscriminators) covered.add(kind);
+        if (!narrowed) for (const kind of kindDiscriminators) covered.add(kind);
         continue;
       }
-      if (!narrowingRe.test(segment)) for (const kind of kindDiscriminators) covered.add(kind);
+      if (!narrowed) for (const kind of kindDiscriminators) covered.add(kind);
     }
   }
   return covered;
@@ -540,9 +670,10 @@ function coveredKindsInRegion(region) {
  * per point, the union of hook kinds its dispatch regions cover (#3606).
  *
  * @param {string} text  Content of a workflow file (or any text).
+ * @param {string} [expectedInto]  Optional role target an auxiliary host must dispatch.
  * @returns {Map<string, Set<string>>}  point → covered kinds.
  */
-function scanWiredKinds(text) {
+function scanWiredKinds(text, expectedInto) {
   const result = new Map();
   const siteRe = CALL_SITE_RE;
   const sites = [];
@@ -552,7 +683,7 @@ function scanWiredKinds(text) {
   for (let i = 0; i < sites.length; i++) {
     const regionEnd = i + 1 < sites.length ? sites[i + 1].start : Math.min(text.length, sites[i].start + REGION_CAP);
     const region = text.slice(sites[i].start, regionEnd);
-    const covered = coveredKindsInRegion(region);
+    const covered = coveredKindsInRegion(region, expectedInto);
     if (!result.has(sites[i].point)) result.set(sites[i].point, new Set());
     for (const kind of covered) result.get(sites[i].point).add(kind);
   }
@@ -615,6 +746,7 @@ function getWiredLoopPoints(repoRoot) {
 module.exports = {
   parseLoopHostBlock,
   crossCheckRoles,
+  crossCheckRoleFamilies,
   assertPointsCoverage,
   buildContract,
   serializeContract,
@@ -624,6 +756,7 @@ module.exports = {
   CANONICAL_POINTS,
   EXPECTED_POINTS_BY_STEP,
   ROLE_TO_AGENT,
+  ROLE_FAMILY,
   scanWiredPoints,
   getWiredLoopPoints,
   coveredKindsInRegion,

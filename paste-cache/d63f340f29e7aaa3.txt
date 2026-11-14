@@ -1,0 +1,203 @@
+`
+### wp-core ###
+
+version: 6.7.2
+site_language: en_US
+user_language: en_US
+timezone: +00:00
+permalink: /%year%/%monthnum%/%day%/%postname%/
+https_status: true
+multisite: false
+user_registration: 0
+blog_public: 1
+default_comment_status: open
+environment_type: production
+user_count: 18
+dotorg_communication: true
+
+### wp-paths-sizes ###
+
+wordpress_path: /opt/bitnami/wordpress
+wordpress_size: loading...
+uploads_path: s3://lk-tf-preprod-website-wordpress/uploads
+uploads_size: loading...
+themes_path: /opt/bitnami/wordpress/wp-content/themes
+themes_size: loading...
+plugins_path: /opt/bitnami/wordpress/wp-content/plugins
+plugins_size: loading...
+fonts_path: s3://lk-tf-preprod-website-wordpress/uploads/fonts
+fonts_size: loading...
+database_size: loading...
+total_size: loading...
+
+### wp-active-theme ###
+
+name: Twenty Twenty-One (twentytwentyone)
+version: 1.8 (latest version: 2.9)
+author: the WordPress team
+author_website: https://wordpress.org/
+parent_theme: none
+theme_features: core-block-patterns, widgets-block-editor, automatic-feed-links, title-tag, post-formats, post-thumbnails, menus, html5, custom-logo, customize-selective-refresh-widgets, wp-block-styles, align-wide, editor-styles, editor-style, editor-font-sizes, custom-background, editor-color-palette, editor-gradient-presets, responsive-embeds, custom-line-height, experimental-link-color, custom-spacing, custom-units, widgets
+theme_path: /opt/bitnami/wordpress/wp-content/themes/twentytwentyone
+auto_update: Disabled
+
+### wp-themes-inactive (3) ###
+
+Twenty Twenty-Five: version: 1.0, author: the WordPress team (latest version: 1.5), Auto-updates disabled
+Twenty Twenty-Four: version: 1.3, author: the WordPress team (latest version: 1.6), Auto-updates disabled
+Twenty Twenty-Three: version: 1.6, author: the WordPress team (latest version: 1.7), Auto-updates disabled
+
+### wp-plugins-active (25) ###
+
+Advanced Custom Fields PRO: version: 6.7.0.2, author: WP Engine (latest version: 6.8.10), Auto-updates disabled
+All-in-One Microsoft Office 365 Apps + Azure/EntraID Login: version: 2.2.1, author: miniOrange (latest version: 2.2.8), Auto-updates disabled
+Atlas Content Modeler: version: 0.26.2, author: WP Engine, Auto-updates disabled
+Broken Link Checker: version: 2.4.6, author: WPMU DEV (latest version: 2.4.15), Auto-updates disabled
+Elementor: version: 3.27.6, author: Elementor.com, Auto-updates disabled
+Elementor Graphql: version: 1, author: Agily x Linkurious, Auto-updates disabled
+Gravity Forms: version: 2.9.4, author: Gravity Forms (latest version: 3.2.0), Auto-updates disabled
+Layouts: version: 1, author: Agily x Linkurious, Auto-updates disabled
+Linkurious Custom Fields: version: 1, author: Agily x Linkurious, Auto-updates disabled
+Linkurious Elementor Widgets: version: 1, author: Agily x Linkurious, Auto-updates disabled
+Linkurious Image Size: version: 1, author: Partikuls x Linkurious, Auto-updates disabled
+PowerPack Pro for Elementor: version: 2.11.11, author: Team IdeaBox - PowerPack Elements, Auto-updates disabled
+Rank Math SEO: version: 1.0.253, author: Rank Math SEO (latest version: 1.0.280), Auto-updates disabled
+Regenerate Thumbnails Advanced: version: 2.5.0, author: ShortPixel, Auto-updates disabled
+Resources Featured GraphQL: version: 1, author: Agily x Linkurious, Auto-updates disabled
+S3 Endpoint Scaleway: version: 1, author: Agily x Linkurious, Auto-updates disabled
+S3 Uploads: version: 3.0.6, author: Human Made Limited, Auto-updates disabled
+SVG Support: author: (undefined), version: 2.5.14 (latest version: 2.6.1), Auto-updates disabled
+WP All Export: version: 1.6.0, author: Soflyy, Auto-updates disabled
+WPGraphQL: version: 1.31.1, author: WPGraphQL (latest version: 2.25.0), Auto-updates disabled
+WPGraphQL for ACF: version: 2.4.1, author: WPGraphQL (latest version: 3.0.0), Auto-updates disabled
+WPGraphQL for Gravity Forms: version: 0.13.0.1, author: AxePress Development (latest version: 0.13.4), Auto-updates disabled
+WPGraphQL for Rank Math SEO: version: 0.3.4, author: AxePress, Auto-updates disabled
+WPGraphQL Offset Pagination: version: 0.2.0, author: Esa-Matti Suuronen, Valu Digital Oy, Auto-updates disabled
+WP Relative Links: version: 1, author: Agily x Linkurious, Auto-updates disabled
+
+### wp-plugins-inactive (10) ###
+
+Akismet Anti-spam: Spam Protection: version: 5.3.7, author: Automattic - Anti-spam Team (latest version: 5.7.2), Auto-updates disabled
+All-in-One WP Migration: version: 7.89, author: ServMask (latest version: 7.112), Auto-updates disabled
+All in One SEO: version: 4.7.9, author: All in One SEO Team (latest version: 5.0.4), Auto-updates disabled
+AMP: version: 2.5.5, author: AMP Project Contributors, Auto-updates disabled
+Google Analytics for WordPress by MonsterInsights: version: 9.3.0, author: MonsterInsights (latest version: 11.3.0), Auto-updates disabled
+Hello Dolly: version: 1.7.2, author: Matt Mullenweg, Auto-updates disabled
+Jetpack: version: 14.3, author: Automattic, Auto-updates disabled
+TaxoPress: version: 3.32.0, author: TaxoPress (latest version: 4.0.0), Auto-updates disabled
+W3 Total Cache: version: 2.8.6, author: BoldGrid (latest version: 2.11.0), Auto-updates disabled
+WP Mail SMTP: version: 4.3.0, author: WP Mail SMTP (latest version: 4.10.3), Auto-updates disabled
+
+### wp-media ###
+
+image_editor: S3_Uploads\Image_Editor_Imagick
+imagick_module_version: 1691
+imagemagick_version: ImageMagick 6.9.11-60 Q16 x86_64 2021-01-25 https://imagemagick.org
+imagick_version: 3.8.0
+file_uploads: 1
+post_max_size: 32M
+upload_max_filesize: 30M
+max_effective_size: 30 MB
+max_file_uploads: 20
+gd_version: bundled (2.1.0 compatible)
+gd_formats: GIF, JPEG, PNG, WebP, BMP
+ghostscript_version: not available
+
+### wp-server ###
+
+server_architecture: Linux 6.8.0-136-generic x86_64
+httpd_software: nginx/1.27.4
+php_version: 8.2.28 64bit
+php_sapi: fpm-fcgi
+max_input_variables: 10000
+time_limit: 120
+memory_limit: -1
+max_input_time: 60
+upload_max_filesize: 30M
+php_post_max_size: 32M
+curl_version: 7.88.1 OpenSSL/3.0.15
+suhosin: false
+imagick_availability: true
+pretty_permalinks: true
+current: 2026-10-26T14:29:00+00:00
+utc-time: Monday, 26-Oct-26 14:29:00 UTC
+server-time: 2026-10-26T14:28:58+00:00
+
+### wp-database ###
+
+extension: mysqli
+server_version: 8.0.21
+client_version: mysqlnd 8.2.28
+max_allowed_packet: 67108864
+max_connections: 100
+
+### wp-constants ###
+
+WP_HOME: https://wordpress-website.wordpress.k8s.preprod.linkurious.net/
+WP_SITEURL: https://wordpress-website.wordpress.k8s.preprod.linkurious.net/
+WP_CONTENT_DIR: /opt/bitnami/wordpress/wp-content
+WP_PLUGIN_DIR: /opt/bitnami/wordpress/wp-content/plugins
+WP_MEMORY_LIMIT: -1
+WP_MAX_MEMORY_LIMIT: -1
+WP_DEBUG: false
+WP_DEBUG_DISPLAY: true
+WP_DEBUG_LOG: false
+SCRIPT_DEBUG: false
+WP_CACHE: false
+CONCATENATE_SCRIPTS: undefined
+COMPRESS_SCRIPTS: undefined
+COMPRESS_CSS: undefined
+WP_ENVIRONMENT_TYPE: undefined
+WP_DEVELOPMENT_MODE: undefined
+DB_CHARSET: utf8
+DB_COLLATE: undefined
+
+### wp-filesystem ###
+
+wordpress: writable
+wp-content: writable
+uploads: writable
+plugins: writable
+themes: writable
+fonts: writable
+
+### acf ###
+
+version: 6.7.0.2
+plugin_type: PRO
+update_source: ACF Direct
+activated: false
+activated_url: undefined
+license_type: undefined
+license_status: undefined
+subscription_expires: undefined
+ui_field_groups: 0
+php_field_groups: 0
+json_field_groups: 0
+rest_field_groups: 0
+graphql_field_groups: 2
+post_types_enabled: true
+ui_post_types: 10
+json_post_types: 0
+ui_taxonomies: 5
+json_taxonomies: 0
+ui_options_pages_enabled: true
+ui_options_pages: 0
+json_options_pages: 0
+php_options_pages: 1
+rest_api_format: light
+registered_acf_blocks: 0
+blocks_per_api_version: 
+blocks_per_acf_block_version: 
+blocks_using_post_meta: 0
+blocks_using_auto_inline_editing: 0
+preload_blocks: true
+admin_ui_enabled: true
+field_type-modal_enabled: true
+field_settings_tabs_enabled: false
+shortcode_enabled: true
+registered_acf_forms: 0
+json_save_paths: 1
+json_load_paths: 1
+
+`

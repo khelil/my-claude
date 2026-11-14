@@ -1,0 +1,255 @@
+{
+  "sessions": [
+    {
+      "id": "b1357b3b-99d1-48f0-b60a-12c430639ae9",
+      "askedTurn": "f2e9b505-8a81-42b3-912c-c71bc84f5b3a",
+      "offeredTurn": "f87bb34b-6580-4531-b1ce-cdd38a440c1e",
+      "tag": "Heads up"
+    },
+    {
+      "id": "e9b3c1ef-7235-4316-88c9-632b720c684b",
+      "askedTurn": "34ab488f-0c2c-4d39-a45e-d10b7d4c55a4",
+      "offeredTurn": "557c705a-adbc-4cd3-8fa2-31036900b1af",
+      "tag": "You should know"
+    },
+    {
+      "id": "7a474c8c-65b9-43f0-a4c4-ea7a23f96665",
+      "askedTurn": "60bd5f54-95a7-48fc-84f0-e6f16e134032",
+      "offeredTurn": "47fc27e4-4baf-47c7-988b-2d8465b6d486",
+      "tag": "Heads up"
+    },
+    {
+      "id": "3ca6b3e8-d69c-4f8e-ba34-215987e8e762",
+      "askedTurn": "c6f9732a-f10c-4079-9a87-4cc87d082aae",
+      "offeredTurn": "5bcf9ce3-566b-461f-b3de-ba4f42e8fad0",
+      "tag": "Heads up"
+    },
+    {
+      "id": "0b8226ce-8342-46ea-94f1-9bbd287867c6",
+      "askedTurn": "a4c14ef1-b8e6-45b7-a3d6-573846086265",
+      "offeredTurn": "a4c14ef1-b8e6-45b7-a3d6-573846086265",
+      "tag": "Heads up"
+    },
+    {
+      "id": "85950821-908e-4303-b4ff-66a8b516b1e8",
+      "askedTurn": "567089cb-5455-412f-8866-376878f1c5a5"
+    },
+    {
+      "id": "686b54a7-2ad0-4d68-ba4b-e76f02f4b986",
+      "askedTurn": "11da8a6d-78ae-4fb4-b721-ac9bdb5f17a0"
+    },
+    {
+      "id": "ca0a5ca7-3989-45f6-82da-205e5b2d644d",
+      "askedTurn": "7e5d5d76-971b-4c76-8225-44f1e55e22a2",
+      "offeredTurn": "7e5d5d76-971b-4c76-8225-44f1e55e22a2",
+      "tag": "Heads up"
+    },
+    {
+      "id": "45f07fee-9365-4d92-9176-34bb7a81a193",
+      "askedTurn": "f0b0384c-1aa1-4ebb-9b80-bbcbd7fac925",
+      "offeredTurn": "2e29d5f8-da5b-4e42-84c1-18954c885445",
+      "tag": "Heads up"
+    },
+    {
+      "id": "76a7cd16-24a5-45f4-a724-12c742f66a3d",
+      "askedTurn": "0ae290b5-a509-4fa0-afa8-b7d497146eb8",
+      "offeredTurn": "0ae290b5-a509-4fa0-afa8-b7d497146eb8",
+      "tag": "Heads up"
+    },
+    {
+      "id": "7be77939-0ea9-41dc-845e-4ebfd2d0026d",
+      "askedTurn": "bb0bc404-e9fd-4a5d-b7b1-4d3ade9aecb3"
+    },
+    {
+      "id": "f5439007-981c-498a-8ec3-42f7f140bf91",
+      "askedTurn": "5de6174f-e1fc-4f62-9563-a56747ebb3ac"
+    },
+    {
+      "id": "2c4f6f8e-d3cb-436b-8e13-09d37d6524cf",
+      "askedTurn": "b6168052-1f57-47a3-b8a0-2a5ef96669b8",
+      "offeredTurn": "b6168052-1f57-47a3-b8a0-2a5ef96669b8",
+      "tag": "Heads up"
+    },
+    {
+      "id": "680e2a63-88cf-40fc-8704-22f01711b0b4",
+      "askedTurn": "0765cc22-b478-4b62-8d95-efb2779beedc"
+    },
+    {
+      "id": "57ff8fb3-e270-4ea0-a060-922d5d725be2",
+      "askedTurn": "d5f26eb7-4913-4d0a-82a0-64e2e74d799d"
+    },
+    {
+      "id": "1f7d48b2-af24-4127-a865-20d384f41529",
+      "askedTurn": "7a925401-ffca-4a8c-8b6a-eeb2c6aa4ff6",
+      "offeredTurn": "7a925401-ffca-4a8c-8b6a-eeb2c6aa4ff6",
+      "tag": "Heads up"
+    },
+    {
+      "id": "89801472-95d6-44f3-a889-fb54d0ddde07",
+      "askedTurn": "03b6a53a-8374-4acc-a562-d42cf402e446"
+    },
+    {
+      "id": "d8ad7cb8-0af5-462e-9f50-0eab4b84bb09",
+      "askedTurn": "4b6e0d60-11fd-4ab5-acb8-317990c1f760",
+      "offeredTurn": "248c9907-fd79-4175-b84b-9b488f5245d5",
+      "tag": "Heads up"
+    },
+    {
+      "id": "1f88dab9-e027-4190-b935-930ce14bbf6b",
+      "askedTurn": "c6c4d64a-8fee-4f5b-bcb2-f9450f6ced00",
+      "offeredTurn": "c6c4d64a-8fee-4f5b-bcb2-f9450f6ced00",
+      "tag": "You should know"
+    },
+    {
+      "id": "b438fe57-700c-4020-932b-73e9c97008e0",
+      "askedTurn": "e4043c8c-2856-437b-93b3-d21887312b0b",
+      "offeredTurn": "a036bbb9-2508-4eb8-8fc2-217dece6adaa",
+      "tag": "Heads up"
+    },
+    {
+      "id": "36607325-c2f3-4fc2-9f7f-b586c201df25",
+      "askedTurn": "d18e55c9-a47a-4026-b58c-804bd73f470c",
+      "offeredTurn": "d18e55c9-a47a-4026-b58c-804bd73f470c",
+      "tag": "Heads up"
+    },
+    {
+      "id": "e12693c1-8156-4f00-84a7-00506e87fc91",
+      "askedTurn": "9f4781ee-5a13-4f39-95cf-67ca4a71c4eb",
+      "offeredTurn": "3aabc31d-5d74-4af8-8df6-e57b33777c4c",
+      "tag": "Heads up"
+    },
+    {
+      "id": "113e72ce-0300-498e-ae40-16c1cb473f87",
+      "askedTurn": "26d3a6ac-8ca4-41b7-8709-b01d0e60f5ab"
+    },
+    {
+      "id": "c505fc45-104d-4ea6-ad84-bb9b787b7458",
+      "askedTurn": "e08deb37-c178-404d-8b46-aed5055a331b"
+    },
+    {
+      "id": "707fb214-1df4-45f9-92c9-df672fc34d20",
+      "askedTurn": "28e8c480-4b68-4024-be95-866312fc00d8"
+    },
+    {
+      "id": "0fee3469-e8fe-4015-84d9-026415e604d1",
+      "askedTurn": "027a5c29-81a2-4759-b431-9692341e6b06"
+    },
+    {
+      "id": "2ebc5dfa-3fc9-47db-8b39-64dbe92179ce",
+      "askedTurn": "4a31d39e-2ab7-4b1a-af87-5fa13bd093af",
+      "offeredTurn": "4a31d39e-2ab7-4b1a-af87-5fa13bd093af",
+      "tag": "Heads up"
+    },
+    {
+      "id": "851cca3b-ce01-454e-98b8-8bbf53dc6991",
+      "askedTurn": "abe1a6ac-ff49-4fb8-a733-b4e0bbb22f56"
+    },
+    {
+      "id": "33e03476-b3c4-4d20-9282-51107c4d4357",
+      "askedTurn": "125c8831-6212-4a79-8e02-15794afc5c22",
+      "offeredTurn": "2f7c2243-3fd8-402f-8097-b6259dfca17a",
+      "tag": "Heads up"
+    },
+    {
+      "id": "3adc1433-ec02-4a74-a345-3d863e367227",
+      "askedTurn": "d4c63df9-6848-40d4-a9fc-098f18cca06a",
+      "offeredTurn": "d4c63df9-6848-40d4-a9fc-098f18cca06a",
+      "tag": "Heads up"
+    },
+    {
+      "id": "4b19a2d7-6f81-49dd-8855-3762acd03975",
+      "askedTurn": "4f3ed961-6a86-4d6e-9429-1c43ddeac959",
+      "offeredTurn": "4f3ed961-6a86-4d6e-9429-1c43ddeac959",
+      "tag": "Heads up"
+    },
+    {
+      "id": "a1e5f614-0e0e-4982-bc5a-31a2342aff5e",
+      "askedTurn": "4f92f871-db6b-4092-94b1-cb2d9cddbec6"
+    }
+  ],
+  "seen": [
+    "Si on lance tout le seed sur la préprod pour créer le 7.8 CL, il peut écraser des valeurs que Bleuenn y a saisies.",
+    "Sur le LVXH 6.9 LF, le 2e panneau solaire est inclus dans deux packs, donc l'incompatibilité empêchera aussi l'antenne satellite à ceux qui les prennent.",
+    "Les scripts qui ont créé le LV 7.8 CL sur la préprod sont dans un dossier temporaire, alors qu'il faudra les rejouer en prod.",
+    "L'accès FTP fourni ne voit probablement qu'un sous-dossier, donc la cause la plus probable et les logs d'erreur ne seront sans doute visibles que depuis le compte OVH du client.",
+    "Le passage à Node 22 entraîne aussi une montée de Strapi en 4.26.2, ce qui alourdit la mise à jour de sécurité urgente.",
+    "Partikuls paie déjà un leasing chez CCLS Leasing (331,98 € prélevés le 12 octobre), qui pourrait s'additionner au nouveau loyer Apple.",
+    "Sur les fiches concessionnaires, l'image s'affiche en format portrait (720×1000), donc la photo paysage du van risque d'être coupée sur les côtés.",
+    "Dans la base de prod, les notifications de ce matin sont marquées « envoyées », mais ça veut seulement dire qu'Expo a accepté la demande, pas que les téléphones les ont reçues.",
+    "La PR du correctif vise la branche `prod` et pas `main` comme d'habitude, donc `main` gardera le bug.",
+    "Quand le cron redémarre après une panne, il envoie d'un coup toutes les notifications en retard, même périmées.",
+    "WP-Cron est maintenant désactivé : si la tâche cron du serveur s'arrête, tout ce qui est programmé sur le site s'arrêtera sans prévenir personne.",
+    "Le bloc image codé est carré, alors que le plan annonçait une zone en portrait 2:3. Un visuel 1400×2100 demandé à Bleuenn serait donc coupé en haut et en bas.",
+    "Moving production from WordPress 6.7 to 7.1 upgrades its database the first time it starts, so going back to the old image isn't a clean undo.",
+    "Your PR #260 removed Yoast SEO, but the prod plugin list still has it, so the new design would bring Yoast back for good.",
+    "All plugins will now be frozen at fixed versions, and nothing will flag their security updates, unlike the base image.",
+    "The dump you called production is labelled \"wp-db-k8s\" and its images live in a bucket named \"preprod\", so it's worth confirming where it came from.",
+    "The image's plugin list came from the compose setup, so it will switch on ShortPixel, which is turned off in the real prod Kubernetes values.",
+    "Le bug de paiement Stripe du 15/10 n'a pas de correctif dans le code, et les clients concernés risquent un nouvel échec ou une double facturation.",
+    "Le correctif du « & » doit partir d'une branche créée depuis `main`. Fait sur la branche du configurateur, il n'arriverait en prod qu'à la livraison finale du configurateur.",
+    "Tant que le site local est sur la branche du correctif, le plugin du configurateur n'y existe plus, et WordPress peut le désactiver tout seul.",
+    "Sur les branches parties de `main`, le fichier `credentials_staging.txt` n'est pas ignoré par git, donc un « tout ajouter » le publierait en prod.",
+    "Le 7.5 GJF est le seul modèle Eterna livré avec un éclairage précalculé : sur les sept autres, les mêmes textures ne rendront pas exactement le même ton.",
+    "L'import CSV des concessionnaires dans l'admin du site est dangereux : s'il est utilisé, il peut mettre à la corbeille des fiches, traductions comprises.",
+    "Le staging est toujours bloqué au démarrage, et le correctif du livret partira en prod avec la mise à jour Node 22 jamais validée.",
+    "La PR #1415 vise la branche de #1414 et pas `staging`. GitHub ne la rebasculera que si cette branche est supprimée après la fusion.",
+    "La conception ajoute des changements que le client n'a pas demandés : porte coulissante ouverte sur les cinq kits, WC fermés sur les 7.5 CF et 7.8 CF.",
+    "Les ombres rendent la jointure des tables un peu plus foncée et pointillée sur quatre modèles, et l'agent a accepté ce défaut.",
+    "Les ombres des sept Eterna sont calculées par le code du viewer, pas enregistrées dans les fichiers 3D. Remplacer seulement les fichiers .glb ne suffira donc pas à les afficher sur le site.",
+    "To read the failing build log, Jenkins is asking to sign in with your GitHub account, which would give it full access to your private repositories.",
+    "Sur les deux LVXH 8.7, copier l'Eterna raccourcit la pièce WC de 24 cm par rapport au fichier Rhino. Ce point ne t'a pas été posé.",
+    "Le nouveau cadre du slider est limité à 85 % de la hauteur de l'écran. Sur un portable, les photos paysage resteront donc presque aussi coupées qu'aujourd'hui.",
+    "Les pages témoignages en allemand, anglais et suédois portent toutes le titre français « Témoignages Archive », que le nouveau lien du menu va mettre en avant.",
+    "La visionneuse ajoute de nouveaux libellés (« photos », « Photo suivante »…) qu'il faudra traduire en base, sinon ils resteront en français sur les pages de, en et sv.",
+    "Les redirections demandées par Margaux ne marchent que si les anciens sites restent en ligne après le 30 novembre, sans doute pendant un an.",
+    "The FAQ width fix only applies to blog articles, so FAQ sections on other kinds of pages may still look narrow.",
+    "The same structured data also publishes a colleague's email address as the author name, on public pages.",
+    "Le brouillon de réponse à Bleuenn décrit encore la vignette « +6 » et la pastille « +6 photos », alors qu'on affiche maintenant juste « + ».",
+    "Le déploiement n'envoie que les fichiers modifiés entre deux commits : tout écart déjà présent ou créé plus tard sur le staging ne sera jamais corrigé.",
+    "En gardant wp-admin ouvert, l'ancien WordPress reste en ligne alors qu'il a été piraté le 19 octobre et que le nettoyage n'a pas été vérifié.",
+    "La synchro planifiée écrit encore dans Attio chaque matin vers 6 h, donc Attio va continuer à prendre de l'avance sur Twenty tant qu'elle n'est pas basculée.",
+    "Attio créait tout seul les contacts et sociétés à partir de ta boîte mail ; après la bascule, Twenty ne le fera que si Gmail y est connecté.",
+    "Les mails du ticket UmanIT viennent d'un outil de suivi automatique, que la commande classe comme du bruit. La tâche Soulard risque donc de ne jamais être mise à jour.",
+    "L'autorisation `python3` que tu viens d'accepter est globale : n'importe quel script Python pourra tourner sans te demander, dans tous tes projets.",
+    "Le script vérifie seulement que la citation existe dans la page, pas que l'affirmation qui l'accompagne ni la note de fiabilité soient justes."
+  ],
+  "known": [
+    "Si on lance tout le seed sur la préprod pour créer le 7.8 CL, il peut écraser des valeurs que Bleuenn y a saisies.",
+    "Sur le LVXH 6.9 LF, le 2e panneau solaire est inclus dans deux packs, donc l'incompatibilité empêchera aussi l'antenne satellite à ceux qui les prennent.",
+    "Les scripts qui ont créé le LV 7.8 CL sur la préprod sont dans un dossier temporaire, alors qu'il faudra les rejouer en prod.",
+    "L'accès FTP fourni ne voit probablement qu'un sous-dossier, donc la cause la plus probable et les logs d'erreur ne seront sans doute visibles que depuis le compte OVH du client.",
+    "Le passage à Node 22 entraîne aussi une montée de Strapi en 4.26.2, ce qui alourdit la mise à jour de sécurité urgente.",
+    "Partikuls paie déjà un leasing chez CCLS Leasing (331,98 € prélevés le 12 octobre), qui pourrait s'additionner au nouveau loyer Apple.",
+    "Dans la base de prod, les notifications de ce matin sont marquées « envoyées », mais ça veut seulement dire qu'Expo a accepté la demande, pas que les téléphones les ont reçues.",
+    "La PR du correctif vise la branche `prod` et pas `main` comme d'habitude, donc `main` gardera le bug.",
+    "Quand le cron redémarre après une panne, il envoie d'un coup toutes les notifications en retard, même périmées.",
+    "Moving production from WordPress 6.7 to 7.1 upgrades its database the first time it starts, so going back to the old image isn't a clean undo.",
+    "All plugins will now be frozen at fixed versions, and nothing will flag their security updates, unlike the base image.",
+    "The dump you called production is labelled \"wp-db-k8s\" and its images live in a bucket named \"preprod\", so it's worth confirming where it came from.",
+    "The image's plugin list came from the compose setup, so it will switch on ShortPixel, which is turned off in the real prod Kubernetes values.",
+    "Le correctif du « & » doit partir d'une branche créée depuis `main`. Fait sur la branche du configurateur, il n'arriverait en prod qu'à la livraison finale du configurateur.",
+    "Tant que le site local est sur la branche du correctif, le plugin du configurateur n'y existe plus, et WordPress peut le désactiver tout seul.",
+    "Sur les branches parties de `main`, le fichier `credentials_staging.txt` n'est pas ignoré par git, donc un « tout ajouter » le publierait en prod.",
+    "Le 7.5 GJF est le seul modèle Eterna livré avec un éclairage précalculé : sur les sept autres, les mêmes textures ne rendront pas exactement le même ton.",
+    "L'import CSV des concessionnaires dans l'admin du site est dangereux : s'il est utilisé, il peut mettre à la corbeille des fiches, traductions comprises.",
+    "Le staging est toujours bloqué au démarrage, et le correctif du livret partira en prod avec la mise à jour Node 22 jamais validée.",
+    "La PR #1415 vise la branche de #1414 et pas `staging`. GitHub ne la rebasculera que si cette branche est supprimée après la fusion.",
+    "La conception ajoute des changements que le client n'a pas demandés : porte coulissante ouverte sur les cinq kits, WC fermés sur les 7.5 CF et 7.8 CF.",
+    "Les ombres des sept Eterna sont calculées par le code du viewer, pas enregistrées dans les fichiers 3D. Remplacer seulement les fichiers .glb ne suffira donc pas à les afficher sur le site.",
+    "To read the failing build log, Jenkins is asking to sign in with your GitHub account, which would give it full access to your private repositories.",
+    "Sur les deux LVXH 8.7, copier l'Eterna raccourcit la pièce WC de 24 cm par rapport au fichier Rhino. Ce point ne t'a pas été posé.",
+    "Le bloc image codé est carré, alors que le plan annonçait une zone en portrait 2:3. Un visuel 1400×2100 demandé à Bleuenn serait donc coupé en haut et en bas.",
+    "Le nouveau cadre du slider est limité à 85 % de la hauteur de l'écran. Sur un portable, les photos paysage resteront donc presque aussi coupées qu'aujourd'hui.",
+    "La visionneuse ajoute de nouveaux libellés (« photos », « Photo suivante »…) qu'il faudra traduire en base, sinon ils resteront en français sur les pages de, en et sv.",
+    "The FAQ width fix only applies to blog articles, so FAQ sections on other kinds of pages may still look narrow.",
+    "Le brouillon de réponse à Bleuenn décrit encore la vignette « +6 » et la pastille « +6 photos », alors qu'on affiche maintenant juste « + ».",
+    "Le déploiement n'envoie que les fichiers modifiés entre deux commits : tout écart déjà présent ou créé plus tard sur le staging ne sera jamais corrigé.",
+    "La synchro planifiée écrit encore dans Attio chaque matin vers 6 h, donc Attio va continuer à prendre de l'avance sur Twenty tant qu'elle n'est pas basculée.",
+    "Attio créait tout seul les contacts et sociétés à partir de ta boîte mail ; après la bascule, Twenty ne le fera que si Gmail y est connecté.",
+    "Les mails du ticket UmanIT viennent d'un outil de suivi automatique, que la commande classe comme du bruit. La tâche Soulard risque donc de ne jamais être mise à jour.",
+    "L'autorisation `python3` que tu viens d'accepter est globale : n'importe quel script Python pourra tourner sans te demander, dans tous tes projets.",
+    "Le script vérifie seulement que la citation existe dans la page, pas que l'affirmation qui l'accompagne ni la note de fiabilité soient justes."
+  ],
+  "typedPastInARow": 0,
+  "looksToSkip": 0
+}

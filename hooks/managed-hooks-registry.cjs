@@ -29,6 +29,7 @@ const MANAGED_HOOKS = [
   'gsd-cursor-subagent-stop.js',
   'gsd-ensure-canonical-path.js',
   'gsd-graphify-update.sh',
+  'gsd-path-export.js',
   // #3662: portable node resolver (helper staged in hooks/; managed JS hook
   // commands route through it under --portable-hooks).
   'gsd-node-runner.sh',
@@ -36,6 +37,7 @@ const MANAGED_HOOKS = [
   'gsd-prompt-guard.js',
   'gsd-read-guard.js',
   'gsd-read-injection-scanner.js',
+  'gsd-secret-read-guard.js',
   'gsd-session-state.sh',
   'gsd-statusline.js',
   'gsd-update-banner.js',

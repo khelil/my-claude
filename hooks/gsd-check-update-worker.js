@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// gsd-hook-version: 1.12.0
+// gsd-hook-version: 1.21.0
 // Background worker spawned by gsd-check-update.js (SessionStart hook).
 // Checks for GSD updates and stale hooks, writes result to cache file.
 // Receives paths via environment variables set by the parent hook.
@@ -8,6 +8,14 @@
 // template-literal regex-escaping problem: regex source is plain JS here.
 
 'use strict';
+
+// #5183: Node's on-disk compile cache, so later runs reuse V8's compiled code
+// for unchanged modules. Only as the entry (a test require() is unaffected),
+// skipped under V8 coverage, optional (Bun stubs it), and never fatal.
+// NODE_DISABLE_COMPILE_CACHE (any value) turns it off.
+if (require.main === module && !process.env.NODE_V8_COVERAGE) {
+  try { require('node:module').enableCompileCache?.(); } catch { /* optimization only */ }
+}
 
 const fs = require('fs');
 const path = require('path');
@@ -156,5 +164,22 @@ const result = {
 };
 
 if (cacheFile) {
-  try { fs.writeFileSync(cacheFile, JSON.stringify(result)); } catch (e) {}
-}
+  // #4091: the cache file is shared per-PACKAGE across every runtime's worker
+  // (#607/#1421), so concurrent statusline/banner readers parse it while this
+  // worker writes it. A direct writeFileSync truncates before writing — a
+  // reader landing mid-write sees a torn/empty record (its JSON.parse catch
+  // swallows it, so the symptom is an intermittently blank update segment).
+  // Publish atomically instead: stage under a unique same-directory temp
+  // (same filesystem, so rename(2) is atomic — readers see the old or the new
+  // record, never a partial one), then renameSync into place. Failure policy
+  // is unchanged (#3582 degrade): any error is swallowed and the temp, if
+  // left behind, is best-effort removed.
+  const tmp = cacheFile + '.tmp-' + process.pid;
+  try {
+    fs.writeFileSync(tmp, JSON.stringify(result));
+    fs.renameSync(tmp, cacheFile);
+  } catch (e) {
+    try {
+      fs.rmSync(tmp, { force: true });
+    } catch (e2) {}
+  }}

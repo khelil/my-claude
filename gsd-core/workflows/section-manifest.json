@@ -41,6 +41,11 @@
     ],
     "complete-milestone": [
       {
+        "id": "project-md-evolution-review",
+        "when": "state:flat-mode",
+        "read": "gsd-core/workflows/complete-milestone/steps/project-md-evolution-review.md"
+      },
+      {
         "id": "git-tag",
         "when": "state:git-create-tag",
         "read": "gsd-core/workflows/complete-milestone/steps/git-tag.md"
@@ -148,6 +153,18 @@
         "id": "forensic-audit",
         "when": "flag:--forensic",
         "read": "gsd-core/workflows/progress/steps/forensic-audit.md"
+      }
+    ],
+    "quick-batch": [
+      {
+        "id": "research-phase",
+        "when": "flag:--research",
+        "read": "gsd-core/workflows/quick-batch/steps/research-phase.md"
+      },
+      {
+        "id": "verification-wave",
+        "when": "flag:--validate",
+        "read": "gsd-core/workflows/quick-batch/steps/verification-wave.md"
       }
     ],
     "quick": [

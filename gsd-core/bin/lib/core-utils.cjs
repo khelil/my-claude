@@ -15,6 +15,7 @@
  *   - node:fs / node:path (stdlib)
  *   - ./phase-id.cjs       (comparePhaseNum, used by readSubdirectories)
  *   - ./planning-workspace.cjs (findContextMdIn, used by getPhaseFileStats)
+ *   - ./frontmatter-fence.cjs (locateFrontmatterFence, used by extractOneLinerFromBody)
  *
  * #3883 (ADR-3473 §8.3): two of this module's cyclic partners require
  * generateSlugInternal, the canonical slug formula:
@@ -37,12 +38,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 const node_fs_1 = __importDefault(require("node:fs"));
 const node_path_1 = __importDefault(require("node:path"));
+// frontmatter-fence.cjs is a leaf module (no imports), so this adds no cycle.
+const frontmatter_fence_cjs_1 = require("./frontmatter-fence.cjs");
+// pattern.cjs is a leaf module (escapeRegex only), so this adds no cycle.
+const pattern_cjs_1 = require("./pattern.cjs");
+const markdown_sectionizer_cjs_1 = require("./markdown-sectionizer.cjs");
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const phaseIdModule = require("./phase-id.cjs");
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const planningWorkspace = require("./planning-workspace.cjs");
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const shellCommandProjection = require("./shell-command-projection.cjs");
+// planning-scope.cjs is a leaf module (no imports of its own — see its file
+// header), so importing it here directly cannot introduce a cycle.
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const planningScopeMod = require("./planning-scope.cjs");
+const { SCOPE } = planningScopeMod;
 // ─── Line-ending normalization ─────────────────────────────────────────────────
 /**
  * Normalize every line ending in `content` to a bare `\n`, ONCE — the shared
@@ -134,7 +145,9 @@ function extractOneLinerFromBody(content) {
     if (!content)
         return null;
     const normalized = content.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-    const body = normalized.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '');
+    // The body starts after the block the one fence owner finds, and the blank lines after it.
+    const fence = (0, frontmatter_fence_cjs_1.locateFrontmatterFence)(normalized);
+    const body = fence?.closed ? normalized.slice(fence.closingFenceEnd).replace(/^\n+/, '') : normalized;
     // #3170: anchor to a summary-shaped heading (Summary / Overview /
     // Accomplishments) so an incidental first heading (a rule list, task
     // breakdown, deviation note) does not contribute its first bold run as the
@@ -271,16 +284,38 @@ function transliterateForSlug(text) {
  * Degrades on an unreadable directory instead of throwing: empty arrays,
  * every flag false, scope UNREADABLE (mirroring scanPhasePlans's own
  * degrade path).
+ *
+ * #4014 (epic #3473 B4-unreadable): this function's OWN readdirSync used to
+ * catch its own failure and then return `scope: scan.scope` — the scope of
+ * the UNRELATED, already-successful scanPhasePlans call — silently dropping
+ * that THIS read failed. The own-readdirSync is now routed through
+ * findContextMdIn's directory-string form (which never throws and reports
+ * its own SCOPE.UNREADABLE), and the two independently-scoped answers are
+ * combined into the worse of the two below — never letting a successful
+ * scan.scope mask this function's own failed read.
+ *
+ * The combination is written out as a two-value comparison rather than
+ * calling planning-snapshot.cts's `worstScope` directly: that module
+ * requires core-utils.cjs (for `findOrphanSummaries`) at its own top level,
+ * so importing it back here would create a tight, direct
+ * core-utils.cjs <-> planning-snapshot.cjs cycle — a materially different
+ * (and riskier) shape than this file's existing, documented lazy-access
+ * cyclic partners (planning-workspace.cjs, phase-id.cjs), which
+ * planning-snapshot.cts sits *above* in the dependency graph, not beside.
+ * `findContextMdIn`'s directory-string form can only ever report
+ * SCOPE.COMPLETE or SCOPE.UNREADABLE (a single readdirSync is binary — see
+ * its own doc comment), so per planning-snapshot.cts's SCOPE_SEVERITY
+ * ordering (UNREADABLE is maximal), `worstScope(scan.scope, ownScope)` is
+ * exactly `ownScope === UNREADABLE ? UNREADABLE : scan.scope` — the
+ * expression below is that identity, not a re-derivation of the ordering.
  */
 function getPhaseFileStats(phaseDir) {
     // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-assignment
     const scanPhasePlans = require('./plan-scan.cjs');
     const scan = scanPhasePlans(phaseDir);
-    let files;
-    try {
-        files = node_fs_1.default.readdirSync(phaseDir);
-    }
-    catch {
+    const { files, scope: ownScope } = planningWorkspace.findContextMdIn(phaseDir);
+    const scope = ownScope === SCOPE.UNREADABLE ? SCOPE.UNREADABLE : scan.scope;
+    if (ownScope === SCOPE.UNREADABLE) {
         return {
             plans: scan.planFiles,
             summaries: scan.summaryFiles,
@@ -288,7 +323,7 @@ function getPhaseFileStats(phaseDir) {
             hasContext: false,
             hasVerification: false,
             hasReviews: false,
-            scope: scan.scope,
+            scope,
         };
     }
     const scopedFiles = phaseIdModule.scopeToPhase(files, node_path_1.default.basename(phaseDir));
@@ -299,7 +334,7 @@ function getPhaseFileStats(phaseDir) {
         hasContext: planningWorkspace.findContextMdIn(scopedFiles) !== null,
         hasVerification: scopedFiles.some(f => f.endsWith('-VERIFICATION.md') || f === 'VERIFICATION.md'),
         hasReviews: scopedFiles.some(f => f.endsWith('-REVIEWS.md') || f === 'REVIEWS.md'),
-        scope: scan.scope,
+        scope,
     };
 }
 /**
@@ -489,6 +524,45 @@ function findOrphanSummaries(planFiles, summaryFiles) {
     }
     return summaryFiles.filter((s) => !claimed.has(s));
 }
+/**
+ * #5542: does `summaryFile` pair with ANY of `planFiles`, by the same
+ * `summaryCandidates` rule the counts use? The ROADMAP plan-checkbox writers
+ * tick a row only for a summary that does — never by id prefix, which let a
+ * leftover `47-1` summary survive because a live `47-10` plan starts with `47-1`.
+ */
+function summaryPairsWithAnyPlan(planFiles, summaryFile) {
+    return planFiles.some((plan) => countMatchedSummaries([plan], [summaryFile]) > 0);
+}
+/**
+ * #5542: lookahead that ends a plan id inside a ROADMAP checkbox row, so `47-1`
+ * never matches the start of `47-10-PLAN.md`. The id ends at `.md` or at any
+ * character that is not a word character or a `.`/`-` followed by a digit: a
+ * dotted sub-id (`01-01.1`) or a longer numeric id (`05-01-02`) is a distinct
+ * plan, not a continuation of `01-01`/`05-01`, while sentence punctuation
+ * (`01-01. Setup`) and a slug (`05-01-scaffold`) still end the id.
+ */
+const PLAN_ID_ROW_BOUNDARY_SOURCE = '(?=\\.md|(?!\\w|[.-]\\d))';
+/**
+ * #5542: the checkbox-row regex for one plan id. By default it matches an
+ * UNCHECKED row (the tick target); `anyState` matches either box state, for
+ * presence detection; `anchored` pins the row to a line start (the
+ * `phase complete` bullet flip). Capture group 1 is the opening `- [`, group 2
+ * the rest after the box, so a caller ticks with `$1x$2`.
+ */
+function planRowPattern(planId, opts = {}) {
+    const box = opts.anyState ? '[x ]' : ' ';
+    const lead = opts.anchored ? '^(\\s*-\\s*\\[)' : '(-\\s*\\[)';
+    return new RegExp(`${lead}${box}(\\]\\s*(?:\\*\\*)?${(0, pattern_cjs_1.escapeRegex)(planId)}${PLAN_ID_ROW_BOUNDARY_SOURCE}(?:\\*\\*)?)`, 'i');
+}
+/**
+ * Tick the first line-anchored unchecked row for `planId` in `text` (the
+ * `phase complete` / `roadmap update-plan-progress` bullet flip): a bullet
+ * mutation through `updateBullet`, so never a fenced line or mid-line match.
+ */
+function tickAnchoredPlanRow(text, planId) {
+    const row = planRowPattern(planId, { anchored: true });
+    return (0, markdown_sectionizer_cjs_1.updateBullet)(text, (_bulletText, rawLine) => row.test(rawLine), (rawLine) => rawLine.replace(row, '$1x$2'));
+}
 module.exports = {
     toPosixPath,
     normalizeLineEndings,
@@ -504,4 +578,7 @@ module.exports = {
     countMatchedSummaries,
     findUnsummarizedPlans,
     findOrphanSummaries,
+    summaryPairsWithAnyPlan,
+    planRowPattern,
+    tickAnchoredPlanRow,
 };

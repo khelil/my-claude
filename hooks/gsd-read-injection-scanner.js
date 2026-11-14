@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// gsd-hook-version: 1.12.0
+// gsd-hook-version: 1.21.0
 // GSD Read Injection Scanner — PostToolUse hook (#2201)
 // Pattern-based pre-filter / blocklist: scans content returned by Read, WebFetch,
 // and WebSearch for known prompt-injection patterns (regex + heuristic rules).
@@ -22,8 +22,8 @@
 // hook source files — these legitimately contain injection-like strings.
 
 const path = require('path');
-const fs = require('fs');
 const { HOOK_ON_CRASH, allow, crash } = require('./lib/hook-exit.js');
+const { readConfigFileBounded } = require('./lib/config-read.js');
 
 // This is a PostToolUse advisory scanner over content the tool call already
 // returned; a crash while scanning must not retroactively block that Read/
@@ -82,7 +82,7 @@ const MARKDOWN_LINK_PATTERNS = [
 // Standard injection patterns — shared with gsd-prompt-guard.js via
 // hooks/lib/injection-patterns.js so the two surfaces cannot drift (#3504).
 // Staging of the lib helper is allowlisted in GSD_HOOK_LIB_FILES (bin/install.js).
-const { INJECTION_PATTERNS } = require('./lib/injection-patterns.js');
+const { INJECTION_PATTERNS, describePattern } = require('./lib/injection-patterns.js');
 
 const ALL_PATTERNS = [...INJECTION_PATTERNS, ...SUMMARISATION_PATTERNS];
 
@@ -279,10 +279,10 @@ process.stdin.on('end', () => {
 
     for (const pattern of ALL_PATTERNS) {
       if (pattern.test(content)) {
-        // Trim pattern source for readable output
+        // Trim pattern source for readable output (shared with gsd-prompt-guard.js)
         findings.push({
           ruleId: RULE_IDS.INJECTION_PATTERN,
-          match: pattern.source.replace(/\\s\+/g, '-').replace(/[()\\]/g, '').substring(0, 50),
+          match: describePattern(pattern),
         });
       }
     }
@@ -343,7 +343,7 @@ process.stdin.on('end', () => {
       try {
         const cfgBase = data.cwd || process.cwd();
         const cfgPath = path.join(cfgBase, '.planning', 'config.json');
-        const cfg = JSON.parse(fs.readFileSync(cfgPath, 'utf8'));
+        const cfg = JSON.parse(readConfigFileBounded(cfgPath, { required: true }));
         blocking = cfg.security?.injection_blocking === true;
       } catch { /* no config ⇒ advisory */ }
     }
@@ -351,8 +351,8 @@ process.stdin.on('end', () => {
     const output = blocking
       ? { decision: 'block',
           reason: `Prompt-injection blocked (${toolName}). ${advisory}`,
-          hookSpecificOutput: { hookEventName: 'PostToolUse', additionalContext: advisory, findings } }
-      : { hookSpecificOutput: { hookEventName: 'PostToolUse', additionalContext: advisory, findings } };
+          hookSpecificOutput: { hookEventName: 'PostToolUse', additionalContext: advisory, findings, severity, source } }
+      : { hookSpecificOutput: { hookEventName: 'PostToolUse', additionalContext: advisory, findings, severity, source } };
 
     process.stdout.write(JSON.stringify(output));
   } catch {
